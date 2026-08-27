@@ -102,6 +102,12 @@ export interface ProjectStackGroup {
   items: ProjectStackItem[];
 }
 
+export interface ProjectScreenshot {
+  label: LocalizedText;
+  /** Real screenshot; the generated placeholder art is shown when absent or unreachable. */
+  imageUrl?: string;
+}
+
 export interface KeyValueEntry {
   key: LocalizedText;
   value: LocalizedText;
@@ -150,6 +156,10 @@ export interface Project {
   /** Hue used by the generated placeholder artwork. */
   hue: number;
   coverLabel: LocalizedText;
+  /** Cover screenshot; the generated placeholder art is shown when absent. */
+  coverImageUrl?: string;
+  /** Thumbnail on the project card; falls back to `coverImageUrl`. */
+  cardImageUrl?: string;
   technologies: string[];
   liveUrl: string;
   repositoryUrl: string;
@@ -165,7 +175,7 @@ export interface Project {
   solution: LocalizedText;
   flow: NumberedEntry[];
   features: FeatureEntry[];
-  screenshots: LocalizedList;
+  screenshots: ProjectScreenshot[];
   architecture: NumberedEntry[];
   process: NumberedEntry[];
   challenges: ChallengeEntry[];

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { Reveal } from "@/components/ui/Reveal";
-import { StripeArt } from "@/components/ui/StripeArt";
+import { ScreenshotFrame } from "@/components/ui/ScreenshotFrame";
 import { uiTranslations } from "@/data/translations";
 import type { Project } from "@/types/portfolio";
 
@@ -53,10 +53,13 @@ export function CaseStudyHeader({ project }: { project: Project }) {
       </div>
 
       <Reveal>
-        <StripeArt
+        <ScreenshotFrame
           hue={project.hue}
-          className="mb-5 aspect-16/8 overflow-hidden rounded-[18px] border border-line"
           label={t(project.coverLabel)}
+          imageUrl={project.coverImageUrl}
+          isPriority
+          sizes="(max-width: 1080px) 92vw, 1080px"
+          className="mb-5 aspect-16/8 overflow-hidden rounded-[18px] border border-line"
         />
       </Reveal>
 

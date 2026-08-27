@@ -1,35 +1,43 @@
 "use client";
 
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import { CAROUSEL_TRANSITION_MS, EASING } from "@/lib/constants";
 
 interface CarouselMetrics {
   /** Width of one card plus the gap between cards. */
   step: number;
-  /** Number of cards in one repetition of the list. */
-  pageSize: number;
+  /** Offset at which the last card sits flush with the right edge of the rail. */
+  maxOffset: number;
+  /** Highest slide index; the last step is short whenever it does not divide evenly. */
+  maxSlide: number;
 }
 
 /**
- * Endless horizontal rail: the project list is rendered several times and the
- * track is re-centred on the middle copy, so paging never reaches an edge.
+ * Horizontal rail with hard ends: paging is clamped between the first card and
+ * the last full page, so the list never wraps back around to the start.
  *
- * @param pageSize number of projects in a single repetition of the list.
+ * @param cardCount number of cards currently rendered on the rail.
  */
-export function useProjectCarousel(pageSize: number) {
+export function useProjectCarousel(cardCount: number) {
   const railRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const slideRef = useRef(0);
-  const isAnimatingRef = useRef(false);
+  const [slide, setSlide] = useState(0);
+  const [maxSlide, setMaxSlide] = useState(0);
 
   const readMetrics = useCallback((): CarouselMetrics | null => {
+    const rail = railRef.current;
     const track = trackRef.current;
     const firstCard = track?.querySelector<HTMLElement>("[data-card]");
-    if (!track || !firstCard || pageSize < 1) return null;
+    if (!rail || !track || !firstCard || cardCount < 1) return null;
     const gap = Number.parseFloat(getComputedStyle(track).columnGap || "18") || 18;
-    return { step: firstCard.offsetWidth + gap, pageSize };
-  }, [pageSize]);
+    const step = firstCard.offsetWidth + gap;
+    // Stop once the rail is full rather than once the cards run out, so the
+    // final page ends flush with the last card instead of trailing blank space.
+    const maxOffset = Math.max(0, track.scrollWidth - rail.clientWidth);
+    return { step, maxOffset, maxSlide: Math.ceil(maxOffset / step) };
+  }, [cardCount]);
 
   const applyTransform = useCallback(
     (animate: boolean) => {
@@ -38,39 +46,28 @@ export function useProjectCarousel(pageSize: number) {
       if (!track || !metrics) return;
 
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      const normalized = ((slideRef.current % metrics.pageSize) + metrics.pageSize) % metrics.pageSize;
-      slideRef.current = normalized;
+      const clamped = Math.min(Math.max(slideRef.current, 0), metrics.maxSlide);
+      slideRef.current = clamped;
+      setSlide(clamped);
+      setMaxSlide(metrics.maxSlide);
 
       track.style.transition =
         animate && !prefersReducedMotion ? `transform ${CAROUSEL_TRANSITION_MS}ms ${EASING}` : "none";
-      track.style.transform = `translateX(${-(metrics.pageSize + normalized) * metrics.step}px)`;
+      track.style.transform = `translateX(${-Math.min(clamped * metrics.step, metrics.maxOffset)}px)`;
     },
     [readMetrics],
   );
 
   const move = useCallback(
     (direction: number) => {
-      const track = trackRef.current;
       const metrics = readMetrics();
-      if (!track || !metrics || isAnimatingRef.current) return;
+      if (!metrics) return;
 
-      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      const target = slideRef.current + direction;
+      const target = Math.min(Math.max(slideRef.current + direction, 0), metrics.maxSlide);
+      if (target === slideRef.current) return;
 
-      track.style.transition = prefersReducedMotion
-        ? "none"
-        : `transform ${CAROUSEL_TRANSITION_MS}ms ${EASING}`;
-      track.style.transform = `translateX(${-(metrics.pageSize + target) * metrics.step}px)`;
-      isAnimatingRef.current = true;
-
-      window.setTimeout(
-        () => {
-          isAnimatingRef.current = false;
-          slideRef.current = target;
-          applyTransform(false);
-        },
-        prefersReducedMotion ? 20 : CAROUSEL_TRANSITION_MS + 20,
-      );
+      slideRef.current = target;
+      applyTransform(true);
     },
     [applyTransform, readMetrics],
   );
@@ -78,24 +75,24 @@ export function useProjectCarousel(pageSize: number) {
   const showNext = useCallback(() => move(1), [move]);
   const showPrevious = useCallback(() => move(-1), [move]);
 
-  // Re-centre whenever the list changes (e.g. a filter was applied).
+  // Return to the first card whenever the list changes (e.g. a filter was applied).
   useEffect(() => {
     slideRef.current = 0;
     applyTransform(false);
     const settle = window.setTimeout(() => applyTransform(false), 300);
     return () => window.clearTimeout(settle);
-  }, [applyTransform, pageSize]);
+  }, [applyTransform, cardCount]);
 
-  // Keep the offset correct while the layout changes.
+  // Keep the offset and the end stop correct while the layout changes.
   useEffect(() => {
+    const rail = railRef.current;
     const track = trackRef.current;
-    if (!track) return;
+    if (!rail || !track) return;
 
-    const handleResize = () => {
-      if (!isAnimatingRef.current) applyTransform(false);
-    };
+    const handleResize = () => applyTransform(false);
 
     const resizeObserver = new ResizeObserver(handleResize);
+    resizeObserver.observe(rail);
     resizeObserver.observe(track);
     window.addEventListener("resize", handleResize, { passive: true });
     return () => {
@@ -128,5 +125,12 @@ export function useProjectCarousel(pageSize: number) {
     };
   }, [move]);
 
-  return { railRef, trackRef, showNext, showPrevious };
+  return {
+    railRef,
+    trackRef,
+    showNext,
+    showPrevious,
+    canShowPrevious: slide > 0,
+    canShowNext: slide < maxSlide,
+  };
 }

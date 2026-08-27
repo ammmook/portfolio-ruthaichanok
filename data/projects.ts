@@ -301,10 +301,20 @@ export const portfolioProjects: Project[] = [
         },
       },
     ],
-    screenshots: {
-      en: ["ALLOCATION DASHBOARD", "SKILL MATCH RESULT", "EMPLOYEE EVALUATION FORM", "TEAM WORKLOAD VIEW"],
-      th: ["แดชบอร์ดการจัดสรรงาน", "ผลการจับคู่ทักษะ", "ฟอร์มประเมินพนักงาน", "หน้าดูภาระงานของทีม"],
-    },
+    screenshots: [
+      {
+        label: { en: "ALLOCATION DASHBOARD", th: "แดชบอร์ดการจัดสรรงาน" },
+      },
+      {
+        label: { en: "SKILL MATCH RESULT", th: "ผลการจับคู่ทักษะ" },
+      },
+      {
+        label: { en: "EMPLOYEE EVALUATION FORM", th: "ฟอร์มประเมินพนักงาน" },
+      },
+      {
+        label: { en: "TEAM WORKLOAD VIEW", th: "หน้าดูภาระงานของทีม" },
+      },
+    ],
     architecture: [
       {
         number: "01",
@@ -790,10 +800,20 @@ export const portfolioProjects: Project[] = [
         },
       },
     ],
-    screenshots: {
-      en: ["UPLOAD & CLASSIFY", "WARDROBE GRID", "OUTFIT SUGGESTION", "STYLE CATEGORY VIEW"],
-      th: ["อัปโหลดและจำแนก", "ตารางตู้เสื้อผ้า", "คำแนะนำการจัดชุด", "หน้าหมวดสไตล์"],
-    },
+    screenshots: [
+      {
+        label: { en: "UPLOAD & CLASSIFY", th: "อัปโหลดและจำแนก" },
+      },
+      {
+        label: { en: "WARDROBE GRID", th: "ตารางตู้เสื้อผ้า" },
+      },
+      {
+        label: { en: "OUTFIT SUGGESTION", th: "คำแนะนำการจัดชุด" },
+      },
+      {
+        label: { en: "STYLE CATEGORY VIEW", th: "หน้าหมวดสไตล์" },
+      },
+    ],
     architecture: [
       {
         number: "01",
@@ -1036,7 +1056,9 @@ export const portfolioProjects: Project[] = [
       en: "A calendar-first web app for shift workers: record each day of hours and see the month's overtime and shift allowance add up in real time.",
       th: "เว็บแอปที่ใช้ปฏิทินเป็นศูนย์กลางสำหรับคนทำงานเป็นกะ บันทึกชั่วโมงทำงานรายวันแล้วเห็นค่าล่วงเวลาและค่ากะของทั้งเดือนรวมกันแบบเรียลไทม์",
     },
-    coverLabel: { en: "MONTHLY CALENDAR SCREENSHOT", th: "ภาพหน้าจอปฏิทินรายเดือน" },
+    coverLabel: { en: "MONTHLY CALENDAR", th: "ปฏิทินรายเดือน" },
+    coverImageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/calendar-worker/main-calendar.png",
+    cardImageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/calendar-worker/annual-dashbard.png",
     technologies: ["React 19", "Vite", "Tailwind CSS", "Supabase", "PostgreSQL"],
     liveUrl: "https://calendar-worker.vercel.app",
     repositoryUrl: "https://github.com/ammmook/calendar-worker",
@@ -1292,10 +1314,20 @@ export const portfolioProjects: Project[] = [
         },
       },
     ],
-    screenshots: {
-      en: ["MONTH CALENDAR", "DAY ENTRY", "MONTHLY SUMMARY", "YEARLY DASHBOARD"],
-      th: ["ปฏิทินรายเดือน", "บันทึกรายวัน", "สรุปรายเดือน", "แดชบอร์ดรายปี"],
-    },
+    screenshots: [
+      {
+        label: { en: "MONTH CALENDAR", th: "ปฏิทินรายเดือน" },
+        imageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/calendar-worker/main-calendar.png",
+      },
+      {
+        label: { en: "DAY ENTRY", th: "บันทึกรายวัน" },
+        imageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/calendar-worker/diary-entry.png",
+      },
+      {
+        label: { en: "YEARLY DASHBOARD", th: "แดชบอร์ดรายปี" },
+        imageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/calendar-worker/annual-dashbard.png",
+      },
+    ],
     architecture: [
       {
         number: "01",
@@ -1813,10 +1845,20 @@ export const portfolioProjects: Project[] = [
         },
       },
     ],
-    screenshots: {
-      en: ["DASHBOARD", "ADD SLEEP", "SLEEP HISTORY", "DAILY RANKING"],
-      th: ["หน้าหลัก", "บันทึกการนอน", "ประวัติการนอน", "อันดับประจำวัน"],
-    },
+    screenshots: [
+      {
+        label: { en: "DASHBOARD", th: "หน้าหลัก" },
+      },
+      {
+        label: { en: "ADD SLEEP", th: "บันทึกการนอน" },
+      },
+      {
+        label: { en: "SLEEP HISTORY", th: "ประวัติการนอน" },
+      },
+      {
+        label: { en: "DAILY RANKING", th: "อันดับประจำวัน" },
+      },
+    ],
     architecture: [
       {
         number: "01",
@@ -2334,10 +2376,20 @@ export const portfolioProjects: Project[] = [
         },
       },
     ],
-    screenshots: {
-      en: ["LOGIN", "PET LIST", "BOOKING FORM", "RECEIPT"],
-      th: ["หน้าเข้าสู่ระบบ", "รายการสัตว์เลี้ยง", "ฟอร์มจอง", "ใบเสร็จ"],
-    },
+    screenshots: [
+      {
+        label: { en: "LOGIN", th: "หน้าเข้าสู่ระบบ" },
+      },
+      {
+        label: { en: "PET LIST", th: "รายการสัตว์เลี้ยง" },
+      },
+      {
+        label: { en: "BOOKING FORM", th: "ฟอร์มจอง" },
+      },
+      {
+        label: { en: "RECEIPT", th: "ใบเสร็จ" },
+      },
+    ],
     architecture: [
       {
         number: "01",

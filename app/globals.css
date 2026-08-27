@@ -105,7 +105,9 @@
   --color-code-comment: var(--code-comment);
 
   --font-sans: var(--font-plex-thai), system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+  /* JetBrains Mono carries no Thai glyphs, so Thai falls through to the same
+     face the rest of the site uses instead of a generic system fallback. */
+  --font-mono: var(--font-jetbrains-mono), var(--font-plex-thai), ui-monospace, monospace;
 
   --animate-blink: blink 1.1s step-end infinite;
   --animate-floaty: floaty 5s ease-in-out infinite;

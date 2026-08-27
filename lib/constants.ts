@@ -26,9 +26,6 @@ export const DESKTOP_NAV_BREAKPOINT = 900;
 export const EASING = "cubic-bezier(.2,.7,.2,1)";
 export const CAROUSEL_TRANSITION_MS = 550;
 
-/** How many times the project list is repeated to fake an endless carousel. */
-export const CAROUSEL_REPEAT = 4;
-
 /** Colour used for the remote technology icons. */
 const ICON_TINT = "9fe8bf";
 

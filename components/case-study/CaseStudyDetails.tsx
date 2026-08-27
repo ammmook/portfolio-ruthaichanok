@@ -2,13 +2,13 @@
 
 import { CaseStudySection } from "@/components/case-study/CaseStudySection";
 import { useLanguage } from "@/components/providers/LanguageProvider";
-import { StripeArt } from "@/components/ui/StripeArt";
+import { ScreenshotFrame } from "@/components/ui/ScreenshotFrame";
 import { uiTranslations } from "@/data/translations";
 import type { Project } from "@/types/portfolio";
 
 /** Features, screenshots, architecture and development process. */
 export function CaseStudyDetails({ project }: { project: Project }) {
-  const { t, tList } = useLanguage();
+  const { t } = useLanguage();
 
   return (
     <>
@@ -16,21 +16,17 @@ export function CaseStudyDetails({ project }: { project: Project }) {
         label={uiTranslations.caseStudy.featuresLabel}
         heading={uiTranslations.caseStudy.featuresHeading}
       >
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {project.features.map((feature, index) => (
             <article
               key={feature.title.en}
-              className="overflow-hidden rounded-2xl border border-line bg-surface"
+              className="grid content-start gap-2.5 rounded-2xl border border-line bg-surface p-5 transition-colors duration-300 hover:border-accent-soft"
             >
-              <StripeArt
-                hue={project.hue}
-                degrees={100 + index * 14}
-                className="aspect-16/7 border-b border-line"
-              />
-              <div className="p-5">
-                <h3 className="mb-2 text-[17px] font-semibold">{t(feature.title)}</h3>
-                <p className="text-sm text-muted text-pretty">{t(feature.description)}</p>
-              </div>
+              <span aria-hidden="true" className="font-mono text-[13px] tracking-[0.08em] text-accent">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3 className="text-[17px] leading-[1.3] font-semibold">{t(feature.title)}</h3>
+              <p className="text-sm text-muted text-pretty">{t(feature.description)}</p>
             </article>
           ))}
         </div>
@@ -44,12 +40,14 @@ export function CaseStudyDetails({ project }: { project: Project }) {
           {t(uiTranslations.caseStudy.scrollHint)}
         </p>
         <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3.5">
-          {tList(project.screenshots).map((label, index) => (
-            <StripeArt
-              key={label}
+          {project.screenshots.map((screenshot, index) => (
+            <ScreenshotFrame
+              key={screenshot.label.en}
               hue={project.hue}
               degrees={110 + index * 12}
-              label={label}
+              label={t(screenshot.label)}
+              imageUrl={screenshot.imageUrl}
+              sizes="(max-width: 768px) 84vw, 560px"
               className="aspect-16/10 flex-[0_0_min(560px,84vw)] snap-center overflow-hidden rounded-[14px] border border-line"
             />
           ))}

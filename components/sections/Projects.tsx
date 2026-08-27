@@ -10,10 +10,6 @@ import { personalInformation } from "@/data/portfolio";
 import { portfolioProjects, projectFilters } from "@/data/projects";
 import { uiTranslations } from "@/data/translations";
 import { useProjectCarousel } from "@/hooks/useProjectCarousel";
-import { CAROUSEL_REPEAT } from "@/lib/constants";
-
-/** The copy of the list that sits in view when the carousel is at rest. */
-const PRIMARY_COPY_INDEX = 1;
 
 export function Projects() {
   const { t } = useLanguage();
@@ -27,16 +23,8 @@ export function Projects() {
     [activeFilterId],
   );
 
-  const { railRef, trackRef, showNext, showPrevious } = useProjectCarousel(visibleProjects.length);
-
-  // The list is repeated so paging left or right never hits an edge.
-  const carouselItems = useMemo(
-    () =>
-      Array.from({ length: CAROUSEL_REPEAT }).flatMap((_, copyIndex) =>
-        visibleProjects.map((project) => ({ project, copyIndex })),
-      ),
-    [visibleProjects],
-  );
+  const { railRef, trackRef, showNext, showPrevious, canShowPrevious, canShowNext } =
+    useProjectCarousel(visibleProjects.length);
 
   return (
     <Section id="projects">
@@ -85,21 +73,22 @@ export function Projects() {
           direction="previous"
           label={t(uiTranslations.projects.previous)}
           onClick={showPrevious}
+          isEnabled={canShowPrevious}
         />
         <CarouselButton
           direction="next"
           label={t(uiTranslations.projects.next)}
           onClick={showNext}
+          isEnabled={canShowNext}
         />
 
         <div ref={railRef} data-rail="" className="-mx-0.5 overflow-hidden px-0.5 pt-1.5 pb-4.5">
           <div ref={trackRef} className="flex gap-[18px] will-change-transform">
-            {carouselItems.map(({ project, copyIndex }) => (
+            {visibleProjects.map((project, index) => (
               <ProjectCard
-                key={`${project.slug}-${copyIndex}`}
+                key={project.slug}
                 project={project}
-                artworkAngle={118 + (copyIndex % 2) * 8}
-                isDuplicate={copyIndex !== PRIMARY_COPY_INDEX}
+                artworkAngle={118 + (index % 2) * 8}
               />
             ))}
           </div>
@@ -127,10 +116,13 @@ function CarouselButton({
   direction,
   label,
   onClick,
+  isEnabled,
 }: {
   direction: "previous" | "next";
   label: string;
   onClick: () => void;
+  /** False at the matching end of the list, where there is nowhere left to page. */
+  isEnabled: boolean;
 }) {
   const isPrevious = direction === "previous";
   return (
@@ -138,9 +130,14 @@ function CarouselButton({
       type="button"
       onClick={onClick}
       aria-label={label}
-      className={`absolute top-1/2 z-9 flex h-[46px] w-[46px] -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-line bg-surface/70 font-mono text-[17px] text-text shadow-[var(--shadow-soft)] backdrop-blur-[10px] transition-[transform,border-color,color] duration-250 hover:border-accent hover:text-accent ${
-        isPrevious ? "-left-1.5 hover:-translate-x-1" : "-right-1.5 hover:translate-x-1"
-      }`}
+      disabled={!isEnabled}
+      className={`absolute top-1/2 z-9 flex h-[46px] w-[46px] -translate-y-1/2 items-center justify-center rounded-full border border-line bg-surface/70 font-mono text-[17px] text-text shadow-[var(--shadow-soft)] backdrop-blur-[10px] transition-[transform,border-color,color,opacity] duration-250 ${
+        isEnabled
+          ? `cursor-pointer hover:border-accent hover:text-accent ${
+              isPrevious ? "hover:-translate-x-1" : "hover:translate-x-1"
+            }`
+          : "cursor-not-allowed opacity-35"
+      } ${isPrevious ? "-left-1.5" : "-right-1.5"}`}
     >
       <span aria-hidden="true">{isPrevious ? "←" : "→"}</span>
     </button>
