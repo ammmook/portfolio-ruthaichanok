@@ -54,7 +54,7 @@ export function CaseStudyNarrative({ project }: { project: Project }) {
         label={uiTranslations.caseStudy.goalLabel}
         heading={uiTranslations.caseStudy.goalHeading}
       >
-        <div className="grid gap-3.5 sm:grid-cols-2 min-[1000px]:grid-cols-4">
+        <div className="grid gap-3.5 sm:grid-cols-2 lg:grid-cols-4">
           {project.goals.map((goal) => (
             <article
               key={goal.number}

@@ -78,7 +78,7 @@ export function CaseStudyOutcome({ project }: { project: Project }) {
         label={uiTranslations.caseStudy.learnedLabel}
         heading={uiTranslations.caseStudy.learnedHeading}
       >
-        <div className="grid gap-3.5 sm:grid-cols-2 min-[1000px]:grid-cols-4">
+        <div className="grid gap-3.5 sm:grid-cols-2 lg:grid-cols-4">
           {project.learned.map((takeaway) => (
             <article
               key={takeaway.key.en}

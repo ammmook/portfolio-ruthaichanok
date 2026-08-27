@@ -31,7 +31,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="mx-auto grid max-w-[1240px] items-center gap-[clamp(40px,6vw,72px)] px-6 pt-[clamp(48px,9vw,110px)] pb-[clamp(60px,8vw,100px)] min-[980px]:grid-cols-[1.05fr_0.95fr]"
+      className="mx-auto grid max-w-[1240px] items-center gap-[clamp(40px,6vw,72px)] px-6 pt-[clamp(48px,9vw,110px)] pb-[clamp(60px,8vw,100px)] lg:grid-cols-[1.05fr_0.95fr]"
     >
       <div>
         <p className="mb-5.5 font-mono text-[12.5px] tracking-[0.16em] text-accent">

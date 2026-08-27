@@ -765,8 +765,8 @@ export const additionalLearning: LearningTopic[] = [
 /** Repository cards in the GitHub section. */
 export const githubHighlights: GithubHighlight[] = [
   {
-    repository: "whattowear",
-    url: personalInformation.githubUrl,
+    repository: "ProjectMVC_WhatToWear",
+    url: "https://github.com/ammmook/ProjectMVC_WhatToWear",
     languageLabel: "Java",
     languageColor: "var(--color-accent-2)",
     description: {
@@ -775,13 +775,33 @@ export const githubHighlights: GithubHighlight[] = [
     },
   },
   {
-    repository: "coursework & workshops",
-    url: personalInformation.githubUrl,
-    languageLabel: "Java · Go · JS",
+    repository: "calendar-worker",
+    url: "https://github.com/ammmook/calendar-worker",
+    languageLabel: "JavaScript",
+    languageColor: "oklch(0.82 0.16 95)",
+    description: {
+      en: "Work Time Tracker — React 19 and Supabase app that calculates overtime and shift pay from a calendar.",
+      th: "Work Time Tracker แอป React 19 และ Supabase ที่คำนวณค่าล่วงเวลาและค่ากะจากปฏิทิน",
+    },
+  },
+  {
+    repository: "Project_Android_SleepHealth",
+    url: "https://github.com/ammmook/Project_Android_SleepHealth",
+    languageLabel: "Java",
+    languageColor: "var(--color-accent-2)",
+    description: {
+      en: "Native Android sleep tracker in Java, paired with its own Java web service and a MySQL database.",
+      th: "แอปบันทึกการนอนบน Android แบบ native เขียนด้วย Java คู่กับ Java web service และฐานข้อมูล MySQL",
+    },
+  },
+  {
+    repository: "go-pet-harmony",
+    url: "https://github.com/ammmook/go-pet-harmony",
+    languageLabel: "Go",
     languageColor: "oklch(0.72 0.12 220)",
     description: {
-      en: "Java OOP exercises, Golang practice, and web-development material used while working as a teaching assistant.",
-      th: "แบบฝึกหัด Java OOP, การฝึก Golang และสื่อการสอนพัฒนาเว็บที่ใช้ตอนเป็นผู้ช่วยสอน",
+      en: "Pet hotel booking system written in Go with net/http, html/template, sessions and MySQL — no framework.",
+      th: "ระบบจองโรงแรมสัตว์เลี้ยงที่เขียนด้วย Go ใช้ net/http, html/template, session และ MySQL โดยไม่ใช้เฟรมเวิร์ก",
     },
   },
 ];

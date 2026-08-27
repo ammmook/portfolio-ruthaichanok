@@ -18,7 +18,7 @@ export function About() {
         </p>
       </Reveal>
 
-      <div className="grid gap-[clamp(32px,5vw,64px)] min-[900px]:grid-cols-2">
+      <div className="grid gap-[clamp(32px,5vw,64px)] md:grid-cols-2">
         <Reveal>
           <h2 className="mb-6 text-[clamp(28px,4vw,44px)] leading-[1.12] font-semibold tracking-[-0.025em] text-balance">
             {t(uiTranslations.about.heading)}

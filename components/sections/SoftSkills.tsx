@@ -16,7 +16,7 @@ export function SoftSkills() {
         description={uiTranslations.softSkills.description}
         className="mb-11"
       />
-      <div className="grid gap-4 sm:grid-cols-2 min-[1000px]:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {softSkills.map((softSkill) => (
           <Reveal key={softSkill.name.en}>
             <SoftSkillCard softSkill={softSkill} />

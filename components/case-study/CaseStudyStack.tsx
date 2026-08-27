@@ -16,7 +16,7 @@ export function CaseStudyStack({ stack }: { stack: ProjectStackGroup[] }) {
       heading={uiTranslations.caseStudy.stackHeading}
       description={uiTranslations.caseStudy.stackDescription}
     >
-      <div className="grid items-start gap-6 min-[660px]:grid-cols-2 min-[1000px]:grid-cols-3">
+      <div className="grid items-start gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {stack.map((group) => (
           <div key={group.title.en}>
             <div className="mb-3 flex items-baseline gap-2.5 border-b border-line pb-2.5">

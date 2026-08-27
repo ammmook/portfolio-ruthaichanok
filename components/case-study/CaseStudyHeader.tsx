@@ -60,7 +60,7 @@ export function CaseStudyHeader({ project }: { project: Project }) {
         />
       </Reveal>
 
-      <dl className="mb-[clamp(48px,7vw,84px)] grid gap-px overflow-hidden rounded-[14px] border border-line bg-line sm:grid-cols-2 min-[900px]:grid-cols-3">
+      <dl className="mb-[clamp(48px,7vw,84px)] grid gap-px overflow-hidden rounded-[14px] border border-line bg-line sm:grid-cols-2 md:grid-cols-3">
         {project.meta.map((entry) => (
           <div key={entry.key.en} className="bg-bg p-4.5">
             <dt className="mb-1.5 font-mono text-[10.5px] tracking-[0.12em] text-muted">

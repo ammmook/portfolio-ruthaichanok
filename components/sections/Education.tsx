@@ -29,7 +29,7 @@ export function Education() {
           headingLevel="h3"
           className="mb-8"
         />
-        <div className="grid gap-3.5 sm:grid-cols-2 min-[1000px]:grid-cols-4">
+        <div className="grid gap-3.5 sm:grid-cols-2 lg:grid-cols-4">
           {additionalLearning.map((topic) => (
             <Reveal key={topic.name.en}>
               <InfoCard

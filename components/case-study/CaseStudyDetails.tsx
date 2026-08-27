@@ -80,7 +80,7 @@ export function CaseStudyDetails({ project }: { project: Project }) {
         label={uiTranslations.caseStudy.processLabel}
         heading={uiTranslations.caseStudy.processHeading}
       >
-        <ol className="grid gap-2.5 sm:grid-cols-3 min-[1000px]:grid-cols-7">
+        <ol className="grid gap-2.5 sm:grid-cols-3 lg:grid-cols-7">
           {project.process.map((step) => (
             <li
               key={step.number}
