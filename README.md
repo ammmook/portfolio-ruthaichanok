@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ruthaichanok Kasun — Developer Portfolio
 
-## Getting Started
+Single-page developer portfolio rebuilt from the original design template with
+**Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · React 19**.
+No database, no backend: every piece of content is static data inside the project.
 
-First, run the development server:
+## Getting started
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build   # production build (project pages are pre-rendered)
+npm run lint    # eslint
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project structure
 
-## Learn More
+```
+app/
+├─ layout.tsx                 fonts, metadata, providers, navbar + footer
+├─ page.tsx                   the single-page portfolio (sections in order)
+├─ globals.css                design tokens (@theme) + shared interaction CSS
+└─ projects/[slug]/page.tsx   one statically generated case study per project
 
-To learn more about Next.js, take a look at the following resources:
+components/
+├─ layout/       Navbar, Footer, LanguageSwitcher, CursorGlow
+├─ sections/     Hero, About, Skills, SoftSkills, Projects, Experience,
+│                Education, GithubShowcase, ResumeCallout, Contact
+├─ case-study/   the blocks that make up a project case study
+├─ ui/           Button, Section, SectionHeading, ProjectCard, SkillTile,
+│                Timeline, InfoCard, SoftSkillCard, TagPill, TechIcon,
+│                StripeArt, Reveal
+└─ providers/    LanguageProvider (language context)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+data/
+├─ portfolio.ts     personal info, navigation, skills, experience, education
+├─ projects.ts      projects + case studies, and the filter list
+└─ translations.ts  interface copy (section titles, buttons, labels)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+hooks/    useScrollReveal, useTimelineProgress, useProjectCarousel, usePointerPosition
+lib/      constants.ts (tokens/helpers), languageStore.ts (localStorage)
+types/    portfolio.ts (all data shapes)
+```
 
-## Deploy on Vercel
+The flow is always **page → section → component → UI component**, and components
+receive their content through props — no portfolio data is hardcoded in the UI.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Editing the content
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Text, skills, experience, education** → `data/portfolio.ts`
+- **Projects and case studies** → `data/projects.ts` (add an object to
+  `portfolioProjects`; the card, the filters and `/projects/<slug>` follow
+  automatically)
+- **Interface labels** → `data/translations.ts`
+- **Colours, fonts, motion** → the `@theme` block in `app/globals.css`
+
+Every visible string is a `{ en, th }` pair, so adding content means writing both
+languages in one place.
+
+## Languages
+
+Thai and English, switched with the `EN / ไทย` button in the header. The choice
+is stored in the browser under `portfolio-language` (localStorage) and restored
+on the next visit. Nothing is sent to a server, and no other data is persisted.
+
+## Adding the resume PDF
+
+The header, hero and resume section link to
+`public/resume/Ruthaichanok_Kasun_CV.pdf`. Drop the real CV at that path (the
+folder already exists) — or change `personalInformation.resumeUrl` in
+`data/portfolio.ts` if you prefer another location.
+
+## Project artwork
+
+Project covers and screenshots currently use the generated stripe artwork from
+the original template (`components/ui/StripeArt.tsx`). Replace that component
+with a real `next/image` when screenshots are available; the layout does not
+need to change.

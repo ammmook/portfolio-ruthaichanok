@@ -1,26 +1,208 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ---------------------------------------------------------------------------
+   Design tokens — the single source of truth for colour, type and motion.
+   Every component uses the Tailwind utilities generated from these
+   (bg-surface, text-muted, border-line, font-mono, animate-floaty, …).
+--------------------------------------------------------------------------- */
+@theme {
+  --color-bg: oklch(0.165 0.006 70);
+  --color-surface: oklch(0.205 0.008 70);
+  --color-surface-2: oklch(0.24 0.009 70);
+  --color-surface-deep: oklch(0.13 0.005 70);
+  --color-line: oklch(0.3 0.01 70);
+  --color-text: oklch(0.95 0.005 85);
+  --color-muted: oklch(0.68 0.012 80);
+  --color-accent: oklch(0.82 0.16 150);
+  --color-accent-soft: oklch(0.55 0.11 150);
+  --color-accent-2: oklch(0.82 0.16 65);
+  --color-warn: oklch(0.75 0.14 35);
+  --color-keyword: oklch(0.72 0.12 300);
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-sans: var(--font-plex-thai), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --animate-blink: blink 1.1s step-end infinite;
+  --animate-floaty: floaty 5s ease-in-out infinite;
+
+  @keyframes blink {
+    0%,
+    49% {
+      opacity: 1;
+    }
+    50%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes floaty {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-9px);
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-bg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-line);
+    border-radius: 99px;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Interaction patterns carried over from the original template.
+   They rely on data-attributes so a single rule serves every instance.
+--------------------------------------------------------------------------- */
+@layer components {
+  /* Scroll reveal — see hooks/useScrollReveal.ts */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+      transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  [data-reveal="in"] {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Skill tile: expands its detail panel on hover (pointer) or tap (touch). */
+  [data-tile] {
+    transition:
+      background 0.26s ease,
+      border-color 0.26s ease;
+  }
+  [data-tile]:hover,
+  [data-tile][data-open] {
+    background: color-mix(in oklab, var(--color-accent) 7%, transparent);
+    border-color: var(--color-accent-soft);
+  }
+  [data-tile] [data-name] {
+    transition: color 0.26s ease;
+  }
+  [data-tile]:hover [data-name],
+  [data-tile][data-open] [data-name] {
+    color: oklch(0.88 0.1 150);
+  }
+  [data-tile] [data-panel] {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    margin-top: 0;
+    overflow: hidden;
+    transition:
+      grid-template-rows 0.3s cubic-bezier(0.2, 0.7, 0.2, 1),
+      opacity 0.26s ease,
+      margin-top 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  [data-tile] [data-panel] > div {
+    min-height: 0;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    [data-tile]:hover [data-panel] {
+      grid-template-rows: 1fr;
+      opacity: 1;
+      margin-top: 10px;
+    }
+  }
+  [data-tile][data-open] [data-panel] {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    margin-top: 10px;
+  }
+
+  /* Static technology chip used inside a case study. */
+  [data-chip] {
+    transition:
+      background 0.24s ease,
+      border-color 0.24s ease,
+      transform 0.24s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  [data-chip]:hover {
+    background: color-mix(in oklab, var(--color-accent) 8%, transparent);
+    border-color: var(--color-accent-soft);
+    transform: scale(1.03);
+  }
+  [data-chip] [data-name] {
+    transition: color 0.24s ease;
+  }
+  [data-chip]:hover [data-name] {
+    color: oklch(0.88 0.1 150);
+  }
+
+  /* Icons scale slightly with their card. */
+  [data-tile] [data-icon],
+  [data-chip] [data-icon] {
+    transition: transform 0.26s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  [data-tile]:hover [data-icon],
+  [data-chip]:hover [data-icon] {
+    transform: scale(1.12);
+  }
+
+  /* Carousel rail hides its scrollbar; movement is driven by transform. */
+  [data-rail]::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+  }
+}
+
+/* Without JavaScript the reveal animation never runs — show everything. */
+@media (scripting: none) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
