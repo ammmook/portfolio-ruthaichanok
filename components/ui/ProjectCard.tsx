@@ -28,7 +28,7 @@ export function ProjectCard({ project, artworkAngle = 118, isDuplicate = false }
       aria-hidden={isDuplicate || undefined}
       className="group block flex-[0_0_clamp(258px,29vw,320px)] overflow-hidden rounded-2xl border border-line bg-surface text-text transition-[transform,border-color] duration-400 ease-out hover:-translate-y-1 hover:border-accent-soft"
     >
-      <div className="relative aspect-16/10 overflow-hidden border-b border-line bg-[oklch(0.19_0.007_70)]">
+      <div className="relative aspect-16/10 overflow-hidden border-b border-line bg-art-canvas">
         <StripeArt hue={project.hue} degrees={artworkAngle} className="absolute inset-0" />
         <span className="absolute top-3 left-3 rounded-full border border-line bg-bg/85 px-2.5 py-1 font-mono text-[9.5px] tracking-[0.1em] text-muted">
           {t(project.category)}

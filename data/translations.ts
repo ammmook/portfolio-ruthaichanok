@@ -6,6 +6,8 @@
 export const uiTranslations = {
   nav: {
     languageLabel: { en: "EN / ไทย", th: "ไทย / EN" },
+    switchToLight: { en: "Switch to light mode", th: "เปลี่ยนเป็นโหมดสว่าง" },
+    switchToDark: { en: "Switch to dark mode", th: "เปลี่ยนเป็นโหมดมืด" },
     openMenu: { en: "Open menu", th: "เปิดเมนู" },
     closeMenu: { en: "Close menu", th: "ปิดเมนู" },
     resume: { en: "RESUME ↓", th: "เรซูเม่ ↓" },

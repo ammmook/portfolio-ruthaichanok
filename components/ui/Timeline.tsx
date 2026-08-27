@@ -20,7 +20,7 @@ export function Timeline({ entries }: TimelineProps) {
       <span
         ref={progressBarRef}
         aria-hidden="true"
-        className="absolute top-2 left-[7px] h-0 w-0.5 bg-gradient-to-b from-accent to-accent-2 shadow-[0_0_14px_oklch(0.82_0.16_150/.5)]"
+        className="absolute top-2 left-[7px] h-0 w-0.5 bg-gradient-to-b from-accent to-accent-2 shadow-[0_0_14px_var(--glow-accent)]"
       />
       <ol className="grid gap-[22px]">
         {entries.map((entry) => (

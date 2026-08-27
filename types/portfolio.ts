@@ -1,6 +1,9 @@
 /** Every language the site can render. */
 export type Language = "en" | "th";
 
+/** Colour themes the site can render. */
+export type Theme = "dark" | "light";
+
 /** A single piece of copy, written once per supported language. */
 export type LocalizedText = Record<Language, string>;
 

@@ -21,7 +21,7 @@ export function CaseStudyOutcome({ project }: { project: Project }) {
               key={challenge.challenge.en}
               className="overflow-hidden rounded-[18px] border border-line"
             >
-              <div className="border-b border-line bg-gradient-to-b from-[oklch(0.75_0.14_35/.07)] to-transparent p-5.5">
+              <div className="border-b border-line bg-gradient-to-b from-warn-tint to-transparent p-5.5">
                 <p className="mb-2 font-mono text-[10.5px] tracking-[0.12em] text-warn">
                   {t(uiTranslations.caseStudy.challengeTag)}
                 </p>
@@ -82,7 +82,7 @@ export function CaseStudyOutcome({ project }: { project: Project }) {
           {project.learned.map((takeaway) => (
             <article
               key={takeaway.key.en}
-              className="rounded-[14px] border border-line bg-gradient-to-b from-surface to-[oklch(0.185_0.006_70)] p-5"
+              className="rounded-[14px] border border-line bg-gradient-to-b from-surface to-surface-alt p-5"
             >
               <p className="mb-2.5 font-mono text-[10.5px] tracking-[0.12em] text-accent-2">
                 {t(takeaway.key)}

@@ -33,7 +33,7 @@ export function CaseStudyNarrative({ project }: { project: Project }) {
         <p className="mb-3 font-mono text-xs tracking-[0.18em] text-warn">
           {t(uiTranslations.caseStudy.problemLabel)}
         </p>
-        <div className="rounded-[18px] border border-[oklch(0.4_0.09_35)] bg-gradient-to-b from-[oklch(0.75_0.14_35/.07)] to-transparent p-[clamp(24px,3.5vw,38px)]">
+        <div className="rounded-[18px] border border-warn-border bg-gradient-to-b from-warn-tint to-transparent p-[clamp(24px,3.5vw,38px)]">
           <h2 className="mb-4.5 max-w-[26em] text-[clamp(22px,3.1vw,32px)] font-semibold tracking-[-0.02em] text-balance">
             {t(project.problemTitle)}
           </h2>

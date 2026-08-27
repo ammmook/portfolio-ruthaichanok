@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
+import { ThemeSwitcher } from "@/components/layout/ThemeSwitcher";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { navigationItems, personalInformation } from "@/data/portfolio";
 import { uiTranslations } from "@/data/translations";
@@ -37,7 +38,7 @@ export function Navbar() {
         >
           <span
             aria-hidden="true"
-            className="h-[9px] w-[9px] rounded-full bg-accent shadow-[0_0_12px_oklch(0.82_0.16_150/.8)]"
+            className="h-[9px] w-[9px] rounded-full bg-accent shadow-[0_0_12px_var(--glow-accent)]"
           />
           {personalInformation.brandName}
           <span className="text-muted">.dev</span>
@@ -54,6 +55,7 @@ export function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2.5">
+          <ThemeSwitcher />
           <LanguageSwitcher />
           <a
             href={personalInformation.resumeUrl}

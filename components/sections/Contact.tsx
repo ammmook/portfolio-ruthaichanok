@@ -13,15 +13,15 @@ export function Contact() {
     <section id="contact" className="relative scroll-mt-20 overflow-hidden border-t border-line">
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[radial-gradient(90%_120%_at_50%_0%,oklch(0.82_0.16_150/.11),transparent_62%)]"
+        className="absolute inset-0 bg-[radial-gradient(90%_120%_at_50%_0%,var(--color-accent-tint),transparent_62%)]"
       />
       <span
         aria-hidden="true"
-        className="absolute top-[22%] left-[8%] h-[220px] w-[220px] animate-floaty rounded-full border border-[oklch(0.4_0.07_150)] opacity-50"
+        className="absolute top-[22%] left-[8%] h-[220px] w-[220px] animate-floaty rounded-full border border-accent-soft opacity-50"
       />
       <span
         aria-hidden="true"
-        className="absolute right-[6%] bottom-[16%] h-[130px] w-[130px] animate-floaty rounded-full border border-dashed border-[oklch(0.4_0.07_65)] opacity-50 [animation-delay:1.5s] [animation-duration:11s]"
+        className="absolute right-[6%] bottom-[16%] h-[130px] w-[130px] animate-floaty rounded-full border border-dashed border-accent-2-soft opacity-50 [animation-delay:1.5s] [animation-duration:11s]"
       />
 
       <div className="relative mx-auto max-w-[900px] px-6 py-[clamp(64px,10vw,130px)] text-center">

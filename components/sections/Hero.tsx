@@ -127,7 +127,7 @@ export function Hero() {
 /** Decorative "Developer.java" window. */
 function CodeCard() {
   return (
-    <div className="overflow-hidden rounded-[14px] border border-line bg-surface shadow-[0_30px_80px_-30px_oklch(0_0_0/.7)]">
+    <div className="overflow-hidden rounded-[14px] border border-line bg-surface shadow-[var(--shadow-card)]">
       <div className="flex items-center gap-2 border-b border-line bg-surface-2 px-3.5 py-[11px]">
         <span className="h-2.5 w-2.5 rounded-full bg-[oklch(0.6_0.12_25)]" />
         <span className="h-2.5 w-2.5 rounded-full bg-[oklch(0.75_0.12_85)]" />
@@ -143,7 +143,7 @@ function CodeCard() {
         <span className="text-keyword">String</span> degree ={" "}
         <span className="text-accent-2">&quot;B.Sc. IT, Maejo&quot;</span>;{"\n  "}
         <span className="text-keyword">double</span> gpa = <span className="text-accent-2">3.70</span>;{" "}
-        <span className="text-[oklch(0.5_0.01_70)]">{"// first-class"}</span>
+        <span className="text-code-comment">{"// first-class"}</span>
         {"\n  "}
         <span className="text-keyword">String[]</span> stack = {"{ "}
         <span className="text-accent-2">&quot;Java&quot;</span>,{" "}
@@ -165,7 +165,7 @@ function CodeCard() {
 /** Decorative git-log terminal. */
 function TerminalCard() {
   return (
-    <div className="min-w-[min(280px,72vw)] rounded-xl border border-line bg-surface-deep px-4 py-3.5 font-mono text-xs shadow-[0_24px_60px_-24px_oklch(0_0_0/.8)]">
+    <div className="min-w-[min(280px,72vw)] rounded-xl border border-line bg-surface-deep px-4 py-3.5 font-mono text-xs shadow-[var(--shadow-soft)]">
       <div className="text-muted">
         <span className="text-accent">$</span> git log --oneline -2
       </div>

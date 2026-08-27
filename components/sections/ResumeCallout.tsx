@@ -18,7 +18,7 @@ export function ResumeCallout() {
         </p>
       </Reveal>
       <Reveal>
-        <div className="flex flex-wrap items-center justify-between gap-6 rounded-[20px] border border-line bg-surface bg-[radial-gradient(120%_140%_at_100%_0%,oklch(0.82_0.16_150/.1),transparent_60%)] p-[clamp(26px,4vw,44px)]">
+        <div className="flex flex-wrap items-center justify-between gap-6 rounded-[20px] border border-line bg-surface bg-[radial-gradient(120%_140%_at_100%_0%,var(--color-accent-tint),transparent_60%)] p-[clamp(26px,4vw,44px)]">
           <div>
             <h2 className="mb-2 text-[clamp(22px,3vw,32px)] font-semibold tracking-[-0.02em]">
               {t(uiTranslations.resume.heading)}

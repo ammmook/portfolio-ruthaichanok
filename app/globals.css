@@ -1,23 +1,108 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------------------
-   Design tokens — the single source of truth for colour, type and motion.
-   Every component uses the Tailwind utilities generated from these
-   (bg-surface, text-muted, border-line, font-mono, animate-floaty, …).
+   Colour themes.
+   Dark is the original design and the default; light is a mirror of it.
+   The active theme is selected by `data-theme` on <html>
+   (see components/providers/ThemeProvider.tsx).
 --------------------------------------------------------------------------- */
-@theme {
-  --color-bg: oklch(0.165 0.006 70);
-  --color-surface: oklch(0.205 0.008 70);
-  --color-surface-2: oklch(0.24 0.009 70);
-  --color-surface-deep: oklch(0.13 0.005 70);
-  --color-line: oklch(0.3 0.01 70);
-  --color-text: oklch(0.95 0.005 85);
-  --color-muted: oklch(0.68 0.012 80);
-  --color-accent: oklch(0.82 0.16 150);
-  --color-accent-soft: oklch(0.55 0.11 150);
-  --color-accent-2: oklch(0.82 0.16 65);
-  --color-warn: oklch(0.75 0.14 35);
-  --color-keyword: oklch(0.72 0.12 300);
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: oklch(0.165 0.006 70);
+  --surface: oklch(0.205 0.008 70);
+  --surface-2: oklch(0.24 0.009 70);
+  --surface-deep: oklch(0.13 0.005 70);
+  /* End of the card gradients, one step away from --surface. */
+  --surface-alt: oklch(0.185 0.006 70);
+  /* Backdrop behind project artwork. */
+  --art-canvas: oklch(0.19 0.007 70);
+  --line: oklch(0.3 0.01 70);
+  --text: oklch(0.95 0.005 85);
+  --muted: oklch(0.68 0.012 80);
+
+  --accent: oklch(0.82 0.16 150);
+  --accent-soft: oklch(0.55 0.11 150);
+  /* Label colour when a tile or chip is hovered. */
+  --accent-strong: oklch(0.88 0.1 150);
+  --accent-2: oklch(0.82 0.16 65);
+  --accent-2-soft: oklch(0.45 0.09 65);
+
+  --warn: oklch(0.75 0.14 35);
+  --warn-border: oklch(0.4 0.09 35);
+
+  --keyword: oklch(0.72 0.12 300);
+  --code-comment: oklch(0.5 0.01 70);
+
+  /* Lightness of the generated project artwork; the hue comes from the project. */
+  --art-base-lightness: 0.2;
+  --art-stripe-lightness: 0.28;
+
+  --shadow-card: 0 30px 80px -30px oklch(0 0 0 / 0.7);
+  --shadow-soft: 0 12px 30px -10px oklch(0 0 0 / 0.8);
+  --glow-accent: oklch(0.82 0.16 150 / 0.55);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --bg: oklch(0.985 0.003 85);
+  --surface: oklch(0.96 0.004 85);
+  --surface-2: oklch(0.925 0.005 85);
+  --surface-deep: oklch(0.94 0.004 85);
+  --surface-alt: oklch(0.985 0.003 85);
+  --art-canvas: oklch(0.94 0.004 85);
+  --line: oklch(0.87 0.006 85);
+  --text: oklch(0.24 0.008 70);
+  --muted: oklch(0.48 0.012 80);
+
+  --accent: oklch(0.52 0.13 150);
+  --accent-soft: oklch(0.72 0.11 150);
+  --accent-strong: oklch(0.42 0.12 150);
+  --accent-2: oklch(0.55 0.12 65);
+  --accent-2-soft: oklch(0.78 0.09 65);
+
+  --warn: oklch(0.52 0.16 35);
+  --warn-border: oklch(0.8 0.08 35);
+
+  --keyword: oklch(0.48 0.16 300);
+  --code-comment: oklch(0.62 0.01 70);
+
+  --art-base-lightness: 0.93;
+  --art-stripe-lightness: 0.84;
+
+  --shadow-card: 0 30px 80px -30px oklch(0.4 0.02 70 / 0.25);
+  --shadow-soft: 0 12px 30px -10px oklch(0.4 0.02 70 / 0.22);
+  --glow-accent: oklch(0.52 0.13 150 / 0.3);
+}
+
+/* ---------------------------------------------------------------------------
+   Design tokens exposed to Tailwind.
+   `inline` keeps the var() references in the generated utilities, so switching
+   `data-theme` restyles the whole site without rebuilding any class.
+--------------------------------------------------------------------------- */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-deep: var(--surface-deep);
+  --color-surface-alt: var(--surface-alt);
+  --color-art-canvas: var(--art-canvas);
+  --color-line: var(--line);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-2: var(--accent-2);
+  --color-accent-2-soft: var(--accent-2-soft);
+  --color-warn: var(--warn);
+  --color-warn-border: var(--warn-border);
+  --color-warn-tint: color-mix(in oklab, var(--warn) 7%, transparent);
+  --color-accent-tint: color-mix(in oklab, var(--accent) 10%, transparent);
+  --color-keyword: var(--keyword);
+  --color-code-comment: var(--code-comment);
 
   --font-sans: var(--font-plex-thai), system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
@@ -53,22 +138,25 @@
   }
 
   body {
-    background: var(--color-bg);
-    color: var(--color-text);
+    background: var(--bg);
+    color: var(--text);
     font-family: var(--font-sans);
     font-size: 16px;
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
   }
 
   ::selection {
-    background: var(--color-accent);
-    color: var(--color-bg);
+    background: var(--accent);
+    color: var(--bg);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 2px solid var(--accent);
     outline-offset: 3px;
     border-radius: 4px;
   }
@@ -77,10 +165,10 @@
     width: 10px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--color-bg);
+    background: var(--bg);
   }
   ::-webkit-scrollbar-thumb {
-    background: var(--color-line);
+    background: var(--line);
     border-radius: 99px;
   }
 }
@@ -111,15 +199,15 @@
   }
   [data-tile]:hover,
   [data-tile][data-open] {
-    background: color-mix(in oklab, var(--color-accent) 7%, transparent);
-    border-color: var(--color-accent-soft);
+    background: color-mix(in oklab, var(--accent) 7%, transparent);
+    border-color: var(--accent-soft);
   }
   [data-tile] [data-name] {
     transition: color 0.26s ease;
   }
   [data-tile]:hover [data-name],
   [data-tile][data-open] [data-name] {
-    color: oklch(0.88 0.1 150);
+    color: var(--accent-strong);
   }
   [data-tile] [data-panel] {
     display: grid;
@@ -156,15 +244,15 @@
       transform 0.24s cubic-bezier(0.2, 0.7, 0.2, 1);
   }
   [data-chip]:hover {
-    background: color-mix(in oklab, var(--color-accent) 8%, transparent);
-    border-color: var(--color-accent-soft);
+    background: color-mix(in oklab, var(--accent) 8%, transparent);
+    border-color: var(--accent-soft);
     transform: scale(1.03);
   }
   [data-chip] [data-name] {
     transition: color 0.24s ease;
   }
   [data-chip]:hover [data-name] {
-    color: oklch(0.88 0.1 150);
+    color: var(--accent-strong);
   }
 
   /* Icons scale slightly with their card. */

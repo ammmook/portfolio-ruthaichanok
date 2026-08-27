@@ -61,11 +61,27 @@ receive their content through props — no portfolio data is hardcoded in the UI
 Every visible string is a `{ en, th }` pair, so adding content means writing both
 languages in one place.
 
+## Dark / light mode
+
+The header has a ☀ / ☾ toggle. Dark is the original design and the default;
+light is a full mirror of it. Both palettes live in `app/globals.css`:
+
+- `:root` / `:root[data-theme="dark"]` → dark values
+- `:root[data-theme="light"]` → light values
+- `@theme inline` maps them onto Tailwind utilities (`bg-surface`, `text-muted`,
+  `border-line`, …), so no component hardcodes a colour and both themes stay in
+  sync automatically.
+
+The choice is stored under `portfolio-theme` and applied by a small inline
+script in `<head>` before the first paint, so there is no flash of the wrong
+theme on reload.
+
 ## Languages
 
 Thai and English, switched with the `EN / ไทย` button in the header. The choice
 is stored in the browser under `portfolio-language` (localStorage) and restored
-on the next visit. Nothing is sent to a server, and no other data is persisted.
+on the next visit. Nothing is sent to a server — the language and the theme are
+the only two values the site persists.
 
 ## Adding the resume PDF
 

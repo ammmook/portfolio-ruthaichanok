@@ -6,7 +6,9 @@ import { CursorGlow } from "@/components/layout/CursorGlow";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { LanguageProvider } from "@/components/providers/LanguageProvider";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { personalInformation } from "@/data/portfolio";
+import { themeBootstrapScript } from "@/lib/themeStore";
 
 const plexSansThai = IBM_Plex_Sans_Thai({
   variable: "--font-plex-thai",
@@ -59,15 +61,23 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      data-theme="dark"
+      suppressHydrationWarning
       className={`${plexSansThai.variable} ${jetBrainsMono.variable} h-full antialiased`}
     >
+      <head>
+        {/* Applies the stored theme before first paint to avoid a flash. */}
+        <script dangerouslySetInnerHTML={{ __html: themeBootstrapScript }} />
+      </head>
       <body className="flex min-h-full flex-col">
-        <LanguageProvider>
-          <CursorGlow />
-          <Navbar />
-          <main className="relative flex-1">{children}</main>
-          <Footer />
-        </LanguageProvider>
+        <ThemeProvider>
+          <LanguageProvider>
+            <CursorGlow />
+            <Navbar />
+            <main className="relative flex-1">{children}</main>
+            <Footer />
+          </LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

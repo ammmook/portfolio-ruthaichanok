@@ -8,7 +8,7 @@ export function SoftSkillCard({ softSkill }: { softSkill: SoftSkill }) {
   const { t } = useLanguage();
 
   return (
-    <article className="h-full rounded-2xl border border-line bg-gradient-to-b from-surface to-[oklch(0.185_0.006_70)] p-6 transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-[oklch(0.45_0.09_65)]">
+    <article className="h-full rounded-2xl border border-line bg-gradient-to-b from-surface to-surface-alt p-6 transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-accent-2-soft">
       <div aria-hidden="true" className="mb-3.5 font-mono text-[22px] leading-none text-accent-2">
         {softSkill.mark}
       </div>

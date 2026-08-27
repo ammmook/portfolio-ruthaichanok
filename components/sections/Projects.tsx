@@ -138,7 +138,7 @@ function CarouselButton({
       type="button"
       onClick={onClick}
       aria-label={label}
-      className={`absolute top-1/2 z-9 flex h-[46px] w-[46px] -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-line bg-surface/70 font-mono text-[17px] text-text shadow-[0_12px_30px_-10px_oklch(0_0_0/.8)] backdrop-blur-[10px] transition-[transform,border-color,color] duration-250 hover:border-accent hover:text-accent ${
+      className={`absolute top-1/2 z-9 flex h-[46px] w-[46px] -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-line bg-surface/70 font-mono text-[17px] text-text shadow-[var(--shadow-soft)] backdrop-blur-[10px] transition-[transform,border-color,color] duration-250 hover:border-accent hover:text-accent ${
         isPrevious ? "-left-1.5 hover:-translate-x-1" : "-right-1.5 hover:translate-x-1"
       }`}
     >

@@ -21,7 +21,7 @@ export function InfoCard({ badge, title, description, accent = "primary" }: Info
   return (
     <article
       className={`h-full rounded-[14px] border border-line bg-surface p-5 transition-[transform,border-color] duration-300 hover:-translate-y-1 ${
-        accent === "primary" ? "hover:border-accent-soft" : "hover:border-[oklch(0.45_0.09_65)]"
+        accent === "primary" ? "hover:border-accent-soft" : "hover:border-accent-2-soft"
       }`}
     >
       <div className="mb-3 flex h-[30px] items-center">{badge}</div>

@@ -14,7 +14,7 @@ export function CursorGlow() {
         opacity: isPointerFine ? 1 : 0,
         background: `radial-gradient(520px circle at ${(x * 100).toFixed(1)}% ${(y * 100).toFixed(
           1,
-        )}%, oklch(0.82 0.16 150 / .07), transparent 70%)`,
+        )}%, color-mix(in oklab, var(--accent) 7%, transparent), transparent 70%)`,
       }}
     />
   );
