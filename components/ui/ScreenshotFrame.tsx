@@ -47,6 +47,7 @@ export function ScreenshotFrame({
         alt={label ?? ""}
         fill
         sizes={sizes}
+        quality={90}
         priority={isPriority}
         onError={() => setHasFailed(true)}
         className="object-cover"

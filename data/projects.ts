@@ -1056,9 +1056,9 @@ export const portfolioProjects: Project[] = [
       en: "A calendar-first web app for shift workers: record each day of hours and see the month's overtime and shift allowance add up in real time.",
       th: "เว็บแอปที่ใช้ปฏิทินเป็นศูนย์กลางสำหรับคนทำงานเป็นกะ บันทึกชั่วโมงทำงานรายวันแล้วเห็นค่าล่วงเวลาและค่ากะของทั้งเดือนรวมกันแบบเรียลไทม์",
     },
-    coverLabel: { en: "MONTHLY CALENDAR", th: "ปฏิทินรายเดือน" },
-    coverImageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/calendar-worker/main-calendar.png",
-    cardImageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/calendar-worker/annual-dashbard.png",
+    coverLabel: { en: "CALENDAR", th: "หน้าปฏิทิน" },
+    coverImageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/calendar-worker/1_dashboard.png",
+    cardImageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/calendar-worker/1_dashboard.png",
     technologies: ["React 19", "Vite", "Tailwind CSS", "Supabase", "PostgreSQL"],
     liveUrl: "https://calendar-worker.vercel.app",
     repositoryUrl: "https://github.com/ammmook/calendar-worker",
@@ -1316,16 +1316,16 @@ export const portfolioProjects: Project[] = [
     ],
     screenshots: [
       {
-        label: { en: "MONTH CALENDAR", th: "ปฏิทินรายเดือน" },
-        imageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/calendar-worker/main-calendar.png",
+        label: { en: "CALENDAR", th: "หน้าปฏิทิน" },
+        imageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/calendar-worker/1_dashboard.png",
       },
       {
-        label: { en: "DAY ENTRY", th: "บันทึกรายวัน" },
-        imageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/calendar-worker/diary-entry.png",
+        label: { en: "YEARLY DASHBOARD — SUMMARY", th: "แดชบอร์ดรายปี — สรุปภาพรวม" },
+        imageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/calendar-worker/2_annual_dashboard_sum.png",
       },
       {
-        label: { en: "YEARLY DASHBOARD", th: "แดชบอร์ดรายปี" },
-        imageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/calendar-worker/annual-dashbard.png",
+        label: { en: "YEARLY DASHBOARD — GRAPHS", th: "แดชบอร์ดรายปี — สรุปกราฟ" },
+        imageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/calendar-worker/3_annual_dashboard_graph.png",
       },
     ],
     architecture: [
