@@ -186,3 +186,38 @@ export interface Project {
 
 /** Education entries share the timeline shape used by work experience. */
 export type EducationEntry = TimelineEntry;
+
+/** One photo slot inside an activity; the stripe artwork stands in until a real photo exists. */
+export interface ActivityPhoto {
+  label: LocalizedText;
+  /** Hue of the placeholder artwork for this photo. */
+  hue: number;
+  /** Real photo; the generated placeholder art is shown when absent or unreachable. */
+  imageUrl?: string;
+}
+
+/** A single entry in the activity archive at /activities. */
+export interface Activity {
+  /** Stable id used by the lightbox and as the tile key. */
+  id: string;
+  year: string;
+  category: LocalizedText;
+  /** Hue of the tile artwork. */
+  hue: number;
+  /** Angle of the tile stripes, varied so neighbouring tiles read as distinct. */
+  degrees: number;
+  /** Tile aspect ratio in the mosaic, e.g. "16 / 10". */
+  aspectRatio: string;
+  /** Direction the tile animates in from when it scrolls into view. */
+  revealFrom: "up" | "left" | "right";
+  title: LocalizedText;
+  /** Shorter title used on the tile overlay when the full one would wrap badly. */
+  tileTitle: LocalizedText;
+  /** Monospace line under the tile title, e.g. "2025 · MFEC · Bangkok". */
+  caption: string;
+  place: LocalizedText;
+  tags: string[];
+  photos: ActivityPhoto[];
+  description: LocalizedText;
+  highlights: LocalizedList;
+}

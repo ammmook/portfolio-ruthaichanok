@@ -15,15 +15,15 @@ import type {
 export const personalInformation: PersonalInformation = {
   fullName: "Ruthaichanok Kasun",
   brandName: "ruthaichanok",
-  role: { en: "Software Developer", th: "นักพัฒนาซอฟต์แวร์" },
-  roleLine: "Full-stack / Java · React",
+  role: { en: "Developer", th: "Developer" },
+  roleLine: "Full-stack / Java",
   location: { en: "Nonthaburi, Thailand", th: "นนทบุรี ประเทศไทย" },
   email: "kasun.ruthaichanok@gmail.com",
   githubUrl: "https://github.com/ammmook",
   githubHandle: "github.com/ammmook",
   linkedinUrl: "https://linkedin.com/in/ruthaichanok-kasun-7571873b1",
-  resumeUrl: "/resume/Ruthaichanok_Kasun_CV.pdf",
-  resumeFileName: "Ruthaichanok_Kasun_CV.pdf",
+  resumeUrl: "/resume/Ruthaichanok_CV_Developer.pdf",
+  resumeFileName: "Ruthaichanok_CV_Developer.pdf",
   introduction: {
     en: "I enjoy building web applications, exploring new technologies, and turning ideas into practical digital experiences.",
     th: "ฉันชอบสร้างเว็บแอปพลิเคชัน ทดลองเทคโนโลยีใหม่ ๆ และเปลี่ยนไอเดียให้กลายเป็นประสบการณ์ดิจิทัลที่ใช้งานได้จริง",
@@ -802,6 +802,26 @@ export const githubHighlights: GithubHighlight[] = [
     description: {
       en: "Pet hotel booking system written in Go with net/http, html/template, sessions and MySQL — no framework.",
       th: "ระบบจองโรงแรมสัตว์เลี้ยงที่เขียนด้วย Go ใช้ net/http, html/template, session และ MySQL โดยไม่ใช้เฟรมเวิร์ก",
+    },
+  },
+  {
+    repository: "mookcommission",
+    url: "https://github.com/ammmook/mookcommission",
+    languageLabel: "TypeScript",
+    languageColor: "oklch(0.68 0.14 255)",
+    description: {
+      en: "TorQueue — Next.js 16 and Supabase commission queue tracker, with access control enforced in PostgreSQL.",
+      th: "TorQueue ระบบติดตามคิวงานวาดด้วย Next.js 16 และ Supabase โดยควบคุมสิทธิ์ที่ระดับ PostgreSQL",
+    },
+  },
+  {
+    repository: "unitodo",
+    url: "https://github.com/ammmook/unitodo",
+    languageLabel: "TypeScript",
+    languageColor: "oklch(0.68 0.14 255)",
+    description: {
+      en: "Coursework task manager in React 19 and TypeScript, backed by a Google Sheet through Apps Script.",
+      th: "ระบบจัดการงานเรียนด้วย React 19 และ TypeScript ใช้ Google Sheet เป็นฐานข้อมูลผ่าน Apps Script",
     },
   },
 ];

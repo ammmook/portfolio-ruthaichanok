@@ -78,6 +78,14 @@ export const uiTranslations = {
       en: "Work, internship and teaching experience — most recent first.",
       th: "ประสบการณ์ทำงาน ฝึกงาน และการเป็นผู้ช่วยสอน เรียงจากล่าสุด",
     },
+    viewActivities: {
+      en: "View photos & activities",
+      th: "ดูรูปภาพ / ประสบการณ์ที่เคยทำมา",
+    },
+    viewActivitiesHint: {
+      en: "Photos and moments from labs, workshops and the co-op.",
+      th: "รูปภาพและช่วงเวลาจากคาบแล็บ เวิร์กช็อป และสหกิจศึกษา",
+    },
   },
   education: {
     label: { en: "07 — EDUCATION", th: "07 — การศึกษา" },
@@ -194,5 +202,28 @@ export const uiTranslations = {
     learnedHeading: { en: "Takeaways.", th: "บทเรียนที่ได้" },
     futureLabel: { en: "14 — FUTURE IMPROVEMENTS", th: "14 — การพัฒนาต่อ" },
     futureHeading: { en: "Roadmap.", th: "แผนในอนาคต" },
+  },
+  activities: {
+    label: { en: "ACTIVITY ARCHIVE", th: "คลังกิจกรรม" },
+    heading: { en: "Activities", th: "กิจกรรม" },
+    description: {
+      en: "A collection of activities, experiences and memorable moments along the way — labs I taught in, workshops I sat in, and the systems I helped hand over.",
+      th: "รวมกิจกรรม ประสบการณ์ และช่วงเวลาที่น่าจดจำระหว่างทาง ทั้งคาบแล็บที่ได้สอน เวิร์กช็อปที่ได้เข้าร่วม และระบบที่ได้ส่งมอบ",
+    },
+    countUnit: { en: "activities", th: "กิจกรรม" },
+    moments: { en: "MOMENTS", th: "ช่วงเวลา" },
+    stackHint: { en: "hover — fan out", th: "ชี้เมาส์ — คลี่ออก" },
+    photoCount: { en: "PHOTOS", th: "ภาพ" },
+    backToExperience: { en: "← Back to experience", th: "← กลับไปหน้าประสบการณ์" },
+    closeDetail: { en: "All activities", th: "กิจกรรมทั้งหมด" },
+    previousActivity: { en: "Previous activity", th: "กิจกรรมก่อนหน้า" },
+    nextActivity: { en: "Next activity", th: "กิจกรรมถัดไป" },
+    detailsLabel: { en: "DETAILS", th: "รายละเอียด" },
+    yearLabel: { en: "YEAR", th: "ปี" },
+    placeLabel: { en: "PLACE", th: "สถานที่" },
+    photoNote: {
+      en: "Photo slots are placeholders for now — the layout is ready for the real images.",
+      th: "ช่องภาพยังเป็นภาพตัวอย่าง เลย์เอาต์พร้อมใส่รูปจริงได้ทันที",
+    },
   },
 } as const;

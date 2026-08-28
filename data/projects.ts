@@ -2608,6 +2608,1092 @@ export const portfolioProjects: Project[] = [
       },
     ],
   },
+  {
+    slug: "unitodo",
+    name: {
+      en: "UniTodo — Coursework Task Manager",
+      th: "UniTodo — ระบบจัดการงานเรียน",
+    },
+    shortName: { en: "UniTodo", th: "UniTodo" },
+    year: "2026",
+    status: { en: "LIVE", th: "ใช้งานจริง" },
+    category: { en: "Web App", th: "เว็บแอป" },
+    filters: ["web"],
+    hue: 110,
+    blurb: {
+      en: "Coursework tracker on a Google Sheet, with priority worked out from the deadline.",
+      th: "ระบบติดตามงานเรียนที่ใช้ Google Sheet เป็นฐานข้อมูล และคำนวณความสำคัญจากกำหนดส่ง",
+    },
+    tagline: {
+      en: "React app whose entire backend is a Google Sheet driven by Apps Script: real Google Sign-In, server-issued sessions, and a priority level derived from each deadline instead of chosen by hand.",
+      th: "เว็บแอป React ที่ใช้ Google Sheet เป็นแบ็กเอนด์ทั้งหมดผ่าน Apps Script มีระบบล็อกอินด้วย Google จริง ออก session จากฝั่งเซิร์ฟเวอร์ และคำนวณระดับความสำคัญจากกำหนดส่งแทนการให้ผู้ใช้เลือกเอง",
+    },
+    coverLabel: { en: "DASHBOARD", th: "หน้าแดชบอร์ด" },
+    technologies: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Google Apps Script"],
+    liveUrl: "https://unitodo-five.vercel.app",
+    repositoryUrl: "https://github.com/ammmook/unitodo",
+    meta: [
+      { key: { en: "DATE", th: "ช่วงเวลา" }, value: { en: "Aug 2026", th: "ส.ค. 2569" } },
+      { key: { en: "ROLE", th: "บทบาท" }, value: { en: "Solo Developer", th: "พัฒนาคนเดียว" } },
+      { key: { en: "TEAM", th: "ทีม" }, value: { en: "Personal project", th: "โปรเจกต์ส่วนตัว" } },
+      { key: { en: "STATUS", th: "สถานะ" }, value: { en: "Live on Vercel", th: "เปิดใช้งานบน Vercel" } },
+      { key: { en: "CATEGORY", th: "ประเภท" }, value: { en: "Web App", th: "เว็บแอป" } },
+      { key: { en: "CONTEXT", th: "บริบท" }, value: { en: "Built for my own semester", th: "สร้างไว้ใช้เรียนของตัวเอง" } },
+    ],
+    stack: [
+      {
+        title: { en: "FRONTEND", th: "ฟรอนต์เอนด์" },
+        items: [
+          {
+            name: "React 19",
+            iconSlug: "react",
+            role: { en: "UI layer", th: "ชั้นส่วนติดต่อผู้ใช้" },
+            usage: {
+              en: "Four pages plus modals, drawers and bottom sheets, split into layout, common, dashboard, work and subject components.",
+              th: "สี่หน้าจอ พร้อม modal, drawer และ bottom sheet แยกเป็นคอมโพเนนต์กลุ่ม layout, common, dashboard, work และ subject",
+            },
+          },
+          {
+            name: "TypeScript",
+            iconSlug: "typescript",
+            role: { en: "Type safety", th: "ความปลอดภัยของชนิดข้อมูล" },
+            usage: {
+              en: "One domain module describes Work, Subject and AppUser, so a sheet column change surfaces at compile time.",
+              th: "รวมชนิดข้อมูลของโดเมนไว้ในโมดูลเดียว ทั้ง Work, Subject และ AppUser การเปลี่ยนคอลัมน์ในชีตจึงฟ้องตั้งแต่ตอน compile",
+            },
+          },
+          {
+            name: "Vite",
+            iconSlug: "vite",
+            role: { en: "Build tool", th: "เครื่องมือ build" },
+            usage: {
+              en: "Dev server with instant reload; the build runs a full typecheck first.",
+              th: "เซิร์ฟเวอร์สำหรับพัฒนาที่รีโหลดทันที และตอน build จะตรวจชนิดข้อมูลทั้งหมดก่อน",
+            },
+          },
+          {
+            name: "Tailwind CSS v4",
+            iconSlug: "tailwindcss",
+            role: { en: "Styling", th: "การจัดรูปแบบ" },
+            usage: {
+              en: "Breakpoints where mobile and desktop share markup; separate components where the structure genuinely differs.",
+              th: "ใช้ breakpoint ในส่วนที่มือถือกับเดสก์ท็อปใช้โครงเดียวกัน และแยกคอมโพเนนต์เมื่อโครงสร้างต่างกันจริง",
+            },
+          },
+        ],
+      },
+      {
+        title: { en: "BACKEND & AUTH", th: "แบ็กเอนด์และการยืนยันตัวตน" },
+        items: [
+          {
+            name: "Google Apps Script",
+            iconSlug: "google",
+            role: { en: "Backend", th: "แบ็กเอนด์" },
+            usage: {
+              en: "A single code.gs holds auth, permissions and every read and write against the sheet.",
+              th: "ไฟล์ code.gs ไฟล์เดียวเก็บทั้งการยืนยันตัวตน สิทธิ์ และการอ่านเขียนชีตทั้งหมด",
+            },
+          },
+          {
+            name: "Google Sheets",
+            iconSlug: "googlesheets",
+            role: { en: "Database", th: "ฐานข้อมูล" },
+            usage: {
+              en: "Users, Sessions, Subjects and Works sheets, created automatically on first use.",
+              th: "ชีต Users, Sessions, Subjects และ Works ถูกสร้างให้อัตโนมัติเมื่อมีคนเข้าใช้ครั้งแรก",
+            },
+          },
+          {
+            name: "Google Identity Services",
+            iconSlug: null,
+            role: { en: "Sign-in", th: "การเข้าสู่ระบบ" },
+            usage: {
+              en: "The real Google button; the id_token is exchanged once for a session and then discarded.",
+              th: "ใช้ปุ่ม Google ของจริง โดย id_token ถูกแลกเป็น session ครั้งเดียวแล้วทิ้งทันที",
+            },
+          },
+          {
+            name: "Vercel",
+            iconSlug: "vercel",
+            role: { en: "Hosting", th: "โฮสติ้ง" },
+            usage: {
+              en: "Serves the static build; the API lives entirely in Apps Script.",
+              th: "เสิร์ฟไฟล์ static ส่วน API อยู่ที่ Apps Script ทั้งหมด",
+            },
+          },
+        ],
+      },
+    ],
+    overviewTitle: {
+      en: "A spreadsheet everyone already has, with a real application on top.",
+      th: "สเปรดชีตที่ทุกคนมีอยู่แล้ว แต่มีแอปจริงครอบอยู่ข้างบน",
+    },
+    overview: {
+      en: [
+        "Most students track coursework in a spreadsheet. It works, but it cannot tell you what is urgent, and it looks the same on a phone as it does on a laptop.",
+        "UniTodo keeps the spreadsheet as the database and puts a proper React application in front of it. Apps Script turns the sheet into an API, so the data stays somewhere the owner can open, sort and filter directly.",
+        "The part worth building was the judgement: priority is derived from the deadline and the current status, so there is no importance dropdown to get wrong, and a daily trigger keeps the sheet's own priority column correct even when nobody opens the app.",
+      ],
+      th: [
+        "นักศึกษาส่วนใหญ่จดงานเรียนไว้ในสเปรดชีต ซึ่งใช้ได้ แต่มันบอกไม่ได้ว่างานไหนด่วน และเปิดบนมือถือก็หน้าตาเหมือนบนโน้ตบุ๊กทุกอย่าง",
+        "UniTodo ยังใช้สเปรดชีตเป็นฐานข้อมูลเหมือนเดิม แต่เอาแอป React จริง ๆ มาครอบไว้ข้างหน้า โดยให้ Apps Script เปลี่ยนชีตให้กลายเป็น API ข้อมูลจึงยังอยู่ในที่ที่เจ้าของเปิด เรียง และกรองเองได้โดยตรง",
+        "ส่วนที่ควรค่าแก่การพัฒนาจริง ๆ คือการตัดสินใจแทนผู้ใช้ ระดับความสำคัญคำนวณจากกำหนดส่งและสถานะปัจจุบัน จึงไม่มี dropdown ให้เลือกผิด และมี trigger รายวันคอยอัปเดตคอลัมน์ priority ในชีตให้ถูกต้องแม้ไม่มีใครเปิดเว็บเลย",
+      ],
+    },
+    users: {
+      en: "University students juggling several subjects at once, plus an admin who can look at any account when something goes wrong.",
+      th: "นักศึกษาที่เรียนหลายวิชาพร้อมกัน และผู้ดูแลระบบที่ต้องเข้าไปดูบัญชีของคนอื่นได้เมื่อมีปัญหา",
+    },
+    problemTitle: {
+      en: "A spreadsheet stores deadlines but never tells you which one matters today.",
+      th: "สเปรดชีตเก็บกำหนดส่งได้ แต่ไม่เคยบอกว่าวันนี้ควรทำอันไหนก่อน",
+    },
+    problems: {
+      en: [
+        "Setting an importance level by hand goes stale the day after it is set.",
+        "A spreadsheet on a phone means pinching and scrolling sideways to read one row.",
+        "Anything with real accounts needs sign-in, and hand-rolled passwords are the wrong thing to build.",
+        "Loading a whole semester on every screen change makes the app feel slower than the sheet it replaced.",
+      ],
+      th: [
+        "การตั้งระดับความสำคัญด้วยมือจะล้าสมัยตั้งแต่วันถัดไปที่ตั้ง",
+        "เปิดสเปรดชีตบนมือถือต้องซูมและเลื่อนซ้ายขวาเพื่ออ่านข้อมูลแค่แถวเดียว",
+        "ระบบที่มีบัญชีผู้ใช้จริงต้องมีการล็อกอิน และการเขียนระบบรหัสผ่านเองไม่ใช่สิ่งที่ควรทำ",
+        "ถ้าโหลดข้อมูลทั้งเทอมใหม่ทุกครั้งที่เปลี่ยนหน้า แอปจะรู้สึกช้ากว่าชีตที่มันมาแทนที่",
+      ],
+    },
+    goals: [
+      {
+        number: "01",
+        title: { en: "Derive priority, never ask for it", th: "คำนวณความสำคัญ ไม่ต้องถามผู้ใช้" },
+        description: {
+          en: "Deadline plus status decides the level, and it re-decides every day.",
+          th: "ใช้กำหนดส่งร่วมกับสถานะเป็นตัวกำหนดระดับ และคำนวณใหม่ทุกวัน",
+        },
+      },
+      {
+        number: "02",
+        title: { en: "Keep the sheet usable on its own", th: "ให้ชีตยังใช้งานได้ด้วยตัวเอง" },
+        description: {
+          en: "The priority column stays correct so sorting inside Google Sheets still works.",
+          th: "คอลัมน์ priority ต้องถูกต้องเสมอ เพื่อให้เรียงลำดับใน Google Sheets ได้ตรง ๆ",
+        },
+      },
+      {
+        number: "03",
+        title: { en: "Use Google for identity", th: "ใช้ Google เป็นตัวยืนยันตัวตน" },
+        description: {
+          en: "No passwords stored anywhere, and sessions the server can revoke.",
+          th: "ไม่เก็บรหัสผ่านไว้ที่ไหนเลย และใช้ session ที่เซิร์ฟเวอร์เพิกถอนได้",
+        },
+      },
+      {
+        number: "04",
+        title: { en: "Design mobile and desktop separately", th: "ออกแบบมือถือกับเดสก์ท็อปแยกกัน" },
+        description: {
+          en: "A bottom sheet on a phone is not a shrunken drawer.",
+          th: "bottom sheet บนมือถือไม่ใช่แค่ drawer ที่ย่อขนาดลง",
+        },
+      },
+    ],
+    solutionTitle: {
+      en: "Apps Script as the API, a session token as the only thing stored.",
+      th: "ใช้ Apps Script เป็น API และเก็บเพียง session token อย่างเดียว",
+    },
+    solution: {
+      en: "The frontend is a React 19 SPA in TypeScript with four pages. It never talks to Google Sheets directly: a single Apps Script deployment exposes actions over HTTP and owns authentication, permissions and every read and write. Sign-in uses the real Google button; the resulting id_token is sent to the backend exactly once, verified against Google, and exchanged for a random 64-character session token stored in a Sessions sheet — the id_token is then discarded and never written down. Opening the app makes one bootstrap request that returns user, subjects, works and, for admins, the user table. The UI renders from cache first and reconciles when the response lands, and every edit is applied optimistically and rolled back with a toast if the server refuses.",
+      th: "ฝั่งหน้าเว็บเป็น React 19 SPA เขียนด้วย TypeScript มีสี่หน้าจอ และไม่คุยกับ Google Sheets โดยตรงเลย แต่มี Apps Script ที่ deploy ไว้ตัวเดียวเปิด action ผ่าน HTTP และเป็นเจ้าของทั้งการยืนยันตัวตน สิทธิ์ และการอ่านเขียนข้อมูลทั้งหมด การเข้าสู่ระบบใช้ปุ่ม Google ของจริง โดย id_token ที่ได้จะถูกส่งไปแบ็กเอนด์เพียงครั้งเดียว ตรวจสอบกับ Google แล้วแลกเป็น session token สุ่ม 64 ตัวอักษรที่เก็บไว้ในชีต Sessions จากนั้น id_token จะถูกทิ้งทันทีและไม่ถูกบันทึกไว้ที่ใด เมื่อเปิดแอปจะยิงคำขอ bootstrap เพียงครั้งเดียวเพื่อรับข้อมูลผู้ใช้ วิชา งาน และตารางผู้ใช้สำหรับ admin หน้าจอจะวาดจาก cache ก่อนแล้วอัปเดตทับเมื่อข้อมูลจริงมาถึง ส่วนการแก้ไขทุกอย่างจะแสดงผลทันทีแบบ optimistic และย้อนคืนพร้อม toast ถ้าเซิร์ฟเวอร์ปฏิเสธ",
+    },
+    flow: [
+      {
+        number: "01",
+        title: { en: "Sign in with Google", th: "เข้าสู่ระบบด้วย Google" },
+        description: {
+          en: "One standard Google button; a valid session skips this screen entirely.",
+          th: "มีปุ่ม Google มาตรฐานปุ่มเดียว ถ้ามี session ที่ยังใช้ได้จะข้ามหน้านี้ไปเลย",
+        },
+      },
+      {
+        number: "02",
+        title: { en: "Bootstrap in one request", th: "โหลดทุกอย่างในคำขอเดียว" },
+        description: {
+          en: "Identity, subjects, works and the admin table all arrive together.",
+          th: "ข้อมูลตัวตน วิชา งาน และตารางผู้ดูแลระบบ มาพร้อมกันในครั้งเดียว",
+        },
+      },
+      {
+        number: "03",
+        title: { en: "Pick a term", th: "เลือกภาคเรียน" },
+        description: {
+          en: "Academic year and semester filter every subject and task on screen.",
+          th: "ปีการศึกษาและเทอมที่เลือกจะกรองวิชาและงานทั้งหมดบนหน้าจอ",
+        },
+      },
+      {
+        number: "04",
+        title: { en: "Add a subject and its work", th: "เพิ่มวิชาและงานของวิชานั้น" },
+        description: {
+          en: "Duplicate subject names are rejected on the client and again on the server.",
+          th: "ชื่อวิชาที่ซ้ำจะถูกปฏิเสธทั้งฝั่งหน้าเว็บและตรวจซ้ำอีกครั้งที่เซิร์ฟเวอร์",
+        },
+      },
+      {
+        number: "05",
+        title: { en: "Read the dashboard", th: "ดูหน้าแดชบอร์ด" },
+        description: {
+          en: "The nearest deadline, a timeline and a donut of overall status.",
+          th: "งานที่ใกล้ครบกำหนดที่สุด ไทม์ไลน์ และกราฟโดนัทสรุปสถานะรวม",
+        },
+      },
+    ],
+    features: [
+      {
+        title: { en: "Priority derived from the deadline", th: "ความสำคัญคำนวณจากกำหนดส่ง" },
+        description: {
+          en: "Urgent, High, Medium or Low follows from days remaining and current status — no dropdown to keep updated.",
+          th: "ระดับ Urgent, High, Medium หรือ Low มาจากจำนวนวันที่เหลือและสถานะปัจจุบัน ไม่มี dropdown ให้ต้องคอยอัปเดต",
+        },
+      },
+      {
+        title: { en: "Daily recalculation in the sheet", th: "คำนวณใหม่ในชีตทุกวัน" },
+        description: {
+          en: "A midnight trigger rewrites the priority column so sorting inside Google Sheets stays honest.",
+          th: "trigger ช่วงเที่ยงคืนเขียนคอลัมน์ priority ใหม่ เพื่อให้เรียงลำดับใน Google Sheets ได้ถูกต้องเสมอ",
+        },
+      },
+      {
+        title: { en: "Real Google Sign-In", th: "เข้าสู่ระบบด้วย Google จริง" },
+        description: {
+          en: "No passwords anywhere; the backend verifies every request instead of trusting an email from the client.",
+          th: "ไม่มีรหัสผ่านที่ใดเลย แบ็กเอนด์ตรวจสอบทุกคำขอแทนที่จะเชื่ออีเมลที่ฝั่งหน้าเว็บส่งมา",
+        },
+      },
+      {
+        title: { en: "Revocable sessions", th: "session ที่เพิกถอนได้" },
+        description: {
+          en: "Logging out invalidates the token server-side, and expired sessions are swept up by the daily trigger.",
+          th: "การออกจากระบบยกเลิก token ที่ฝั่งเซิร์ฟเวอร์จริง และ session ที่หมดอายุถูกเก็บกวาดโดย trigger รายวัน",
+        },
+      },
+      {
+        title: { en: "Admin view-as", th: "ผู้ดูแลระบบสวมบทเป็นผู้ใช้" },
+        description: {
+          en: "An admin can inspect any account behind a persistent warning banner, with the permission re-checked on every request.",
+          th: "ผู้ดูแลระบบเข้าดูบัญชีใดก็ได้โดยมีแถบเตือนค้างไว้ตลอด และตรวจสิทธิ์ซ้ำทุกคำขอ",
+        },
+      },
+      {
+        title: { en: "Optimistic edits with undo", th: "แก้ไขเห็นผลทันทีพร้อม undo" },
+        description: {
+          en: "Changes appear immediately and revert automatically if the sheet rejects them; deletes offer a real undo.",
+          th: "การแก้ไขขึ้นจอทันทีและย้อนกลับอัตโนมัติถ้าชีตปฏิเสธ ส่วนการลบมีปุ่ม undo ที่เขียนกลับลงชีตจริง",
+        },
+      },
+    ],
+    screenshots: [
+      { label: { en: "LOGIN", th: "หน้าเข้าสู่ระบบ" } },
+      { label: { en: "DASHBOARD", th: "หน้าแดชบอร์ด" } },
+      { label: { en: "ALL WORKS", th: "หน้างานทั้งหมด" } },
+      { label: { en: "SUBJECTS & ADMIN", th: "หน้าวิชาเรียนและผู้ดูแลระบบ" } },
+    ],
+    architecture: [
+      {
+        number: "01",
+        title: { en: "Pages", th: "ชั้นหน้าจอ" },
+        description: {
+          en: "Login, Dashboard, All Works and Subjects — one file per screen.",
+          th: "หน้าเข้าสู่ระบบ แดชบอร์ด งานทั้งหมด และวิชาเรียน แยกไฟล์ละหนึ่งหน้าจอ",
+        },
+      },
+      {
+        number: "02",
+        title: { en: "Hooks", th: "ชั้น hook" },
+        description: {
+          en: "useSession holds login state, useTodolistStore owns server data and optimistic updates, useTodolistData is a pure view of the selected term.",
+          th: "useSession ถือสถานะการล็อกอิน, useTodolistStore เป็นเจ้าของข้อมูลจากเซิร์ฟเวอร์และการอัปเดตแบบ optimistic ส่วน useTodolistData เป็นมุมมองล้วน ๆ ของเทอมที่เลือก",
+        },
+      },
+      {
+        number: "03",
+        title: { en: "lib/api", th: "lib/api" },
+        description: {
+          en: "The only place that speaks to Apps Script, posting as text/plain to avoid a CORS preflight on every call.",
+          th: "ที่เดียวที่คุยกับ Apps Script โดยส่งเป็น text/plain เพื่อเลี่ยง CORS preflight ในทุกคำขอ",
+        },
+      },
+      {
+        number: "04",
+        title: { en: "code.gs", th: "code.gs" },
+        description: {
+          en: "Verifies tokens, enforces admin rules, and performs one read and one write per sheet per round.",
+          th: "ตรวจสอบ token บังคับกฎสิทธิ์ผู้ดูแลระบบ และอ่านหนึ่งครั้งเขียนหนึ่งครั้งต่อชีตในแต่ละรอบ",
+        },
+      },
+      {
+        number: "05",
+        title: { en: "Google Sheets", th: "Google Sheets" },
+        description: {
+          en: "Users, Sessions, Subjects and Works, each created on demand.",
+          th: "ชีต Users, Sessions, Subjects และ Works ถูกสร้างเมื่อจำเป็น",
+        },
+      },
+    ],
+    process: [
+      {
+        number: "01",
+        title: { en: "Started from the spreadsheet I already used", th: "เริ่มจากสเปรดชีตที่ใช้อยู่แล้ว" },
+        description: {
+          en: "The existing columns became the domain types.",
+          th: "คอลัมน์ที่มีอยู่เดิมกลายเป็นชนิดข้อมูลของโดเมน",
+        },
+      },
+      {
+        number: "02",
+        title: { en: "Wrote the priority table first", th: "เขียนตารางความสำคัญก่อน" },
+        description: {
+          en: "Every combination of status and days remaining was decided on paper before any code.",
+          th: "กำหนดทุกกรณีของสถานะกับจำนวนวันที่เหลือลงกระดาษก่อนเขียนโค้ด",
+        },
+      },
+      {
+        number: "03",
+        title: { en: "Built the Apps Script API", th: "สร้าง API ด้วย Apps Script" },
+        description: {
+          en: "Actions, auth and sheet access working before the UI consumed them.",
+          th: "ทำ action, การยืนยันตัวตน และการเข้าถึงชีตให้ใช้ได้ก่อนที่หน้าเว็บจะเรียกใช้",
+        },
+      },
+      {
+        number: "04",
+        title: { en: "Added Google Sign-In and sessions", th: "เพิ่มระบบล็อกอิน Google และ session" },
+        description: {
+          en: "Token verification, the Sessions sheet, and server-side revocation.",
+          th: "ตรวจสอบ token, ชีต Sessions และการเพิกถอนจากฝั่งเซิร์ฟเวอร์",
+        },
+      },
+      {
+        number: "05",
+        title: { en: "Designed the two layouts", th: "ออกแบบสองเลย์เอาต์" },
+        description: {
+          en: "Bottom tab bar and sheets for mobile, top nav and drawer for desktop.",
+          th: "แถบแท็บล่างและ sheet สำหรับมือถือ แถบนำทางบนและ drawer สำหรับเดสก์ท็อป",
+        },
+      },
+      {
+        number: "06",
+        title: { en: "Tuned the perceived speed", th: "ปรับความเร็วที่ผู้ใช้รู้สึก" },
+        description: {
+          en: "Cache-first rendering, one bootstrap call, and optimistic updates everywhere.",
+          th: "วาดจาก cache ก่อน ยิง bootstrap ครั้งเดียว และใช้ optimistic update ทุกจุด",
+        },
+      },
+    ],
+    challenges: [
+      {
+        challenge: {
+          en: "Apps Script is slow enough that a naive app feels broken.",
+          th: "Apps Script ช้าพอที่จะทำให้แอปที่เขียนตรงไปตรงมารู้สึกเหมือนค้าง",
+        },
+        investigation: {
+          en: "Every screen change was refetching, and each request paid a CORS preflight on top of the script's own latency.",
+          th: "ทุกครั้งที่เปลี่ยนหน้าจะดึงข้อมูลใหม่ และทุกคำขอยังต้องเสียเวลากับ CORS preflight เพิ่มจากความช้าของสคริปต์เอง",
+        },
+        solution: {
+          en: "Collapsed the load into one bootstrap action, rendered from cache first, posted as text/plain to skip the preflight, and made every mutation optimistic.",
+          th: "ยุบการโหลดให้เหลือ action bootstrap เดียว วาดจาก cache ก่อน ส่งเป็น text/plain เพื่อข้าม preflight และทำให้ทุกการแก้ไขเป็นแบบ optimistic",
+        },
+        result: {
+          en: "The app responds immediately and the network round-trip happens behind it.",
+          th: "แอปตอบสนองทันที ส่วนการรับส่งข้อมูลเกิดขึ้นเบื้องหลัง",
+        },
+      },
+      {
+        challenge: {
+          en: "Storing a Google token in the browser is not acceptable.",
+          th: "การเก็บ token ของ Google ไว้ในเบราว์เซอร์เป็นสิ่งที่ยอมรับไม่ได้",
+        },
+        investigation: {
+          en: "Apps Script sits on a different origin, so it cannot set an httpOnly cookie, and sessionStorage does not survive a new tab.",
+          th: "Apps Script อยู่คนละ origin จึงตั้ง httpOnly cookie ให้ไม่ได้ ส่วน sessionStorage ก็ไม่ติดไปกับแท็บใหม่",
+        },
+        solution: {
+          en: "Exchanged the id_token once for a random session token the server can revoke, kept only that in localStorage, and discarded the Google token immediately.",
+          th: "แลก id_token เป็น session token สุ่มที่เซิร์ฟเวอร์เพิกถอนได้เพียงครั้งเดียว เก็บเฉพาะค่านั้นไว้ใน localStorage และทิ้ง token ของ Google ทันที",
+        },
+        result: {
+          en: "What sits in the browser is revocable and expiring, not a Google credential.",
+          th: "สิ่งที่อยู่ในเบราว์เซอร์คือ token ที่เพิกถอนได้และมีวันหมดอายุ ไม่ใช่ข้อมูลรับรองของ Google",
+        },
+      },
+      {
+        challenge: {
+          en: "The sheet's priority column went stale overnight.",
+          th: "คอลัมน์ priority ในชีตล้าสมัยข้ามคืน",
+        },
+        investigation: {
+          en: "Computing priority only when the UI rendered left the stored column describing yesterday, which broke sorting inside Sheets.",
+          th: "ถ้าคำนวณความสำคัญเฉพาะตอนวาดหน้าจอ ค่าที่เก็บไว้จะเป็นของเมื่อวาน ทำให้เรียงลำดับในชีตผิด",
+        },
+        solution: {
+          en: "Added a daily midnight trigger that recalculates every row, reading and writing the sheet once and skipping the write when nothing changed.",
+          th: "เพิ่ม trigger รายวันช่วงเที่ยงคืนให้คำนวณใหม่ทุกแถว โดยอ่านและเขียนชีตอย่างละครั้ง และข้ามการเขียนถ้าไม่มีอะไรเปลี่ยน",
+        },
+        result: {
+          en: "The sheet is correct each morning whether or not anyone opened the app.",
+          th: "ชีตถูกต้องทุกเช้าไม่ว่าจะมีคนเปิดแอปหรือไม่",
+        },
+      },
+    ],
+    results: {
+      en: [
+        "Live at unitodo-five.vercel.app and used for my own coursework.",
+        "Replaced manual importance levels with a priority derived from deadline and status, recalculated daily.",
+        "Shipped real Google Sign-In with server-issued, revocable sessions and no passwords stored anywhere.",
+        "Cut the app's cold start to a single bootstrap request, with cache-first rendering and optimistic updates.",
+        "Built genuinely separate mobile and desktop layouts rather than one shrunken design.",
+      ],
+      th: [
+        "เปิดใช้งานจริงที่ unitodo-five.vercel.app และใช้จัดการงานเรียนของตัวเอง",
+        "แทนที่การตั้งระดับความสำคัญด้วยมือ ด้วยค่าที่คำนวณจากกำหนดส่งและสถานะ พร้อมคำนวณใหม่ทุกวัน",
+        "ทำระบบล็อกอิน Google จริง พร้อม session ที่ออกและเพิกถอนได้จากเซิร์ฟเวอร์ โดยไม่เก็บรหัสผ่านที่ใดเลย",
+        "ลดการโหลดตอนเปิดแอปให้เหลือคำขอเดียว พร้อมวาดจาก cache ก่อนและอัปเดตแบบ optimistic",
+        "ออกแบบเลย์เอาต์มือถือกับเดสก์ท็อปแยกกันจริง ไม่ใช่ดีไซน์เดียวที่ย่อขนาดลง",
+      ],
+    },
+    learned: [
+      {
+        key: { en: "PERCEIVED SPEED", th: "ความเร็วที่รู้สึกได้" },
+        description: {
+          en: "A slow backend is survivable if the interface never waits for it.",
+          th: "แบ็กเอนด์ที่ช้ายังพอรับได้ ถ้าหน้าจอไม่ต้องรอมัน",
+        },
+      },
+      {
+        key: { en: "AUTH BOUNDARIES", th: "ขอบเขตการยืนยันตัวตน" },
+        description: {
+          en: "Trust the identity provider, but issue and control your own session.",
+          th: "เชื่อผู้ให้บริการยืนยันตัวตนได้ แต่ต้องออกและควบคุม session ของตัวเอง",
+        },
+      },
+      {
+        key: { en: "PERMISSIONS", th: "การจัดการสิทธิ์" },
+        description: {
+          en: "Hiding a table in the UI is not access control — the server has to refuse to send it.",
+          th: "การซ่อนตารางใน UI ไม่ใช่การควบคุมสิทธิ์ เซิร์ฟเวอร์ต้องไม่ส่งข้อมูลนั้นมาตั้งแต่แรก",
+        },
+      },
+      {
+        key: { en: "DUPLICATED RULES", th: "กฎที่เขียนซ้ำสองที่" },
+        description: {
+          en: "The priority logic lives in TypeScript and Apps Script; two copies of one rule is a debt I can name.",
+          th: "ตรรกะความสำคัญอยู่ทั้งใน TypeScript และ Apps Script การมีกฎเดียวกันสองชุดคือหนี้ทางเทคนิคที่รู้ตัว",
+        },
+      },
+    ],
+    future: [
+      {
+        phase: { en: "CURRENT", th: "ปัจจุบัน" },
+        items: {
+          en: [
+            "Derived priority with daily recalculation",
+            "Google Sign-In with revocable sessions",
+            "Admin view-as",
+            "Separate mobile and desktop layouts",
+          ],
+          th: [
+            "คำนวณความสำคัญอัตโนมัติพร้อมอัปเดตรายวัน",
+            "ล็อกอิน Google พร้อม session ที่เพิกถอนได้",
+            "ผู้ดูแลระบบสวมบทเป็นผู้ใช้",
+            "เลย์เอาต์มือถือและเดสก์ท็อปแยกกัน",
+          ],
+        },
+      },
+      {
+        phase: { en: "NEXT", th: "ถัดไป" },
+        items: {
+          en: [
+            "Edit a work's title, subject and due date, not just status",
+            "Delete a subject and change its emoji from the UI",
+            "Admin screens for granting and removing admin rights",
+          ],
+          th: [
+            "แก้ชื่อ วิชา และกำหนดส่งของงานเดิมได้ ไม่ใช่แค่สถานะ",
+            "ลบวิชาและเปลี่ยนอีโมจิได้จากหน้าเว็บ",
+            "หน้าจอสำหรับเพิ่มและถอดสิทธิ์ผู้ดูแลระบบ",
+          ],
+        },
+      },
+      {
+        phase: { en: "FUTURE", th: "อนาคต" },
+        items: {
+          en: [
+            "Single source of truth for the priority rules",
+            "Deadline reminders by email or push",
+            "Move the backend to Supabase if the sheet stops being an advantage",
+          ],
+          th: [
+            "รวมกฎความสำคัญให้เหลือแหล่งเดียว",
+            "แจ้งเตือนกำหนดส่งทางอีเมลหรือ push",
+            "ย้ายแบ็กเอนด์ไป Supabase ถ้าชีตไม่ใช่ข้อได้เปรียบอีกต่อไป",
+          ],
+        },
+      },
+    ],
+  },
+  {
+    slug: "AMMMOOK-commission",
+    name: {
+      en: "AMMMOOK COMS — Art Commission Queue Tracker",
+      th: "AMMMOOK COMS — ระบบติดตามคิวงานรับวาดภาพ",
+    },
+    shortName: { en: "AMMMOOK COMS", th: "AMMMOOK COMS" },
+    year: "2026",
+    status: { en: "LIVE", th: "ใช้งานจริง" },
+    category: { en: "Web App", th: "เว็บแอป" },
+    filters: ["web"],
+    hue: 320,
+    blurb: {
+      en: "Customers check their commission queue with a code; the artist runs everything from an admin panel.",
+      th: "ลูกค้าเช็คคิวงานวาดด้วยรหัส ส่วนนักวาดจัดการทุกอย่างผ่านหน้าผู้ดูแลระบบ",
+    },
+    tagline: {
+      en: "A queue tracker for an art commission studio: customers look up their own order by code and watch it move through six stages, while the artist manages lots, sketches and quotations behind a login.",
+      th: "ระบบติดตามคิวสำหรับสตูดิโอรับวาดภาพ ลูกค้าค้นหางานของตัวเองด้วยรหัสและติดตามความคืบหน้าทั้งหกขั้นตอน ส่วนนักวาดจัดการรอบคิว ภาพร่าง และใบเสนอราคาอยู่หลังระบบล็อกอิน",
+    },
+    coverLabel: { en: "QUEUE LOOKUP", th: "หน้าค้นหาคิว" },
+    coverImageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/mookcommission/1_index_page.png",
+    cardImageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/mookcommission/1_index_page.png",
+    technologies: ["Next.js 16", "React 19", "TypeScript", "Supabase", "PostgreSQL"],
+    liveUrl: "https://mookcommission.vercel.app",
+    repositoryUrl: "https://github.com/ammmook/mookcommission",
+    meta: [
+      { key: { en: "DATE", th: "ช่วงเวลา" }, value: { en: "Aug 2026", th: "ส.ค. 2569" } },
+      { key: { en: "ROLE", th: "บทบาท" }, value: { en: "Full-stack Developer", th: "Full-stack Developer" } },
+      { key: { en: "TEAM", th: "ทีม" }, value: { en: "Solo project", th: "ทำคนเดียว" } },
+      { key: { en: "STATUS", th: "สถานะ" }, value: { en: "Live on Vercel", th: "เปิดใช้งานบน Vercel" } },
+      { key: { en: "CATEGORY", th: "ประเภท" }, value: { en: "Web App", th: "เว็บแอป" } },
+      { key: { en: "CONTEXT", th: "บริบท" }, value: { en: "Real commission studio", th: "สตูดิโอรับงานวาดจริง" } },
+    ],
+    stack: [
+      {
+        title: { en: "FRAMEWORK", th: "เฟรมเวิร์ก" },
+        items: [
+          {
+            name: "Next.js 16",
+            iconSlug: "nextdotjs",
+            role: { en: "App framework", th: "เฟรมเวิร์กหลัก" },
+            usage: {
+              en: "App Router with a public queue area and a route-group-protected admin area.",
+              th: "ใช้ App Router แยกส่วนคิวสาธารณะออกจากส่วนผู้ดูแลระบบที่ป้องกันด้วย route group",
+            },
+          },
+          {
+            name: "React 19",
+            iconSlug: "react",
+            role: { en: "UI layer", th: "ชั้นส่วนติดต่อผู้ใช้" },
+            usage: {
+              en: "Server components for data-heavy pages, client components for the interactive admin tools.",
+              th: "ใช้ server component กับหน้าที่มีข้อมูลเยอะ และ client component กับเครื่องมือที่ต้องโต้ตอบในหน้าผู้ดูแลระบบ",
+            },
+          },
+          {
+            name: "TypeScript",
+            iconSlug: "typescript",
+            role: { en: "Type safety", th: "ความปลอดภัยของชนิดข้อมูล" },
+            usage: {
+              en: "Domain types are kept separate from generated database types, with an explicit mapping layer between them.",
+              th: "แยกชนิดข้อมูลของโดเมนออกจากชนิดที่ generate มาจากฐานข้อมูล และมีชั้นแปลงค่าระหว่างกันอย่างชัดเจน",
+            },
+          },
+          {
+            name: "Tailwind CSS",
+            iconSlug: "tailwindcss",
+            role: { en: "Styling", th: "การจัดรูปแบบ" },
+            usage: {
+              en: "Each stage owns a tone bundle — pill, dot and fill — so status colours are defined once.",
+              th: "แต่ละขั้นตอนมีชุดสีของตัวเอง ทั้ง pill, dot และ fill ทำให้สีสถานะถูกกำหนดไว้ที่เดียว",
+            },
+          },
+        ],
+      },
+      {
+        title: { en: "DATA & AUTH", th: "ข้อมูลและการยืนยันตัวตน" },
+        items: [
+          {
+            name: "Supabase",
+            iconSlug: "supabase",
+            role: { en: "Backend", th: "แบ็กเอนด์" },
+            usage: {
+              en: "Auth for the artist, row-level security on every table, and a storage bucket for sketches.",
+              th: "ระบบล็อกอินสำหรับศิลปิน, row-level security ในทุกตาราง และ storage bucket สำหรับเก็บภาพร่าง",
+            },
+          },
+          {
+            name: "PostgreSQL",
+            iconSlug: "postgresql",
+            role: { en: "Database", th: "ฐานข้อมูล" },
+            usage: {
+              en: "Enums for stages and states, triggers for queue numbering and change logging, and views that shape what the public can read.",
+              th: "ใช้ enum กำหนดขั้นตอนและสถานะ, trigger สำหรับออกเลขคิวและบันทึกการเปลี่ยนแปลง และ view กำหนดว่าคนทั่วไปอ่านอะไรได้บ้าง",
+            },
+          },
+          {
+            name: "PL/pgSQL",
+            iconSlug: null,
+            role: { en: "Database logic", th: "ตรรกะในฐานข้อมูล" },
+            usage: {
+              en: "Security-definer functions expose exactly three safe lookups to anonymous visitors.",
+              th: "ฟังก์ชันแบบ security definer เปิดให้ผู้เข้าชมทั่วไปเรียกได้เพียงสามคำสั่งที่ปลอดภัยเท่านั้น",
+            },
+          },
+          {
+            name: "Vercel",
+            iconSlug: "vercel",
+            role: { en: "Hosting", th: "โฮสติ้ง" },
+            usage: {
+              en: "Deployed from the repository with environment-scoped Supabase keys.",
+              th: "ดีพลอยจาก repository พร้อมคีย์ Supabase ที่แยกตามสภาพแวดล้อม",
+            },
+          },
+        ],
+      },
+    ],
+    overviewTitle: {
+      en: "\"Where is my commission?\" answered without a single DM.",
+      th: "ตอบคำถาม \"งานฉันถึงไหนแล้ว\" โดยไม่ต้องทักแชทสักครั้ง",
+    },
+    overview: {
+      en: [
+        "An artist taking commissions spends a surprising amount of time answering the same message: how far along is my piece, and how much do I owe.",
+        "TorQueue gives every order a short public code. The customer enters it and sees their position in the current lot, which of the six stages the work has reached, the sketches uploaded so far, and an issued quotation they can print.",
+        "Behind a login, the artist works from the other side of the same data: open and close lots, move a commission through its stages, upload sketches, and build a quotation that stays a private draft until it is deliberately issued.",
+      ],
+      th: [
+        "ศิลปินที่รับงานวาดต้องเสียเวลาไปกับการตอบข้อความเดิม ๆ มากกว่าที่คิด นั่นคืองานถึงไหนแล้ว และต้องจ่ายเท่าไร",
+        "TorQueue ให้รหัสสาธารณะสั้น ๆ กับทุกออเดอร์ ลูกค้ากรอกรหัสแล้วจะเห็นลำดับคิวในรอบปัจจุบัน ขั้นตอนที่งานดำเนินไปถึงจากทั้งหมดหกขั้น ภาพร่างที่อัปโหลดไว้แล้ว และใบเสนอราคาที่ออกแล้วซึ่งสั่งพิมพ์ได้",
+        "ฝั่งหลังระบบล็อกอิน ศิลปินทำงานกับข้อมูลชุดเดียวกันจากอีกด้าน ทั้งเปิดปิดรอบคิว เลื่อนขั้นตอนของงาน อัปโหลดภาพร่าง และจัดทำใบเสนอราคาที่ยังเป็นฉบับร่างส่วนตัวจนกว่าจะกดออกอย่างตั้งใจ",
+      ],
+    },
+    users: {
+      en: "Commission customers who want a status without asking, and the artist who would rather draw than reply to messages.",
+      th: "ลูกค้าที่อยากรู้สถานะงานโดยไม่ต้องถาม และศิลปินที่อยากใช้เวลาวาดมากกว่าตอบแชท",
+    },
+    problemTitle: {
+      en: "The queue lives in the artist's head and a chat thread.",
+      th: "คิวงานอยู่ในหัวของศิลปินและในห้องแชทเท่านั้น",
+    },
+    problems: {
+      en: [
+        "Every customer asks for a status update, and every answer is typed by hand.",
+        "Without a shared queue, nobody knows how many pieces are ahead of theirs.",
+        "Quotations sent as chat messages are easy to lose and impossible to print properly.",
+        "A public status page must not leak the email addresses and notes that sit next to the order.",
+      ],
+      th: [
+        "ลูกค้าทุกคนถามความคืบหน้า และทุกคำตอบต้องพิมพ์เองทีละครั้ง",
+        "เมื่อไม่มีคิวที่เห็นร่วมกัน ก็ไม่มีใครรู้ว่ามีงานรออยู่ข้างหน้ากี่ชิ้น",
+        "ใบเสนอราคาที่ส่งเป็นข้อความในแชทหายง่ายและสั่งพิมพ์ให้เรียบร้อยไม่ได้",
+        "หน้าสถานะที่เปิดสาธารณะต้องไม่เผลอเปิดเผยอีเมลและโน้ตที่อยู่ในออเดอร์เดียวกัน",
+      ],
+    },
+    goals: [
+      {
+        number: "01",
+        title: { en: "Let customers answer their own question", th: "ให้ลูกค้าหาคำตอบได้เอง" },
+        description: {
+          en: "A short code is the whole login for the customer side.",
+          th: "ฝั่งลูกค้าใช้รหัสสั้น ๆ แทนการล็อกอินทั้งหมด",
+        },
+      },
+      {
+        number: "02",
+        title: { en: "Make the queue visible", th: "ทำให้คิวมองเห็นได้" },
+        description: {
+          en: "Lots, positions and stages shown the same way to both sides.",
+          th: "รอบคิว ลำดับ และขั้นตอน แสดงผลเหมือนกันทั้งสองฝั่ง",
+        },
+      },
+      {
+        number: "03",
+        title: { en: "Keep private fields private", th: "เก็บข้อมูลส่วนตัวให้เป็นส่วนตัว" },
+        description: {
+          en: "The database itself decides what an anonymous visitor can read.",
+          th: "ให้ฐานข้อมูลเป็นผู้ตัดสินว่าผู้เข้าชมทั่วไปอ่านอะไรได้",
+        },
+      },
+      {
+        number: "04",
+        title: { en: "Give quotations a real lifecycle", th: "ให้ใบเสนอราคามีวงจรที่ชัดเจน" },
+        description: {
+          en: "Draft while being written, issued when the customer should see it.",
+          th: "เป็นฉบับร่างระหว่างจัดทำ และกลายเป็นฉบับออกเมื่อพร้อมให้ลูกค้าเห็น",
+        },
+      },
+    ],
+    solutionTitle: {
+      en: "Two front doors over one database, separated in Postgres rather than in the UI.",
+      th: "สองทางเข้าบนฐานข้อมูลเดียว โดยแยกสิทธิ์ที่ Postgres ไม่ใช่ที่หน้าจอ",
+    },
+    solution: {
+      en: "The app is a Next.js 16 App Router project with two areas: a public queue at /queue/[code] and an admin area guarded by a protected route group. Both read the same PostgreSQL schema, but the separation is enforced in the database, not the interface. Every table carries a row-level security policy that admits only authenticated admins, and anonymous visitors are granted execute rights on exactly three security-definer functions — find a queue, get the active lot, and fetch one entry's detail. Those functions read a queue_public view that simply does not contain the customer's email, and get_queue_detail filters out draft quotations, so an unissued price can never reach the customer page. Database triggers assign each queue number and write an activity log on change, and domain types in TypeScript are deliberately kept separate from the generated row types with an explicit mapping layer in between.",
+      th: "ระบบนี้เป็นโปรเจกต์ Next.js 16 แบบ App Router แบ่งเป็นสองส่วน คือหน้าคิวสาธารณะที่ /queue/[code] และส่วนผู้ดูแลระบบที่ป้องกันด้วย route group ทั้งสองฝั่งอ่านสคีมา PostgreSQL ชุดเดียวกัน แต่การแบ่งสิทธิ์บังคับใช้ที่ฐานข้อมูล ไม่ใช่ที่หน้าจอ ทุกตารางมีนโยบาย row-level security ที่อนุญาตเฉพาะผู้ดูแลระบบที่ล็อกอินแล้ว ส่วนผู้เข้าชมทั่วไปได้สิทธิ์เรียกใช้ฟังก์ชันแบบ security definer เพียงสามตัวเท่านั้น ได้แก่ ค้นหาคิว ดูรอบคิวที่เปิดอยู่ และดึงรายละเอียดของงานหนึ่งรายการ ฟังก์ชันเหล่านี้อ่านจาก view ชื่อ queue_public ซึ่งไม่มีคอลัมน์อีเมลของลูกค้าอยู่เลย และ get_queue_detail ยังกรองใบเสนอราคาฉบับร่างออก ราคาที่ยังไม่ได้ออกจึงไปไม่ถึงหน้าลูกค้าอย่างแน่นอน นอกจากนี้ trigger ในฐานข้อมูลยังออกเลขคิวให้อัตโนมัติและบันทึกประวัติทุกครั้งที่มีการเปลี่ยนแปลง ส่วนชนิดข้อมูลของโดเมนใน TypeScript ก็ตั้งใจแยกออกจากชนิดที่ generate มาจากฐานข้อมูล โดยมีชั้นแปลงค่าคั่นกลางอย่างชัดเจน",
+    },
+    flow: [
+      {
+        number: "01",
+        title: { en: "Customer enters a code", th: "ลูกค้ากรอกรหัส" },
+        description: {
+          en: "A short public code such as MK001, or a search by name.",
+          th: "รหัสสาธารณะสั้น ๆ เช่น MK001 หรือค้นหาด้วยชื่อ",
+        },
+      },
+      {
+        number: "02",
+        title: { en: "The queue page opens", th: "เปิดหน้าติดตามคิว" },
+        description: {
+          en: "Position in the current lot, the six-stage stepper, and how far the work has come.",
+          th: "แสดงลำดับในรอบคิวปัจจุบัน แถบขั้นตอนทั้งหก และความคืบหน้าของงาน",
+        },
+      },
+      {
+        number: "03",
+        title: { en: "Sketches appear as they are made", th: "ภาพร่างขึ้นให้เห็นเมื่อวาดเสร็จ" },
+        description: {
+          en: "The artist uploads to a storage bucket; the gallery updates on the customer page.",
+          th: "ศิลปินอัปโหลดขึ้น storage bucket แล้วแกลเลอรีในหน้าลูกค้าจะอัปเดตตาม",
+        },
+      },
+      {
+        number: "04",
+        title: { en: "A quotation is issued", th: "ออกใบเสนอราคา" },
+        description: {
+          en: "Line items and a discount become a numbered document the customer can print.",
+          th: "รายการและส่วนลดกลายเป็นเอกสารที่มีเลขที่ ซึ่งลูกค้าสั่งพิมพ์ได้",
+        },
+      },
+      {
+        number: "05",
+        title: { en: "The artist advances the stage", th: "ศิลปินเลื่อนขั้นตอนของงาน" },
+        description: {
+          en: "Waiting, deposit, sketch, colouring, payment, completed — each move is logged.",
+          th: "รอคิว จ่ายมัดจำ ร่างภาพ กำลังลงสี ชำระเงิน เสร็จสิ้น โดยทุกการเลื่อนถูกบันทึกไว้",
+        },
+      },
+    ],
+    features: [
+      {
+        title: { en: "Code-based queue lookup", th: "ค้นหาคิวด้วยรหัส" },
+        description: {
+          en: "No account for customers — a short code opens their own order and nothing else.",
+          th: "ลูกค้าไม่ต้องสมัครบัญชี ใช้รหัสสั้น ๆ เปิดดูออเดอร์ของตัวเองได้เท่านั้น",
+        },
+      },
+      {
+        title: { en: "Six-stage progress tracking", th: "ติดตามความคืบหน้าหกขั้นตอน" },
+        description: {
+          en: "Waiting through completed, each stage with its own colour tone defined in one place.",
+          th: "ตั้งแต่รอคิวจนถึงเสร็จสิ้น แต่ละขั้นมีชุดสีของตัวเองที่กำหนดไว้ที่เดียว",
+        },
+      },
+      {
+        title: { en: "Lot management", th: "จัดการรอบคิว" },
+        description: {
+          en: "Open a lot with a capacity, watch it fill, and close it — queue numbers are assigned by the database.",
+          th: "เปิดรอบคิวพร้อมกำหนดจำนวนที่รับ ดูความคืบหน้า แล้วปิดรอบ โดยเลขคิวถูกกำหนดโดยฐานข้อมูล",
+        },
+      },
+      {
+        title: { en: "Sketch gallery", th: "แกลเลอรีภาพร่าง" },
+        description: {
+          en: "Uploads go to a Supabase storage bucket that only an admin can write to.",
+          th: "ไฟล์ที่อัปโหลดไปอยู่ใน Supabase storage bucket ที่มีเพียงผู้ดูแลระบบเขียนได้",
+        },
+      },
+      {
+        title: { en: "Draft and issued quotations", th: "ใบเสนอราคาฉบับร่างและฉบับออก" },
+        description: {
+          en: "A quotation stays invisible to the customer until it is issued, then prints as a numbered document.",
+          th: "ใบเสนอราคาจะไม่ปรากฏต่อลูกค้าจนกว่าจะกดออก แล้วจึงพิมพ์เป็นเอกสารที่มีเลขที่",
+        },
+      },
+      {
+        title: { en: "Admin dashboard with action items", th: "แดชบอร์ดผู้ดูแลพร้อมรายการที่ต้องทำ" },
+        description: {
+          en: "Lot progress and a list of what needs the artist's attention next.",
+          th: "แสดงความคืบหน้าของรอบคิวและรายการสิ่งที่ศิลปินต้องจัดการต่อ",
+        },
+      },
+    ],
+    screenshots: [
+      {
+        label: { en: "QUEUE LOOKUP", th: "หน้าค้นหาคิว" },
+        imageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/mookcommission/1_index_page.png",
+      },
+      {
+        label: { en: "CUSTOMER QUEUE PAGE", th: "หน้าติดตามคิวของลูกค้า" },
+        imageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/mookcommission/2_customer_view.png",
+      },
+      {
+        label: { en: "QUOTATION", th: "ใบเสนอราคา" },
+        imageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/mookcommission/3_quotation.png",
+      },
+      {
+        label: { en: "ADMIN DASHBOARD", th: "แดชบอร์ดผู้ดูแลระบบ" },
+        imageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/mookcommission/4_edit_lot.png",
+      },
+      {
+        label: { en: "CUSTOMER LIST", th: "รายชื่อลูกค้า" },
+        imageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/mookcommission/5_list_customer.png",
+      },
+      {
+        label: { en: "MANAGE CUSTOMER DATA", th: "จัดการข้อมูลลูกค้า" },
+        imageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/mookcommission/6_manage_custumer_data.png",
+      },
+    ],
+    architecture: [
+      {
+        number: "01",
+        title: { en: "Public routes", th: "เส้นทางสาธารณะ" },
+        description: {
+          en: "Home, queue lookup, and /queue/[code] with its own loading, error and not-found states.",
+          th: "หน้าแรก หน้าค้นหาคิว และ /queue/[code] ที่มีสถานะ loading, error และ not-found ของตัวเอง",
+        },
+      },
+      {
+        number: "02",
+        title: { en: "Protected admin group", th: "กลุ่มเส้นทางผู้ดูแลระบบ" },
+        description: {
+          en: "Customers, lots, quotations and settings, all inside one authenticated layout.",
+          th: "หน้าลูกค้า รอบคิว ใบเสนอราคา และตั้งค่า อยู่ในเลย์เอาต์ที่ต้องล็อกอินเดียวกัน",
+        },
+      },
+      {
+        number: "03",
+        title: { en: "lib/supabase", th: "lib/supabase" },
+        description: {
+          en: "One module per concern — queues, lots, sketches, quotations, settings — plus a map layer to domain types.",
+          th: "แยกโมดูลตามหน้าที่ ทั้งคิว รอบคิว ภาพร่าง ใบเสนอราคา และการตั้งค่า พร้อมชั้นแปลงค่าเป็นชนิดข้อมูลของโดเมน",
+        },
+      },
+      {
+        number: "04",
+        title: { en: "PostgreSQL schema", th: "สคีมา PostgreSQL" },
+        description: {
+          en: "Enums, triggers for queue numbering and activity logging, and views that define the public surface.",
+          th: "enum, trigger สำหรับออกเลขคิวและบันทึกกิจกรรม และ view ที่กำหนดขอบเขตข้อมูลสาธารณะ",
+        },
+      },
+      {
+        number: "05",
+        title: { en: "Row-level security", th: "Row-level security" },
+        description: {
+          en: "Admin-only policies on every table, with three security-definer functions granted to anonymous users.",
+          th: "ทุกตารางมีนโยบายสำหรับผู้ดูแลระบบเท่านั้น และเปิดฟังก์ชันแบบ security definer ให้ผู้ใช้ทั่วไปสามตัว",
+        },
+      },
+    ],
+    process: [
+      {
+        number: "01",
+        title: { en: "Wrote down the six stages", th: "เขียนหกขั้นตอนออกมาก่อน" },
+        description: {
+          en: "The real workflow of a commission became the enum the whole app is built around.",
+          th: "ขั้นตอนการทำงานจริงของงานรับวาดกลายเป็น enum ที่ทั้งระบบยึดเป็นหลัก",
+        },
+      },
+      {
+        number: "02",
+        title: { en: "Designed the schema first", th: "ออกแบบสคีมาก่อน" },
+        description: {
+          en: "Lots, entries, sketches, quotations and activity logs, with enums instead of free-text status.",
+          th: "ตารางรอบคิว รายการคิว ภาพร่าง ใบเสนอราคา และประวัติกิจกรรม โดยใช้ enum แทนสถานะที่เป็นข้อความอิสระ",
+        },
+      },
+      {
+        number: "03",
+        title: { en: "Locked down access in SQL", th: "ล็อกสิทธิ์ที่ระดับ SQL" },
+        description: {
+          en: "Policies and public views were written before either interface existed.",
+          th: "เขียนนโยบายสิทธิ์และ view สาธารณะก่อนที่จะมีหน้าจอทั้งสองฝั่ง",
+        },
+      },
+      {
+        number: "04",
+        title: { en: "Built the customer side", th: "ทำฝั่งลูกค้า" },
+        description: {
+          en: "Lookup, stepper and sketch gallery — the part that removes the messages.",
+          th: "หน้าค้นหา แถบขั้นตอน และแกลเลอรีภาพร่าง ซึ่งเป็นส่วนที่ช่วยลดการทักแชท",
+        },
+      },
+      {
+        number: "05",
+        title: { en: "Built the admin side", th: "ทำฝั่งผู้ดูแลระบบ" },
+        description: {
+          en: "Lot manager, stage selector, sketch manager and quotation builder.",
+          th: "ตัวจัดการรอบคิว ตัวเลือกขั้นตอน ตัวจัดการภาพร่าง และเครื่องมือสร้างใบเสนอราคา",
+        },
+      },
+      {
+        number: "06",
+        title: { en: "Deployed for real use", th: "ดีพลอยเพื่อใช้งานจริง" },
+        description: {
+          en: "Shipped to Vercel with the studio's own settings row.",
+          th: "ดีพลอยขึ้น Vercel พร้อมข้อมูลตั้งค่าของสตูดิโอเอง",
+        },
+      },
+    ],
+    challenges: [
+      {
+        challenge: {
+          en: "A public page over a table full of private fields.",
+          th: "หน้าเว็บสาธารณะที่อ่านจากตารางซึ่งมีข้อมูลส่วนตัวปนอยู่",
+        },
+        investigation: {
+          en: "The same row holds the customer's email and internal notes; hiding them in the component still ships them to the browser.",
+          th: "แถวเดียวกันเก็บทั้งอีเมลลูกค้าและโน้ตภายใน การซ่อนไว้ในคอมโพเนนต์ก็ยังส่งข้อมูลไปถึงเบราว์เซอร์อยู่ดี",
+        },
+        solution: {
+          en: "Built a queue_public view without those columns and exposed it only through security-definer functions, with row-level security refusing anonymous access to the tables themselves.",
+          th: "สร้าง view ชื่อ queue_public ที่ไม่มีคอลัมน์เหล่านั้น และเปิดให้เข้าถึงผ่านฟังก์ชันแบบ security definer เท่านั้น โดย row-level security ปฏิเสธไม่ให้ผู้ใช้ทั่วไปแตะตารางจริง",
+        },
+        result: {
+          en: "Private fields cannot leak even if a component is written carelessly.",
+          th: "ข้อมูลส่วนตัวรั่วไม่ได้ แม้จะเขียนคอมโพเนนต์อย่างไม่ระวัง",
+        },
+      },
+      {
+        challenge: {
+          en: "An unfinished price must not reach the customer.",
+          th: "ราคาที่ยังทำไม่เสร็จต้องไม่ไปถึงลูกค้า",
+        },
+        investigation: {
+          en: "The artist edits a quotation over several sittings, and any intermediate total would be read as a commitment.",
+          th: "ศิลปินแก้ใบเสนอราคาหลายรอบ ยอดระหว่างทางอาจถูกเข้าใจว่าเป็นราคาที่ตกลงแล้ว",
+        },
+        solution: {
+          en: "Gave quotations a draft and issued status, and made the customer-facing lookup filter drafts out at the database level.",
+          th: "กำหนดสถานะฉบับร่างและฉบับออกให้ใบเสนอราคา และให้การค้นหาฝั่งลูกค้ากรองฉบับร่างออกตั้งแต่ระดับฐานข้อมูล",
+        },
+        result: {
+          en: "A price becomes visible only when the artist decides it is final.",
+          th: "ราคาจะเห็นได้ก็ต่อเมื่อศิลปินตัดสินใจแล้วว่าเป็นราคาสุดท้าย",
+        },
+      },
+      {
+        challenge: {
+          en: "Database vocabulary and UI vocabulary drifted apart.",
+          th: "คำที่ใช้ในฐานข้อมูลกับที่ใช้ในหน้าจอเริ่มไม่ตรงกัน",
+        },
+        investigation: {
+          en: "A lot is 'open' in Postgres but reads as 'active' in the interface, and small mismatches like that multiply.",
+          th: "รอบคิวใช้คำว่า open ในฐานข้อมูล แต่หน้าจอเรียกว่า active ความไม่ตรงกันเล็ก ๆ แบบนี้จะทวีคูณขึ้นเรื่อย ๆ",
+        },
+        solution: {
+          en: "Kept hand-written domain types apart from generated row types and put one mapping module between them, documenting each place the names differ.",
+          th: "แยกชนิดข้อมูลของโดเมนที่เขียนเองออกจากชนิดที่ generate มา และมีโมดูลแปลงค่าเดียวคั่นกลาง พร้อมบันทึกทุกจุดที่ชื่อไม่ตรงกัน",
+        },
+        result: {
+          en: "Renaming a column touches one file instead of the whole codebase.",
+          th: "การเปลี่ยนชื่อคอลัมน์กระทบไฟล์เดียว แทนที่จะกระทบทั้งโปรเจกต์",
+        },
+      },
+    ],
+    results: {
+      en: [
+        "Live at mookcommission.vercel.app, serving a real commission studio.",
+        "Replaced repeated status messages with a public page a customer opens using a short code.",
+        "Enforced access control in PostgreSQL — admin-only row-level security plus exactly three functions granted to anonymous visitors.",
+        "Modelled the whole commission workflow as a six-stage enum with database triggers for queue numbering and change history.",
+        "Shipped a quotation builder with a draft-to-issued lifecycle and a printable document.",
+      ],
+      th: [
+        "เปิดใช้งานจริงที่ mookcommission.vercel.app ให้สตูดิโอรับงานวาดจริง",
+        "แทนที่การตอบสถานะซ้ำ ๆ ด้วยหน้าเว็บที่ลูกค้าเปิดเองด้วยรหัสสั้น ๆ",
+        "บังคับใช้การควบคุมสิทธิ์ที่ PostgreSQL ทั้ง row-level security สำหรับผู้ดูแลระบบ และเปิดฟังก์ชันให้ผู้ใช้ทั่วไปเพียงสามตัว",
+        "ออกแบบขั้นตอนงานรับวาดทั้งหมดเป็น enum หกขั้น พร้อม trigger ในฐานข้อมูลสำหรับออกเลขคิวและเก็บประวัติการเปลี่ยนแปลง",
+        "ทำเครื่องมือสร้างใบเสนอราคาที่มีวงจรจากฉบับร่างสู่ฉบับออก และพิมพ์เป็นเอกสารได้",
+      ],
+    },
+    learned: [
+      {
+        key: { en: "SECURITY IN THE DATABASE", th: "ความปลอดภัยที่ฐานข้อมูล" },
+        description: {
+          en: "Access rules belong where the data is; a careless component then cannot leak anything.",
+          th: "กฎการเข้าถึงควรอยู่ที่เดียวกับข้อมูล คอมโพเนนต์ที่เขียนไม่ระวังจึงทำข้อมูลรั่วไม่ได้",
+        },
+      },
+      {
+        key: { en: "MODEL THE WORKFLOW", th: "จำลองขั้นตอนการทำงานจริง" },
+        description: {
+          en: "Writing the six real stages down first made almost every later decision obvious.",
+          th: "การเขียนหกขั้นตอนจริงออกมาก่อน ทำให้การตัดสินใจแทบทุกอย่างหลังจากนั้นชัดเจนขึ้น",
+        },
+      },
+      {
+        key: { en: "TWO TYPE SYSTEMS", th: "ชนิดข้อมูลสองชุด" },
+        description: {
+          en: "Domain types and database rows should be allowed to disagree, as long as one module translates.",
+          th: "ชนิดข้อมูลของโดเมนกับแถวในฐานข้อมูลไม่จำเป็นต้องเหมือนกัน ขอแค่มีโมดูลเดียวคอยแปลง",
+        },
+      },
+      {
+        key: { en: "STATES, NOT FLAGS", th: "ใช้สถานะ ไม่ใช่ธง" },
+        description: {
+          en: "Draft versus issued expressed a real decision that a boolean would have hidden.",
+          th: "การแยกฉบับร่างกับฉบับออกสื่อถึงการตัดสินใจจริง ซึ่งค่า boolean จะกลบมันไป",
+        },
+      },
+    ],
+    future: [
+      {
+        phase: { en: "CURRENT", th: "ปัจจุบัน" },
+        items: {
+          en: [
+            "Code-based queue lookup",
+            "Six-stage tracking with activity history",
+            "Lot management and sketch gallery",
+            "Draft-to-issued quotations",
+          ],
+          th: [
+            "ค้นหาคิวด้วยรหัส",
+            "ติดตามหกขั้นตอนพร้อมประวัติกิจกรรม",
+            "จัดการรอบคิวและแกลเลอรีภาพร่าง",
+            "ใบเสนอราคาจากฉบับร่างสู่ฉบับออก",
+          ],
+        },
+      },
+      {
+        phase: { en: "NEXT", th: "ถัดไป" },
+        items: {
+          en: [
+            "Email the customer when a stage changes",
+            "Customer-facing sketch approval",
+            "Deposit and balance tracked as separate payments",
+          ],
+          th: [
+            "ส่งอีเมลแจ้งลูกค้าเมื่อขั้นตอนเปลี่ยน",
+            "ให้ลูกค้ากดอนุมัติภาพร่างได้เอง",
+            "แยกติดตามค่ามัดจำและยอดคงเหลือเป็นคนละรายการ",
+          ],
+        },
+      },
+      {
+        phase: { en: "FUTURE", th: "อนาคต" },
+        items: {
+          en: [
+            "Online payment linked to the quotation",
+            "Public commission request form feeding straight into a lot",
+            "Revenue and turnaround reporting per lot",
+          ],
+          th: [
+            "ชำระเงินออนไลน์ที่ผูกกับใบเสนอราคา",
+            "ฟอร์มรับงานสาธารณะที่ส่งเข้ารอบคิวโดยตรง",
+            "รายงานรายได้และระยะเวลาทำงานแยกตามรอบคิว",
+          ],
+        },
+      },
+    ],
+  },
 ];
 
 /** Look up a project by its URL slug. */
