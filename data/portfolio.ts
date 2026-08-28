@@ -810,8 +810,8 @@ export const githubHighlights: GithubHighlight[] = [
     languageLabel: "TypeScript",
     languageColor: "oklch(0.68 0.14 255)",
     description: {
-      en: "TorQueue — Next.js 16 and Supabase commission queue tracker, with access control enforced in PostgreSQL.",
-      th: "TorQueue ระบบติดตามคิวงานวาดด้วย Next.js 16 และ Supabase โดยควบคุมสิทธิ์ที่ระดับ PostgreSQL",
+      en: "AMMMOOK COMS — Next.js 16 and Supabase commission queue tracker, with access control enforced in PostgreSQL.",
+      th: "AMMMOOK COMS ระบบค้นหาคิวงานรับวาดด้วย Next.js 16 และ Supabase โดยควบคุมสิทธิ์ที่ระดับ PostgreSQL",
     },
   },
   {

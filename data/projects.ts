@@ -1057,20 +1057,20 @@ export const portfolioProjects: Project[] = [
       th: "เว็บแอปที่ใช้ปฏิทินเป็นศูนย์กลางสำหรับคนทำงานเป็นกะ บันทึกชั่วโมงทำงานรายวันแล้วเห็นค่าล่วงเวลาและค่ากะของทั้งเดือนรวมกันแบบเรียลไทม์",
     },
     coverLabel: { en: "CALENDAR", th: "หน้าปฏิทิน" },
-    coverImageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/calendar-worker/1_dashboard.png",
-    cardImageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/calendar-worker/1_dashboard.png",
+    coverImageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1787921953/1_calendar_page.png",
+    cardImageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1787921953/1_calendar_page.png",
     technologies: ["React 19", "Vite", "Tailwind CSS", "Supabase", "PostgreSQL"],
     liveUrl: "https://calendar-worker.vercel.app",
     repositoryUrl: "https://github.com/ammmook/calendar-worker",
     meta: [
       { key: { en: "DATE", th: "ช่วงเวลา" }, value: { en: "Mar 2026 — Aug 2026", th: "มี.ค. 2569 — ส.ค. 2569" } },
       { key: { en: "ROLE", th: "บทบาท" }, value: { en: "Solo Developer", th: "พัฒนาคนเดียว" } },
-      { key: { en: "TEAM", th: "ทีม" }, value: { en: "Personal project", th: "โปรเจกต์ส่วนตัว" } },
+      { key: { en: "TEAM", th: "ทีม" }, value: { en: "Solo build for one client", th: "ทำคนเดียวให้ลูกค้าหนึ่งคน" } },
       { key: { en: "STATUS", th: "สถานะ" }, value: { en: "Live on Vercel", th: "เปิดใช้งานบน Vercel" } },
       { key: { en: "CATEGORY", th: "ประเภท" }, value: { en: "Web App", th: "เว็บแอป" } },
       {
         key: { en: "CONTEXT", th: "บริบท" },
-        value: { en: "Built for real day-to-day use", th: "สร้างเพื่อใช้งานจริงในชีวิตประจำวัน" },
+        value: { en: "Requested by a friend, in daily use", th: "เพื่อนเป็นคนขอให้ทำ และใช้งานอยู่ทุกวัน" },
       },
     ],
     stack: [
@@ -1154,45 +1154,45 @@ export const portfolioProjects: Project[] = [
     },
     overview: {
       en: [
-        "Shift workers rarely earn a flat monthly figure. Pay is a base amount plus overtime hours plus a shift allowance that depends on which rotation was worked — and the only reliable record is whatever was written down at the time.",
-        "Work Time Tracker turns that record into a calendar. You tap a day, enter clock-in and clock-out, and the app derives worked hours, overtime and shift pay from the rates set once in your profile.",
-        "The monthly and yearly views then roll everything up, so at the end of the month the expected pay is already there instead of being reconstructed from memory.",
+        "A friend asked for this. Their workplace calculates overtime with rules complicated enough that working out a month by hand is genuinely hard, and until then the record lived in a notes app and a spreadsheet.",
+        "They acted as the client throughout: which screens they wanted, how each rule should be applied, and what the dashboard needed to show. I built to those requirements and took feedback each time they used it for a real month-end.",
+        "The result is a calendar where a day is recorded in seconds, overtime and shift pay follow the configured rules, social security is deducted to give a net figure, and the yearly view gives them the income total they use to estimate their tax.",
       ],
       th: [
-        "คนทำงานเป็นกะไม่ได้รับเงินเดือนคงที่ รายได้ประกอบด้วยฐานเงินเดือน บวกชั่วโมงล่วงเวลา บวกค่ากะที่ขึ้นกับรอบการทำงาน และหลักฐานเดียวที่เชื่อถือได้คือสิ่งที่จดไว้ตอนนั้น",
-        "Work Time Tracker เปลี่ยนบันทึกเหล่านั้นให้เป็นปฏิทิน แตะเลือกวัน กรอกเวลาเข้าและออกงาน แล้วระบบจะคำนวณชั่วโมงทำงาน ค่าล่วงเวลา และค่ากะจากอัตราที่ตั้งไว้ครั้งเดียวในหน้าโปรไฟล์",
-        "จากนั้นหน้าสรุปรายเดือนและรายปีจะรวมยอดให้ทั้งหมด สิ้นเดือนจึงรู้ทันทีว่าควรได้รับเท่าไร โดยไม่ต้องมานั่งนึกย้อนหลัง",
+        "โปรเจกต์นี้เริ่มจากเพื่อนขอให้ทำ ที่ทำงานของเขาคิดค่าล่วงเวลาด้วยกฎที่ซับซ้อนพอที่จะคำนวณทั้งเดือนด้วยมือได้ยากจริง ๆ และก่อนหน้านี้ข้อมูลอยู่แค่ในแอปโน้ตกับสเปรดชีต",
+        "เขาทำหน้าที่เป็นลูกค้าตลอดโปรเจกต์ ทั้งบอกว่าอยากได้หน้าจอแบบไหน แต่ละกฎควรคิดยังไง และแดชบอร์ดต้องแสดงอะไรบ้าง ผมพัฒนาตามความต้องการนั้นและรับฟีดแบ็กทุกครั้งที่เขาใช้สรุปยอดสิ้นเดือนจริง",
+        "ผลลัพธ์คือปฏิทินที่บันทึกหนึ่งวันได้ในไม่กี่วินาที คิดค่าล่วงเวลาและค่ากะตามกฎที่ตั้งไว้ หักประกันสังคมเพื่อให้ได้ยอดสุทธิ และมีหน้าสรุปรายปีที่ให้ยอดรายได้ซึ่งเขาเอาไปประเมินภาษีของตัวเองต่อ",
       ],
     },
     users: {
-      en: "Shift and hourly workers who want to check their own payslip — starting with me.",
-      th: "คนทำงานเป็นกะและรายชั่วโมงที่ต้องการตรวจสอบสลิปเงินเดือนของตัวเอง เริ่มจากตัวฉันเอง",
+      en: "One friend as the client — a shift worker with complex overtime rules who needs to check their own pay and estimate their tax.",
+      th: "เพื่อนหนึ่งคนในฐานะลูกค้า เป็นคนทำงานเป็นกะที่มีกฎค่าล่วงเวลาซับซ้อน ต้องตรวจสอบค่าแรงของตัวเองและประเมินภาษี",
     },
     problemTitle: {
-      en: "The numbers only exist in a notebook, and the maths is repeated every month.",
-      th: "ตัวเลขมีอยู่แค่ในสมุดจด และต้องคำนวณซ้ำทุกเดือน",
+      en: "Overtime rules too fiddly to add up by hand, kept in a notes app.",
+      th: "กฎค่าล่วงเวลาที่ยิบย่อยเกินกว่าจะบวกเองได้ แถมเก็บไว้แค่ในแอปโน้ต",
     },
     problems: {
       en: [
-        "Hours were tracked in a notes app, so a lost or skipped entry meant a lost day of pay.",
-        "Overtime and shift allowance follow different rules, and mixing them up is easy when adding by hand.",
-        "There was no way to see a month or a year at a glance, only a list of numbers.",
-        "Checking whether the payslip was correct meant redoing the whole calculation.",
+        "Overtime is not a flat multiplier — it is rounded by rules that are easy to apply inconsistently by hand.",
+        "Hours lived in a notes app and a spreadsheet, so a skipped entry meant a lost day of pay.",
+        "Shift allowance follows different rules again, and mixing the two up is easy when adding manually.",
+        "There was no yearly view, so estimating income tax meant adding twelve months together first.",
       ],
       th: [
-        "จดชั่วโมงทำงานไว้ในแอปโน้ต ถ้าลืมจดหรือทำหาย ก็เท่ากับเสียค่าแรงของวันนั้นไป",
-        "ค่าล่วงเวลาและค่ากะใช้กฎคนละแบบ เวลาบวกเองด้วยมือจึงสับสนได้ง่าย",
-        "ไม่มีมุมมองที่เห็นภาพรวมทั้งเดือนหรือทั้งปี มีแต่รายการตัวเลขเรียงกัน",
-        "การตรวจสอบว่าสลิปเงินเดือนถูกต้องหรือไม่ ต้องคำนวณใหม่ทั้งหมดอีกรอบ",
+        "ค่าล่วงเวลาไม่ได้คูณอัตราเดียวจบ แต่มีกฎการตัดเศษที่คิดเองด้วยมือแล้วไม่สม่ำเสมอ",
+        "ชั่วโมงทำงานอยู่ในแอปโน้ตกับสเปรดชีต ถ้าลืมจดวันไหนก็เท่ากับเสียค่าแรงวันนั้นไป",
+        "ค่ากะยังใช้กฎอีกแบบหนึ่ง เวลาบวกเองด้วยมือจึงสับสนระหว่างสองอย่างได้ง่าย",
+        "ไม่มีหน้าสรุปรายปี การจะประเมินภาษีเงินได้จึงต้องเอาสิบสองเดือนมาบวกกันก่อน",
       ],
     },
     goals: [
       {
         number: "01",
-        title: { en: "Make recording a day take seconds", th: "ทำให้การบันทึกหนึ่งวันใช้เวลาไม่กี่วินาที" },
+        title: { en: "Beat the notes app on speed", th: "บันทึกให้เร็วกว่าแอปโน้ต" },
         description: {
-          en: "If logging is slower than jotting it down, the app will not get used.",
-          th: "ถ้าการบันทึกในแอปช้ากว่าการจดใส่กระดาษ สุดท้ายก็จะไม่มีใครใช้",
+          en: "If logging a day is slower than typing it into notes, the client goes back to notes.",
+          th: "ถ้าบันทึกหนึ่งวันช้ากว่าพิมพ์ลงแอปโน้ต ลูกค้าก็จะกลับไปใช้โน้ตเหมือนเดิม",
         },
       },
       {
@@ -1205,10 +1205,10 @@ export const portfolioProjects: Project[] = [
       },
       {
         number: "03",
-        title: { en: "Show the month and the year", th: "แสดงภาพรวมทั้งเดือนและทั้งปี" },
+        title: { en: "Build the dashboard the client asked for", th: "ทำแดชบอร์ดตามที่ลูกค้าขอ" },
         description: {
-          en: "Summaries and charts so patterns in workload and income are visible.",
-          th: "มีหน้าสรุปและกราฟ เพื่อให้เห็นแนวโน้มของภาระงานและรายได้",
+          en: "A yearly income breakdown they can use to estimate their own tax.",
+          th: "หน้าสรุปรายได้รายปีที่เขาเอาไปประเมินภาษีของตัวเองได้",
         },
       },
       {
@@ -1286,6 +1286,20 @@ export const portfolioProjects: Project[] = [
         },
       },
       {
+        title: { en: "Configurable OT rounding rules", th: "ตั้งค่ากฎการตัดเศษ OT ได้" },
+        description: {
+          en: "The workplace rounds overtime by block, deducting minutes past a threshold — the rule that made hand calculation unreliable.",
+          th: "ที่ทำงานตัดเศษ OT เป็นช่วง และหักนาทีเมื่อเกินเกณฑ์ ซึ่งเป็นกฎที่ทำให้คำนวณด้วยมือแล้วไม่แม่น",
+        },
+      },
+      {
+        title: { en: "Social security deducted to a net figure", th: "หักประกันสังคมให้เป็นยอดสุทธิ" },
+        description: {
+          en: "Gross pay minus the monthly deduction, so the yearly total is the number worth reading.",
+          th: "รายได้รวมหักยอดประกันสังคมรายเดือน ยอดรวมทั้งปีจึงเป็นตัวเลขที่ใช้อ้างอิงได้จริง",
+        },
+      },
+      {
         title: { en: "Leave types", th: "ประเภทการลา" },
         description: {
           en: "Days off are recorded as leave rather than left as missing data.",
@@ -1317,15 +1331,31 @@ export const portfolioProjects: Project[] = [
     screenshots: [
       {
         label: { en: "CALENDAR", th: "หน้าปฏิทิน" },
-        imageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/calendar-worker/1_dashboard.png",
+        imageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1787921953/1_calendar_page.png",
       },
       {
-        label: { en: "YEARLY DASHBOARD — SUMMARY", th: "แดชบอร์ดรายปี — สรุปภาพรวม" },
-        imageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/calendar-worker/2_annual_dashboard_sum.png",
+        label: { en: "MONTHLY — SUMMARY", th: "รายเดือน — สรุปภาพรวม" },
+        imageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1787921957/2_monthly_summary.png",
       },
       {
-        label: { en: "YEARLY DASHBOARD — GRAPHS", th: "แดชบอร์ดรายปี — สรุปกราฟ" },
-        imageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/calendar-worker/3_annual_dashboard_graph.png",
+        label: { en: "MONTHLY — GRAPHS", th: "รายเดือน — กราฟ" },
+        imageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1787921955/3_monthly_graphs.png",
+      },
+      {
+        label: { en: "MONTHLY — WORK LOG", th: "รายเดือน — บันทึกรายวัน" },
+        imageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1787921953/4_monthly_listday.png",
+      },
+      {
+        label: { en: "YEARLY — SUMMARY", th: "รายปี — สรุปภาพรวม" },
+        imageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1787921955/5_yearly_summary.png",
+      },
+      {
+        label: { en: "YEARLY — GRAPHS", th: "รายปี — กราฟ" },
+        imageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1787921954/6_yearly_graph.png",
+      },
+      {
+        label: { en: "YEARLY — MONTHLY LOG", th: "รายปี — สรุปรายเดือน" },
+        imageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1787921953/7_yearly_listmonth.png",
       },
     ],
     architecture: [
@@ -1373,10 +1403,10 @@ export const portfolioProjects: Project[] = [
     process: [
       {
         number: "01",
-        title: { en: "Started from my own notebook", th: "เริ่มจากสมุดจดของตัวเอง" },
+        title: { en: "Collected the rules from the client", th: "เก็บกฎการคำนวณจากลูกค้า" },
         description: {
-          en: "Wrote down the rules I was applying by hand before writing any code.",
-          th: "เขียนกฎที่ใช้คำนวณด้วยมือจริง ๆ ออกมาก่อนลงมือเขียนโค้ด",
+          en: "Went through their notes and spreadsheet and wrote every overtime rule down before coding.",
+          th: "ไล่ดูโน้ตและสเปรดชีตของเขา แล้วเขียนกฎค่าล่วงเวลาทุกข้อออกมาก่อนลงมือเขียนโค้ด",
         },
       },
       {
@@ -1413,10 +1443,10 @@ export const portfolioProjects: Project[] = [
       },
       {
         number: "06",
-        title: { en: "Shipped and kept using it", th: "ปล่อยใช้งานจริงและใช้ต่อเนื่อง" },
+        title: { en: "Iterated on the client's feedback", th: "ปรับตามฟีดแบ็กของลูกค้า" },
         description: {
-          en: "Deployed to Vercel and fixed what got in the way during real month-end use.",
-          th: "ดีพลอยขึ้น Vercel แล้วแก้จุดที่ติดขัดตอนสรุปยอดสิ้นเดือนจริง",
+          en: "Deployed to Vercel, then fixed what they hit during real month-end use until they were happy.",
+          th: "ดีพลอยขึ้น Vercel แล้วแก้จุดที่เขาเจอตอนสรุปยอดสิ้นเดือนจริง จนเขาพอใจ",
         },
       },
     ],
@@ -1475,15 +1505,15 @@ export const portfolioProjects: Project[] = [
     ],
     results: {
       en: [
-        "Live at calendar-worker.vercel.app and used for real monthly pay checks.",
-        "Replaced manual notebook tracking with a per-day record that prices itself.",
+        "Live at calendar-worker.vercel.app and used every month by the friend who requested it.",
+        "Replaced their notes app and spreadsheet with a per-day record that prices itself.",
         "Overtime and shift allowance are derived from configurable rates instead of hand arithmetic.",
         "Monthly and yearly dashboards turned a list of numbers into a readable trend.",
         "Built entirely on Supabase auth and row-level security, with no server of my own to maintain.",
       ],
       th: [
-        "เปิดใช้งานจริงที่ calendar-worker.vercel.app และใช้ตรวจสอบค่าแรงทุกเดือน",
-        "แทนที่การจดบันทึกในสมุดด้วยข้อมูลรายวันที่คำนวณค่าจ้างให้เอง",
+        "เปิดใช้งานจริงที่ calendar-worker.vercel.app และเพื่อนที่ขอให้ทำใช้ตรวจสอบค่าแรงทุกเดือน",
+        "แทนที่แอปโน้ตและสเปรดชีตของเขา ด้วยข้อมูลรายวันที่คำนวณค่าจ้างให้เอง",
         "ค่าล่วงเวลาและค่ากะคำนวณจากอัตราที่ตั้งค่าได้ แทนการบวกเลขด้วยมือ",
         "แดชบอร์ดรายเดือนและรายปีเปลี่ยนรายการตัวเลขให้กลายเป็นแนวโน้มที่อ่านเข้าใจได้",
         "สร้างบนระบบยืนยันตัวตนและ row-level security ของ Supabase ทั้งหมด จึงไม่ต้องดูแลเซิร์ฟเวอร์เอง",
@@ -1512,10 +1542,10 @@ export const portfolioProjects: Project[] = [
         },
       },
       {
-        key: { en: "BUILD FOR YOURSELF", th: "สร้างเพื่อใช้เอง" },
+        key: { en: "BUILDING TO A BRIEF", th: "ทำงานตามโจทย์ของลูกค้า" },
         description: {
-          en: "Being the user made every scoping decision obvious.",
-          th: "การเป็นผู้ใช้เองทำให้ตัดสินใจเรื่องขอบเขตงานได้ชัดเจนทุกครั้ง",
+          en: "Having one real client with real rules beats guessing what a generic user might want.",
+          th: "การมีลูกค้าจริงหนึ่งคนที่มีกฎจริง ดีกว่าการเดาว่าผู้ใช้ทั่วไปน่าจะอยากได้อะไร",
         },
       },
     ],
@@ -1525,45 +1555,32 @@ export const portfolioProjects: Project[] = [
         items: {
           en: [
             "Calendar entry",
-            "Automatic OT and shift pay",
+            "OT rounding rules and shift pay",
+            "Social security deducted to a net total",
             "Monthly and yearly dashboards",
             "Thai / English UI",
           ],
           th: [
             "บันทึกผ่านปฏิทิน",
-            "คำนวณ OT และค่ากะอัตโนมัติ",
+            "กฎการตัดเศษ OT และค่ากะ",
+            "หักประกันสังคมเป็นยอดสุทธิ",
             "แดชบอร์ดรายเดือนและรายปี",
             "อินเทอร์เฟซไทย / อังกฤษ",
           ],
         },
       },
       {
-        phase: { en: "NEXT", th: "ถัดไป" },
+        phase: { en: "NO FURTHER WORK PLANNED", th: "ยังไม่มีแผนพัฒนาต่อ" },
         items: {
           en: [
-            "Export a month to CSV or PDF",
-            "Compare the summary against an uploaded payslip",
-            "Installable PWA for offline entry",
+            "The client considers the app finished and uses it as it is",
+            "Every requirement they raised has been delivered",
+            "Further work waits until they ask for something new",
           ],
           th: [
-            "ส่งออกข้อมูลรายเดือนเป็น CSV หรือ PDF",
-            "เทียบยอดสรุปกับสลิปเงินเดือนที่อัปโหลด",
-            "ทำเป็น PWA ติดตั้งได้เพื่อบันทึกแบบออฟไลน์",
-          ],
-        },
-      },
-      {
-        phase: { en: "FUTURE", th: "อนาคต" },
-        items: {
-          en: [
-            "Shift-pattern templates for recurring rotations",
-            "Team view for a small workplace",
-            "Reminders for unrecorded days",
-          ],
-          th: [
-            "เทมเพลตรูปแบบกะสำหรับรอบการทำงานที่ทำซ้ำ",
-            "มุมมองสำหรับทีมในที่ทำงานขนาดเล็ก",
-            "แจ้งเตือนวันที่ยังไม่ได้บันทึก",
+            "ลูกค้าถือว่าแอปเสร็จแล้วและใช้งานตามนี้",
+            "ความต้องการทุกข้อที่เขาเสนอมาถูกส่งมอบครบแล้ว",
+            "จะพัฒนาต่อเมื่อเขาขอสิ่งใหม่เท่านั้น",
           ],
         },
       },
@@ -2614,7 +2631,7 @@ export const portfolioProjects: Project[] = [
       en: "UniTodo — Coursework Task Manager",
       th: "UniTodo — ระบบจัดการงานเรียน",
     },
-    shortName: { en: "UniTodo", th: "UniTodo" },
+    shortName: { en: "UniTodo ToDo-List", th: "UniTodo ToDo-List" },
     year: "2026",
     status: { en: "LIVE", th: "ใช้งานจริง" },
     category: { en: "Web App", th: "เว็บแอป" },
@@ -2629,16 +2646,18 @@ export const portfolioProjects: Project[] = [
       th: "เว็บแอป React ที่ใช้ Google Sheet เป็นแบ็กเอนด์ทั้งหมดผ่าน Apps Script มีระบบล็อกอินด้วย Google จริง ออก session จากฝั่งเซิร์ฟเวอร์ และคำนวณระดับความสำคัญจากกำหนดส่งแทนการให้ผู้ใช้เลือกเอง",
     },
     coverLabel: { en: "DASHBOARD", th: "หน้าแดชบอร์ด" },
+    coverImageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1787914071/1_main_page.png",
+    cardImageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1787914071/1_main_page.png",
     technologies: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Google Apps Script"],
     liveUrl: "https://unitodo-five.vercel.app",
     repositoryUrl: "https://github.com/ammmook/unitodo",
     meta: [
       { key: { en: "DATE", th: "ช่วงเวลา" }, value: { en: "Aug 2026", th: "ส.ค. 2569" } },
       { key: { en: "ROLE", th: "บทบาท" }, value: { en: "Solo Developer", th: "พัฒนาคนเดียว" } },
-      { key: { en: "TEAM", th: "ทีม" }, value: { en: "Personal project", th: "โปรเจกต์ส่วนตัว" } },
+      { key: { en: "TEAM", th: "ทีม" }, value: { en: "Solo build, requirements from users", th: "ทำคนเดียว โดยรับโจทย์จากผู้ใช้" } },
       { key: { en: "STATUS", th: "สถานะ" }, value: { en: "Live on Vercel", th: "เปิดใช้งานบน Vercel" } },
       { key: { en: "CATEGORY", th: "ประเภท" }, value: { en: "Web App", th: "เว็บแอป" } },
-      { key: { en: "CONTEXT", th: "บริบท" }, value: { en: "Built for my own semester", th: "สร้างไว้ใช้เรียนของตัวเอง" } },
+      { key: { en: "CONTEXT", th: "บริบท" }, value: { en: "Built for juniors still at university", th: "ทำให้รุ่นน้องที่ยังเรียนอยู่" } },
     ],
     stack: [
       {
@@ -2730,23 +2749,23 @@ export const portfolioProjects: Project[] = [
     },
     overview: {
       en: [
-        "Most students track coursework in a spreadsheet. It works, but it cannot tell you what is urgent, and it looks the same on a phone as it does on a laptop.",
-        "UniTodo keeps the spreadsheet as the database and puts a proper React application in front of it. Apps Script turns the sheet into an API, so the data stays somewhere the owner can open, sort and filter directly.",
-        "The part worth building was the judgement: priority is derived from the deadline and the current status, so there is no importance dropdown to get wrong, and a daily trigger keeps the sheet's own priority column correct even when nobody opens the app.",
+        "I built this for juniors still at university. Their problem was not recording coursework — it was looking at a long list of it and not knowing which piece to start on today.",
+        "So the goal was to make the workload legible: show at a glance how much is left and what deserves attention first, so a week can actually be planned and nothing overdue slips through.",
+        "They supplied part of the requirements and I took it from there. UniTodo keeps a Google Sheet as the database and puts a React application in front of it, with priority derived from the deadline and status instead of chosen by hand, and a daily trigger keeping the sheet's own priority column correct even when nobody opens the app.",
       ],
       th: [
-        "นักศึกษาส่วนใหญ่จดงานเรียนไว้ในสเปรดชีต ซึ่งใช้ได้ แต่มันบอกไม่ได้ว่างานไหนด่วน และเปิดบนมือถือก็หน้าตาเหมือนบนโน้ตบุ๊กทุกอย่าง",
-        "UniTodo ยังใช้สเปรดชีตเป็นฐานข้อมูลเหมือนเดิม แต่เอาแอป React จริง ๆ มาครอบไว้ข้างหน้า โดยให้ Apps Script เปลี่ยนชีตให้กลายเป็น API ข้อมูลจึงยังอยู่ในที่ที่เจ้าของเปิด เรียง และกรองเองได้โดยตรง",
-        "ส่วนที่ควรค่าแก่การพัฒนาจริง ๆ คือการตัดสินใจแทนผู้ใช้ ระดับความสำคัญคำนวณจากกำหนดส่งและสถานะปัจจุบัน จึงไม่มี dropdown ให้เลือกผิด และมี trigger รายวันคอยอัปเดตคอลัมน์ priority ในชีตให้ถูกต้องแม้ไม่มีใครเปิดเว็บเลย",
+        "ผมทำเว็บนี้ให้รุ่นน้องที่ยังเรียนอยู่มหาวิทยาลัย ปัญหาของพวกเขาไม่ใช่การจดงาน แต่คือการมองรายการงานยาว ๆ แล้วไม่รู้ว่าวันนี้ควรเริ่มทำชิ้นไหนก่อน",
+        "เป้าหมายจึงเป็นการทำให้ภาระงานอ่านออก คือเห็นได้ทันทีว่าเหลืองานอีกเท่าไรและควรโฟกัสอะไรก่อน เพื่อให้วางแผนทั้งสัปดาห์ได้จริงและไม่มีงานไหนเลยกำหนดไปแบบไม่รู้ตัว",
+        "รุ่นน้องเป็นคนให้ความต้องการมาส่วนหนึ่ง แล้วผมมาต่อยอดเอง UniTodo ยังใช้ Google Sheet เป็นฐานข้อมูล แต่เอาแอป React มาครอบไว้ข้างหน้า โดยคำนวณระดับความสำคัญจากกำหนดส่งและสถานะแทนการให้เลือกเอง และมี trigger รายวันคอยอัปเดตคอลัมน์ priority ในชีตให้ถูกต้องแม้ไม่มีใครเปิดเว็บเลย",
       ],
     },
     users: {
-      en: "University students juggling several subjects at once, plus an admin who can look at any account when something goes wrong.",
-      th: "นักศึกษาที่เรียนหลายวิชาพร้อมกัน และผู้ดูแลระบบที่ต้องเข้าไปดูบัญชีของคนอื่นได้เมื่อมีปัญหา",
+      en: "Juniors still at university juggling several subjects, who need to see what to focus on first — plus an admin who can look at any account when something goes wrong.",
+      th: "รุ่นน้องที่ยังเรียนอยู่และลงหลายวิชาพร้อมกัน ซึ่งต้องรู้ว่าควรโฟกัสงานไหนก่อน และผู้ดูแลระบบที่เข้าไปดูบัญชีของคนอื่นได้เมื่อมีปัญหา",
     },
     problemTitle: {
-      en: "A spreadsheet stores deadlines but never tells you which one matters today.",
-      th: "สเปรดชีตเก็บกำหนดส่งได้ แต่ไม่เคยบอกว่าวันนี้ควรทำอันไหนก่อน",
+      en: "Seeing every task at once is not the same as knowing where to start.",
+      th: "การเห็นงานทั้งหมดพร้อมกัน ไม่เท่ากับรู้ว่าควรเริ่มตรงไหน",
     },
     problems: {
       en: [
@@ -2891,10 +2910,30 @@ export const portfolioProjects: Project[] = [
       },
     ],
     screenshots: [
-      { label: { en: "LOGIN", th: "หน้าเข้าสู่ระบบ" } },
-      { label: { en: "DASHBOARD", th: "หน้าแดชบอร์ด" } },
-      { label: { en: "ALL WORKS", th: "หน้างานทั้งหมด" } },
-      { label: { en: "SUBJECTS & ADMIN", th: "หน้าวิชาเรียนและผู้ดูแลระบบ" } },
+      {
+        label: { en: "DASHBOARD", th: "หน้าแดชบอร์ด" },
+        imageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1787914071/1_main_page.png",
+      },
+      {
+        label: { en: "ALL WORKS", th: "หน้างานทั้งหมด" },
+        imageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1787914616/2_list_tasks.png",
+      },
+      {
+        label: { en: "ADD WORK", th: "เพิ่มงานใหม่" },
+        imageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1787915778/3_add_task.png",
+      },
+      {
+        label: { en: "ADD SUBJECT", th: "เพิ่มวิชาใหม่" },
+        imageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1787915778/4_add_subject.png",
+      },
+      {
+        label: { en: "SUBJECTS", th: "หน้าวิชาเรียน" },
+        imageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1787914633/5_list_subject.png",
+      },
+      {
+        label: { en: "ADMIN — USERS", th: "ผู้ดูแลระบบ — ผู้ใช้ทั้งหมด" },
+        imageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1787914631/6_admin_page.png",
+      },
     ],
     architecture: [
       {
@@ -2941,10 +2980,10 @@ export const portfolioProjects: Project[] = [
     process: [
       {
         number: "01",
-        title: { en: "Started from the spreadsheet I already used", th: "เริ่มจากสเปรดชีตที่ใช้อยู่แล้ว" },
+        title: { en: "Took the juniors' requirements", th: "รับโจทย์จากรุ่นน้อง" },
         description: {
-          en: "The existing columns became the domain types.",
-          th: "คอลัมน์ที่มีอยู่เดิมกลายเป็นชนิดข้อมูลของโดเมน",
+          en: "Started from what they asked for, then extended it into the full feature set.",
+          th: "เริ่มจากสิ่งที่พวกเขาขอ แล้วต่อยอดจนกลายเป็นฟีเจอร์ชุดเต็ม",
         },
       },
       {
@@ -3046,14 +3085,14 @@ export const portfolioProjects: Project[] = [
     ],
     results: {
       en: [
-        "Live at unitodo-five.vercel.app and used for my own coursework.",
+        "Live at unitodo-five.vercel.app and used by juniors to plan their coursework.",
         "Replaced manual importance levels with a priority derived from deadline and status, recalculated daily.",
         "Shipped real Google Sign-In with server-issued, revocable sessions and no passwords stored anywhere.",
         "Cut the app's cold start to a single bootstrap request, with cache-first rendering and optimistic updates.",
         "Built genuinely separate mobile and desktop layouts rather than one shrunken design.",
       ],
       th: [
-        "เปิดใช้งานจริงที่ unitodo-five.vercel.app และใช้จัดการงานเรียนของตัวเอง",
+        "เปิดใช้งานจริงที่ unitodo-five.vercel.app และรุ่นน้องใช้วางแผนงานเรียนของตัวเอง",
         "แทนที่การตั้งระดับความสำคัญด้วยมือ ด้วยค่าที่คำนวณจากกำหนดส่งและสถานะ พร้อมคำนวณใหม่ทุกวัน",
         "ทำระบบล็อกอิน Google จริง พร้อม session ที่ออกและเพิกถอนได้จากเซิร์ฟเวอร์ โดยไม่เก็บรหัสผ่านที่ใดเลย",
         "ลดการโหลดตอนเปิดแอปให้เหลือคำขอเดียว พร้อมวาดจาก cache ก่อนและอัปเดตแบบ optimistic",
@@ -3157,12 +3196,12 @@ export const portfolioProjects: Project[] = [
       th: "ลูกค้าเช็คคิวงานวาดด้วยรหัส ส่วนนักวาดจัดการทุกอย่างผ่านหน้าผู้ดูแลระบบ",
     },
     tagline: {
-      en: "A queue tracker for an art commission studio: customers look up their own order by code and watch it move through six stages, while the artist manages lots, sketches and quotations behind a login.",
-      th: "ระบบติดตามคิวสำหรับสตูดิโอรับวาดภาพ ลูกค้าค้นหางานของตัวเองด้วยรหัสและติดตามความคืบหน้าทั้งหกขั้นตอน ส่วนนักวาดจัดการรอบคิว ภาพร่าง และใบเสนอราคาอยู่หลังระบบล็อกอิน",
+      en: "My own commission queue system: customers look up their order by code and watch it move through six stages, with the agreed brief and a quotation kept on record so nothing is disputed later.",
+      th: "ระบบคิวงานรับวาดของตัวเอง ลูกค้าค้นหางานด้วยรหัสและติดตามความคืบหน้าทั้งหกขั้นตอน พร้อมเก็บรายละเอียดที่ตกลงกันและใบเสนอราคาไว้เป็นหลักฐาน เพื่อไม่ให้มีปัญหาตามมาทีหลัง",
     },
     coverLabel: { en: "QUEUE LOOKUP", th: "หน้าค้นหาคิว" },
-    coverImageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/mookcommission/1_index_page.png",
-    cardImageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/mookcommission/1_index_page.png",
+    coverImageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1787921373/1_index_page.png",
+    cardImageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1787921373/1_index_page.png",
     technologies: ["Next.js 16", "React 19", "TypeScript", "Supabase", "PostgreSQL"],
     liveUrl: "https://mookcommission.vercel.app",
     repositoryUrl: "https://github.com/ammmook/mookcommission",
@@ -3172,7 +3211,7 @@ export const portfolioProjects: Project[] = [
       { key: { en: "TEAM", th: "ทีม" }, value: { en: "Solo project", th: "ทำคนเดียว" } },
       { key: { en: "STATUS", th: "สถานะ" }, value: { en: "Live on Vercel", th: "เปิดใช้งานบน Vercel" } },
       { key: { en: "CATEGORY", th: "ประเภท" }, value: { en: "Web App", th: "เว็บแอป" } },
-      { key: { en: "CONTEXT", th: "บริบท" }, value: { en: "Real commission studio", th: "สตูดิโอรับงานวาดจริง" } },
+      { key: { en: "CONTEXT", th: "บริบท" }, value: { en: "My own commission work", th: "งานรับวาดของตัวเอง" } },
     ],
     stack: [
       {
@@ -3264,36 +3303,38 @@ export const portfolioProjects: Project[] = [
     },
     overview: {
       en: [
-        "An artist taking commissions spends a surprising amount of time answering the same message: how far along is my piece, and how much do I owe.",
-        "TorQueue gives every order a short public code. The customer enters it and sees their position in the current lot, which of the six stages the work has reached, the sketches uploaded so far, and an issued quotation they can print.",
-        "Behind a login, the artist works from the other side of the same data: open and close lots, move a commission through its stages, upload sketches, and build a quotation that stays a private draft until it is deliberately issued.",
+        "I draw, and I take commissions. Once the queue gets long, customers have no way of knowing where they sit in it, so the same question arrives over and over: how many are ahead of me, and when is mine.",
+        "The idea for the fix came from pre-order shops, where you type your account name into a lookup and get your own order status back. I built the same thing for a commission queue: every order has a short public code, and entering it shows the position in the current lot and which of the six stages the work has reached.",
+        "The second reason was record-keeping. Details agreed over chat get forgotten and argued about later, so the brief collected from the customer is written down against the order, and a quotation is issued as a proper document — the price and what it covers are settled once, in writing, rather than renegotiated after the drawing is done.",
       ],
       th: [
-        "ศิลปินที่รับงานวาดต้องเสียเวลาไปกับการตอบข้อความเดิม ๆ มากกว่าที่คิด นั่นคืองานถึงไหนแล้ว และต้องจ่ายเท่าไร",
-        "TorQueue ให้รหัสสาธารณะสั้น ๆ กับทุกออเดอร์ ลูกค้ากรอกรหัสแล้วจะเห็นลำดับคิวในรอบปัจจุบัน ขั้นตอนที่งานดำเนินไปถึงจากทั้งหมดหกขั้น ภาพร่างที่อัปโหลดไว้แล้ว และใบเสนอราคาที่ออกแล้วซึ่งสั่งพิมพ์ได้",
-        "ฝั่งหลังระบบล็อกอิน ศิลปินทำงานกับข้อมูลชุดเดียวกันจากอีกด้าน ทั้งเปิดปิดรอบคิว เลื่อนขั้นตอนของงาน อัปโหลดภาพร่าง และจัดทำใบเสนอราคาที่ยังเป็นฉบับร่างส่วนตัวจนกว่าจะกดออกอย่างตั้งใจ",
+        "ฉันชอบวาดรูปและเปิดรับคอมมิชชั่น พอคิวยาวขึ้น ลูกค้าก็ไม่มีทางรู้ว่าตัวเองอยู่ตรงไหนของคิว คำถามเดิมจึงเข้ามาซ้ำ ๆ ว่ามีคนรออยู่ข้างหน้ากี่คน และงานของตัวเองจะได้เมื่อไร",
+        "ไอเดียวิธีแก้ได้มาจากร้านรับพรีสินค้า ที่ให้ลูกค้าพิมพ์ชื่อแอคเคาต์ตัวเองลงไปค้นหา แล้วได้สถานะออเดอร์ของตัวเองกลับมา จึงนำมาปรับใช้กับคิวงานวาด ทุกออเดอร์มีรหัสสาธารณะสั้น ๆ กรอกแล้วเห็นลำดับคิวในรอบปัจจุบันและขั้นตอนที่งานดำเนินไปถึง",
+        "เหตุผลที่สองคือการเก็บหลักฐาน รายละเอียดที่ตกลงกันในแชทมักถูกลืมและกลายเป็นปัญหาทีหลัง จึงบันทึกรายละเอียดภาพที่เก็บมาจากลูกค้าไว้กับออเดอร์เป็นลายลักษณ์อักษร และออกใบเสนอราคาเป็นเอกสารจริง ตกลงราคาและขอบเขตงานให้จบครั้งเดียว ไม่ต้องมาเถียงกันตอนวาดเสร็จ",
       ],
     },
     users: {
-      en: "Commission customers who want a status without asking, and the artist who would rather draw than reply to messages.",
-      th: "ลูกค้าที่อยากรู้สถานะงานโดยไม่ต้องถาม และศิลปินที่อยากใช้เวลาวาดมากกว่าตอบแชท",
+      en: "My own commission customers, who want their queue position and the agreed brief without asking — and me, running the queue from the admin side.",
+      th: "ลูกค้าคอมมิชชั่นของตัวเอง ที่อยากรู้ลำดับคิวและรายละเอียดที่ตกลงกันโดยไม่ต้องถาม และตัวเราเองที่จัดการคิวจากฝั่งผู้ดูแลระบบ",
     },
     problemTitle: {
-      en: "The queue lives in the artist's head and a chat thread.",
-      th: "คิวงานอยู่ในหัวของศิลปินและในห้องแชทเท่านั้น",
+      en: "The queue and the agreement both live in a chat thread.",
+      th: "ทั้งคิวงานและข้อตกลงอยู่ในห้องแชทเหมือนกันหมด",
     },
     problems: {
       en: [
-        "Every customer asks for a status update, and every answer is typed by hand.",
-        "Without a shared queue, nobody knows how many pieces are ahead of theirs.",
-        "Quotations sent as chat messages are easy to lose and impossible to print properly.",
-        "A public status page must not leak the email addresses and notes that sit next to the order.",
+        "When the queue is long, a customer has no way to see how many pieces are ahead of theirs.",
+        "Every status question is answered by hand, and the answer is only as good as my memory.",
+        "The brief agreed in chat gets scrolled past, so what was actually promised becomes arguable.",
+        "A price quoted in a message is easy to lose and easy to dispute once the drawing is finished.",
+        "A public status page must not leak the email addresses and internal notes stored on the same order.",
       ],
       th: [
-        "ลูกค้าทุกคนถามความคืบหน้า และทุกคำตอบต้องพิมพ์เองทีละครั้ง",
-        "เมื่อไม่มีคิวที่เห็นร่วมกัน ก็ไม่มีใครรู้ว่ามีงานรออยู่ข้างหน้ากี่ชิ้น",
-        "ใบเสนอราคาที่ส่งเป็นข้อความในแชทหายง่ายและสั่งพิมพ์ให้เรียบร้อยไม่ได้",
-        "หน้าสถานะที่เปิดสาธารณะต้องไม่เผลอเปิดเผยอีเมลและโน้ตที่อยู่ในออเดอร์เดียวกัน",
+        "พอคิวยาว ลูกค้าไม่มีทางรู้เลยว่ามีงานรออยู่ข้างหน้าตัวเองกี่ชิ้น",
+        "คำถามเรื่องสถานะต้องตอบเองทุกครั้ง และคำตอบก็แม่นเท่าที่จำได้เท่านั้น",
+        "รายละเอียดงานที่ตกลงกันในแชทถูกเลื่อนผ่านไป สุดท้ายก็เถียงกันได้ว่าตกลงอะไรไว้กันแน่",
+        "ราคาที่บอกไปในข้อความหายง่ายและถูกโต้แย้งได้ง่ายเมื่อวาดเสร็จแล้ว",
+        "หน้าสถานะสาธารณะต้องไม่เผลอเปิดเผยอีเมลและโน้ตภายในที่อยู่ในออเดอร์เดียวกัน",
       ],
     },
     goals: [
@@ -3301,8 +3342,8 @@ export const portfolioProjects: Project[] = [
         number: "01",
         title: { en: "Let customers answer their own question", th: "ให้ลูกค้าหาคำตอบได้เอง" },
         description: {
-          en: "A short code is the whole login for the customer side.",
-          th: "ฝั่งลูกค้าใช้รหัสสั้น ๆ แทนการล็อกอินทั้งหมด",
+          en: "Borrowed from pre-order shops: a short code is the whole login for the customer side.",
+          th: "ยืมไอเดียจากร้านรับพรีสินค้า ฝั่งลูกค้าใช้รหัสสั้น ๆ แทนการล็อกอินทั้งหมด",
         },
       },
       {
@@ -3323,10 +3364,10 @@ export const portfolioProjects: Project[] = [
       },
       {
         number: "04",
-        title: { en: "Give quotations a real lifecycle", th: "ให้ใบเสนอราคามีวงจรที่ชัดเจน" },
+        title: { en: "Put the agreement in writing", th: "ทำข้อตกลงให้เป็นลายลักษณ์อักษร" },
         description: {
-          en: "Draft while being written, issued when the customer should see it.",
-          th: "เป็นฉบับร่างระหว่างจัดทำ และกลายเป็นฉบับออกเมื่อพร้อมให้ลูกค้าเห็น",
+          en: "The brief and the price become a record both sides can point at, instead of a chat message.",
+          th: "รายละเอียดงานและราคากลายเป็นหลักฐานที่ทั้งสองฝ่ายอ้างอิงได้ แทนที่จะเป็นข้อความในแชท",
         },
       },
     ],
@@ -3412,8 +3453,15 @@ export const portfolioProjects: Project[] = [
       {
         title: { en: "Draft and issued quotations", th: "ใบเสนอราคาฉบับร่างและฉบับออก" },
         description: {
-          en: "A quotation stays invisible to the customer until it is issued, then prints as a numbered document.",
-          th: "ใบเสนอราคาจะไม่ปรากฏต่อลูกค้าจนกว่าจะกดออก แล้วจึงพิมพ์เป็นเอกสารที่มีเลขที่",
+          en: "A quotation stays invisible to the customer until it is issued, then prints as a numbered document that settles the price.",
+          th: "ใบเสนอราคาจะไม่ปรากฏต่อลูกค้าจนกว่าจะกดออก แล้วจึงพิมพ์เป็นเอกสารที่มีเลขที่ ใช้ยืนยันราคาได้",
+        },
+      },
+      {
+        title: { en: "The brief kept on the order", th: "เก็บรายละเอียดงานไว้กับออเดอร์" },
+        description: {
+          en: "Commission type, character count, dimensions and notes are recorded against the entry, so what was agreed is written down rather than remembered.",
+          th: "ประเภทงาน จำนวนตัวละคร ขนาดภาพ และโน้ต ถูกบันทึกไว้กับรายการคิว สิ่งที่ตกลงกันจึงเป็นลายลักษณ์อักษร ไม่ใช่ความทรงจำ",
         },
       },
       {
@@ -3427,27 +3475,31 @@ export const portfolioProjects: Project[] = [
     screenshots: [
       {
         label: { en: "QUEUE LOOKUP", th: "หน้าค้นหาคิว" },
-        imageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/mookcommission/1_index_page.png",
+        imageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1787921373/1_index_page.png",
       },
       {
         label: { en: "CUSTOMER QUEUE PAGE", th: "หน้าติดตามคิวของลูกค้า" },
-        imageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/mookcommission/2_customer_view.png",
+        imageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1787921372/2_customer_detail.png",
       },
       {
         label: { en: "QUOTATION", th: "ใบเสนอราคา" },
-        imageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/mookcommission/3_quotation.png",
+        imageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1787921372/3_quotation.png",
       },
       {
         label: { en: "ADMIN DASHBOARD", th: "แดชบอร์ดผู้ดูแลระบบ" },
-        imageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/mookcommission/4_edit_lot.png",
+        imageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1787921372/4_admin_firstpage.png",
       },
       {
         label: { en: "CUSTOMER LIST", th: "รายชื่อลูกค้า" },
-        imageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/mookcommission/5_list_customer.png",
+        imageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1787921373/5_manage_customer.png",
       },
       {
         label: { en: "MANAGE CUSTOMER DATA", th: "จัดการข้อมูลลูกค้า" },
-        imageUrl: "https://avkiohcjeykmmtqklegg.supabase.co/storage/v1/object/public/my-portfolio-pictures/mookcommission/6_manage_custumer_data.png",
+        imageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1787921371/6_manage_customer_detail.png",
+      },
+      {
+        label: { en: "QUOTATION BUILDER", th: "หน้าสร้างใบเสนอราคา" },
+        imageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1787921371/7_manage_quotation.png",
       },
     ],
     architecture: [
@@ -3600,14 +3652,14 @@ export const portfolioProjects: Project[] = [
     ],
     results: {
       en: [
-        "Live at mookcommission.vercel.app, serving a real commission studio.",
+        "Live at mookcommission.vercel.app, running my own commission queue.",
         "Replaced repeated status messages with a public page a customer opens using a short code.",
         "Enforced access control in PostgreSQL — admin-only row-level security plus exactly three functions granted to anonymous visitors.",
         "Modelled the whole commission workflow as a six-stage enum with database triggers for queue numbering and change history.",
         "Shipped a quotation builder with a draft-to-issued lifecycle and a printable document.",
       ],
       th: [
-        "เปิดใช้งานจริงที่ mookcommission.vercel.app ให้สตูดิโอรับงานวาดจริง",
+        "เปิดใช้งานจริงที่ mookcommission.vercel.app ใช้จัดการคิวงานรับวาดของตัวเอง",
         "แทนที่การตอบสถานะซ้ำ ๆ ด้วยหน้าเว็บที่ลูกค้าเปิดเองด้วยรหัสสั้น ๆ",
         "บังคับใช้การควบคุมสิทธิ์ที่ PostgreSQL ทั้ง row-level security สำหรับผู้ดูแลระบบ และเปิดฟังก์ชันให้ผู้ใช้ทั่วไปเพียงสามตัว",
         "ออกแบบขั้นตอนงานรับวาดทั้งหมดเป็น enum หกขั้น พร้อม trigger ในฐานข้อมูลสำหรับออกเลขคิวและเก็บประวัติการเปลี่ยนแปลง",
@@ -3637,10 +3689,10 @@ export const portfolioProjects: Project[] = [
         },
       },
       {
-        key: { en: "STATES, NOT FLAGS", th: "ใช้สถานะ ไม่ใช่ธง" },
+        key: { en: "BORROWED PATTERNS", th: "ยืมรูปแบบที่มีอยู่แล้ว" },
         description: {
-          en: "Draft versus issued expressed a real decision that a boolean would have hidden.",
-          th: "การแยกฉบับร่างกับฉบับออกสื่อถึงการตัดสินใจจริง ซึ่งค่า boolean จะกลบมันไป",
+          en: "The lookup-by-code idea came from pre-order shops — the best solution was already working in another trade.",
+          th: "ไอเดียค้นหาด้วยรหัสมาจากร้านรับพรีสินค้า วิธีที่ดีที่สุดมีคนใช้ได้ผลอยู่แล้วในอีกวงการหนึ่ง",
         },
       },
     ],
