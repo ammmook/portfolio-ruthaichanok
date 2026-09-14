@@ -10,6 +10,12 @@ const nextConfig: NextConfig = {
         hostname: "res.cloudinary.com",
         pathname: "/c575xluf/image/upload/**",
       },
+      {
+        /* Activity photos served straight from their Google Drive folder. */
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+        pathname: "/d/**",
+      },
     ],
   },
 };

@@ -5,89 +5,13 @@ import type { Activity } from "@/types/portfolio";
  * university, work and workshops. Reached from the experience section only;
  * it is deliberately kept out of the main navigation.
  *
- * `photos[].imageUrl` is empty for now: every slot renders the generated stripe
- * artwork until a real photo is dropped in, exactly like the project covers.
+ * Photos are served straight from the shared Google Drive folder through
+ * Google's image CDN (`lh3.googleusercontent.com/d/<fileId>=w1600`), so nothing
+ * is copied into the repository. A slot without `imageUrl` — or one whose image
+ * fails to load — falls back to the generated stripe artwork.
  */
 export const activities: Activity[] = [
-  {
-    id: "graduation",
-    year: "2026",
-    category: { en: "Achievement", th: "ความสำเร็จ" },
-    hue: 150,
-    degrees: 118,
-    aspectRatio: "16 / 10",
-    revealFrom: "left",
-    title: {
-      en: "First-Class Honours Graduation",
-      th: "จบการศึกษาเกียรตินิยมอันดับหนึ่ง",
-    },
-    tileTitle: {
-      en: "First-Class Honours Graduation",
-      th: "จบการศึกษาเกียรตินิยมอันดับหนึ่ง",
-    },
-    caption: "2026 · Maejo University · GPA 3.70",
-    place: { en: "Maejo University · Chiang Mai", th: "มหาวิทยาลัยแม่โจ้ · เชียงใหม่" },
-    tags: ["B.Sc. IT", "GPA 3.70", "First-Class Honours"],
-    photos: [
-      { label: { en: "photo · graduation day", th: "ภาพ · วันรับปริญญา" }, hue: 150 },
-      { label: { en: "photo · with friends", th: "ภาพ · กับเพื่อน ๆ" }, hue: 65 },
-    ],
-    description: {
-      en: "Four years of Information Technology at Maejo University closed with First-Class Honours and a GPA of 3.70. The degree covered object-oriented programming, database systems, web development and software design patterns — most of which I ended up teaching in labs later on.",
-      th: "สี่ปีในสาขาเทคโนโลยีสารสนเทศ มหาวิทยาลัยแม่โจ้ จบด้วยเกียรตินิยมอันดับหนึ่ง เกรดเฉลี่ย 3.70 หลักสูตรครอบคลุมการเขียนโปรแกรมเชิงวัตถุ ระบบฐานข้อมูล การพัฒนาเว็บ และรูปแบบการออกแบบซอฟต์แวร์ ซึ่งหลายวิชาได้กลับไปสอนในคาบแล็บภายหลัง",
-    },
-    highlights: {
-      en: [
-        "Graduated with First-Class Honours · GPA 3.70",
-        "Senior project: WhatToWear, an AI outfit-matching web app",
-      ],
-      th: [
-        "จบการศึกษาเกียรตินิยมอันดับหนึ่ง · เกรดเฉลี่ย 3.70",
-        "โปรเจกต์จบ: WhatToWear เว็บแอปแนะนำการแต่งตัวด้วย AI",
-      ],
-    },
-  },
-  {
-    id: "uat",
-    year: "2026",
-    category: { en: "Team Activity", th: "กิจกรรมทีม" },
-    hue: 65,
-    degrees: 126,
-    aspectRatio: "4 / 5",
-    revealFrom: "right",
-    title: {
-      en: "UAT Week with Consultants",
-      th: "สัปดาห์ทดสอบ UAT ร่วมกับที่ปรึกษา",
-    },
-    tileTitle: {
-      en: "UAT Week with Consultants",
-      th: "สัปดาห์ทดสอบ UAT ร่วมกับที่ปรึกษา",
-    },
-    caption: "2026 · MFEC",
-    place: {
-      en: "MFEC Co., Ltd. · Bangkok",
-      th: "บริษัท เอ็ม เอฟ อี ซี จำกัด · กรุงเทพฯ",
-    },
-    tags: ["UAT", "Agile / Scrum", "Stakeholders"],
-    photos: [
-      { label: { en: "photo · uat session", th: "ภาพ · รอบทดสอบ UAT" }, hue: 65 },
-      { label: { en: "photo · handover meeting", th: "ภาพ · ประชุมส่งมอบงาน" }, hue: 150 },
-    ],
-    description: {
-      en: "The last stretch of the co-op: sitting with consultants and stakeholders while they tested the workforce management system, taking notes on every edge case they found, and fixing them between sessions until the system was accepted and handed over.",
-      th: "ช่วงท้ายของสหกิจศึกษา ได้นั่งร่วมกับที่ปรึกษาและผู้เกี่ยวข้องขณะทดสอบระบบบริหารกำลังคน จดทุกกรณีขอบที่พบ และแก้ไขระหว่างรอบทดสอบจนระบบผ่านการตรวจรับและส่งมอบได้",
-    },
-    highlights: {
-      en: [
-        "System accepted and now used internally for staff reallocation",
-        "Learned to write down a bug before defending the code",
-      ],
-      th: [
-        "ระบบผ่านการตรวจรับและถูกใช้จริงภายในองค์กร",
-        "ได้เรียนรู้ว่าควรจดบั๊กก่อนจะรีบอธิบายแก้ต่างให้โค้ด",
-      ],
-    },
-  },
+
   {
     id: "mfec",
     year: "2025",
@@ -105,10 +29,76 @@ export const activities: Activity[] = [
     },
     tags: ["Appsmith", "Supabase", "PostgreSQL", "REST APIs"],
     photos: [
-      { label: { en: "photo · mfec office", th: "ภาพ · ออฟฟิศ MFEC" }, hue: 150 },
-      { label: { en: "photo · team standup", th: "ภาพ · standup ของทีม" }, hue: 65 },
-      { label: { en: "photo · first sprint demo", th: "ภาพ · demo sprint แรก" }, hue: 220 },
-      { label: { en: "photo · last day", th: "ภาพ · วันสุดท้าย" }, hue: 300 },
+      {
+        label: { en: "photo · co-op day 01", th: "ภาพ · สหกิจ 01" },
+        hue: 150,
+        imageUrl: "https://lh3.googleusercontent.com/d/1dlGApC8QDkHcZvgqC8pUGHSJdOrg4mTw=w1600",
+      },
+      {
+        label: { en: "photo · co-op day 02", th: "ภาพ · สหกิจ 02" },
+        hue: 220,
+        imageUrl: "https://lh3.googleusercontent.com/d/1RXTNVZP1WtnO2srb80obaB1wlqMPESqi=w1600",
+      },
+      {
+        label: { en: "photo · co-op day 03", th: "ภาพ · สหกิจ 03" },
+        hue: 65,
+        imageUrl: "https://lh3.googleusercontent.com/d/130ppyUC-gxE_r6dKncWRXwC_R6zIzoKJ=w1600",
+      },
+      {
+        label: { en: "photo · co-op day 04", th: "ภาพ · สหกิจ 04" },
+        hue: 35,
+        imageUrl: "https://lh3.googleusercontent.com/d/1SVwY2vg0P6rvSROx2eXJ4xcm9NPuUgaK=w1600",
+      },
+      {
+        label: { en: "photo · co-op day 05", th: "ภาพ · สหกิจ 05" },
+        hue: 300,
+        imageUrl: "https://lh3.googleusercontent.com/d/1FuV7GXv8JdzJN90sfX66pww6QJoFygyz=w1600",
+      },
+      {
+        label: { en: "photo · co-op day 06", th: "ภาพ · สหกิจ 06" },
+        hue: 95,
+        imageUrl: "https://lh3.googleusercontent.com/d/1jLBqiDMVNel-Vw0nOVepyZk6mwkMqlfa=w1600",
+      },
+      {
+        label: { en: "photo · co-op day 07", th: "ภาพ · สหกิจ 07" },
+        hue: 150,
+        imageUrl: "https://lh3.googleusercontent.com/d/18t8QBaSN2kwjDg1lxU2TTb4yuINkbTxz=w1600",
+      },
+      {
+        label: { en: "photo · co-op day 08", th: "ภาพ · สหกิจ 08" },
+        hue: 220,
+        imageUrl: "https://lh3.googleusercontent.com/d/14OrMFGO6INQdyzqiyynRY2SE2lW7h1as=w1600",
+      },
+      {
+        label: { en: "photo · co-op day 09", th: "ภาพ · สหกิจ 09" },
+        hue: 65,
+        imageUrl: "https://lh3.googleusercontent.com/d/1ehrE5eUjK_ThudzCaV31zKPtBdcGZ3uL=w1600",
+      },
+      {
+        label: { en: "photo · co-op day 10", th: "ภาพ · สหกิจ 10" },
+        hue: 35,
+        imageUrl: "https://lh3.googleusercontent.com/d/19H_kIuW-G3InBOi0hzgFWo49R_k8LBcP=w1600",
+      },
+      {
+        label: { en: "photo · co-op day 11", th: "ภาพ · สหกิจ 11" },
+        hue: 300,
+        imageUrl: "https://lh3.googleusercontent.com/d/1KvEtFdd1SA2AJ745VkEwe86-N81X9DPh=w1600",
+      },
+      {
+        label: { en: "photo · co-op day 12", th: "ภาพ · สหกิจ 12" },
+        hue: 95,
+        imageUrl: "https://lh3.googleusercontent.com/d/11MKLfVf71U7iHL6svv6Grq12dkf5dKS6=w1600",
+      },
+      {
+        label: { en: "photo · co-op day 13", th: "ภาพ · สหกิจ 13" },
+        hue: 150,
+        imageUrl: "https://lh3.googleusercontent.com/d/1h2P6lhN7PErv-CbWELMQ7XGItY-vdwOj=w1600",
+      },
+      {
+        label: { en: "photo · co-op day 14", th: "ภาพ · สหกิจ 14" },
+        hue: 220,
+        imageUrl: "https://lh3.googleusercontent.com/d/1bLBTcZvMp7hnBsEyjlNDqgmbr_Unn28f=w1600",
+      },
     ],
     description: {
       en: "Four months of cooperative education as a Fullstack Developer Intern, building an internal workforce management system that streamlined employee reallocation across teams. Real users, real stakeholders, real sprints — the first time my code had someone else's workday attached to it.",
@@ -144,8 +134,21 @@ export const activities: Activity[] = [
     },
     tags: ["Java", "Spring MVC", "MySQL", "CNN Xception"],
     photos: [
-      { label: { en: "photo · whattowear demo", th: "ภาพ · เดโม WhatToWear" }, hue: 300 },
-      { label: { en: "photo · presentation room", th: "ภาพ · ห้องนำเสนอ" }, hue: 150 },
+      {
+        label: { en: "photo · presentation 01", th: "ภาพ · นำเสนอ 01" },
+        hue: 300,
+        imageUrl: "https://lh3.googleusercontent.com/d/1I3VU50V1_-lfcRNWBzxXDstcrLqUj0D1=w1600",
+      },
+      {
+        label: { en: "photo · presentation 02", th: "ภาพ · นำเสนอ 02" },
+        hue: 150,
+        imageUrl: "https://lh3.googleusercontent.com/d/1-XBTcJOAeIYVPJBmP2E91F5HbPF3jTNc=w1600",
+      },
+      {
+        label: { en: "photo · presentation 03", th: "ภาพ · นำเสนอ 03" },
+        hue: 65,
+        imageUrl: "https://lh3.googleusercontent.com/d/18rJqhwGgK9XjnkC4vZE-iPiZW8lF4VlD=w1600",
+      },
     ],
     description: {
       en: "Presenting WhatToWear — a Java web application that classifies garments through a CNN Xception image-recognition API and suggests outfits with a rule-based matching engine. A year of work, defended in twenty minutes.",
@@ -182,8 +185,16 @@ export const activities: Activity[] = [
     },
     tags: ["Golang", "Lab sessions", "Mentoring"],
     photos: [
-      { label: { en: "photo · golang lab", th: "ภาพ · คาบแล็บ Golang" }, hue: 220 },
-      { label: { en: "photo · whiteboard", th: "ภาพ · กระดานไวท์บอร์ด" }, hue: 150 },
+      {
+        label: { en: "photo · golang lab", th: "ภาพ · คาบแล็บ Golang" },
+        hue: 220,
+        imageUrl: "https://lh3.googleusercontent.com/d/1K8n1Nf8XFSqzb40nJcz5ZiSPegetz83B=w1600",
+      },
+      {
+        label: { en: "photo · lecture room", th: "ภาพ · ห้องเรียนรวม" },
+        hue: 150,
+        imageUrl: "https://lh3.googleusercontent.com/d/1qPDTl37kzfRcoGyLWmOxklO8_a1u3XQX=w1600",
+      },
     ],
     description: {
       en: "Third and last course as a teaching assistant: Golang. Explaining goroutines to a room of students who had only seen Java made me rewrite my own mental model of concurrency from scratch.",
@@ -214,8 +225,31 @@ export const activities: Activity[] = [
     place: { en: "Workshop training", th: "การอบรมเชิงปฏิบัติการ" },
     tags: ["n8n", "AI Automation", "Workflows"],
     photos: [
-      { label: { en: "photo · n8n workshop", th: "ภาพ · เวิร์กช็อป n8n" }, hue: 95 },
-      { label: { en: "photo · workflow board", th: "ภาพ · ผังการทำงาน" }, hue: 150 },
+      {
+        label: { en: "photo · n8n workshop 01", th: "ภาพ · เวิร์กช็อป n8n 01" },
+        hue: 35,
+        imageUrl: "https://lh3.googleusercontent.com/d/1c7CuYYArvSxtG8CLn6ajlsZoXjSGcueJ=w1600",
+      },
+      {
+        label: { en: "photo · n8n workshop 02", th: "ภาพ · เวิร์กช็อป n8n 02" },
+        hue: 150,
+        imageUrl: "https://lh3.googleusercontent.com/d/1_CLeK7mDCtRu2vzaSy3Gpq2yTfz89Qs2=w1600",
+      },
+      {
+        label: { en: "photo · n8n workshop 03", th: "ภาพ · เวิร์กช็อป n8n 03" },
+        hue: 65,
+        imageUrl: "https://lh3.googleusercontent.com/d/1bHvHVpw_SCDtRCNXmwZSj-_1GLfK0VkZ=w1600",
+      },
+      {
+        label: { en: "photo · n8n workshop 04", th: "ภาพ · เวิร์กช็อป n8n 04" },
+        hue: 220,
+        imageUrl: "https://lh3.googleusercontent.com/d/1g1DYYfhgYipXv0NuU1BDWwW5zTRC1zvh=w1600",
+      },
+      {
+        label: { en: "photo · n8n workshop 05", th: "ภาพ · เวิร์กช็อป n8n 05" },
+        hue: 300,
+        imageUrl: "https://lh3.googleusercontent.com/d/1PQxAw7znjFYtfRR9y8pY42m-n12oH8c_=w1600",
+      },
     ],
     description: {
       en: "A hands-on workshop on n8n: wiring AI steps into workflows so a handoff that used to be a message to a colleague becomes a node in a graph. I have used the same idea in side projects since.",
@@ -252,8 +286,41 @@ export const activities: Activity[] = [
     },
     tags: ["Scrum", "Sprint planning", "Retrospective"],
     photos: [
-      { label: { en: "photo · agile training", th: "ภาพ · อบรม Agile" }, hue: 35 },
-      { label: { en: "photo · sprint board", th: "ภาพ · บอร์ด sprint" }, hue: 150 },
+      {
+        label: { en: "photo · agile training 01", th: "ภาพ · อบรม Agile 01" },
+        hue: 35,
+        imageUrl: "https://lh3.googleusercontent.com/d/1t0z7p5ylWbIGHHJgaWovWFYYcXoe9QIi=w1600",
+      },
+      {
+        label: { en: "photo · agile training 02", th: "ภาพ · อบรม Agile 02" },
+        hue: 150,
+        imageUrl: "https://lh3.googleusercontent.com/d/1hOwGtYrM4Z_SPNFTPSg8MNBSUAsIo_I0=w1600",
+      },
+      {
+        label: { en: "photo · agile training 03", th: "ภาพ · อบรม Agile 03" },
+        hue: 65,
+        imageUrl: "https://lh3.googleusercontent.com/d/1EQUw4GdqrRDvYGP-9l_5-gvW_JPrZyKt=w1600",
+      },
+      {
+        label: { en: "photo · agile training 04", th: "ภาพ · อบรม Agile 04" },
+        hue: 220,
+        imageUrl: "https://lh3.googleusercontent.com/d/1VIWV6zkWNjmSLeHPhkH-lJiCjUXeVfZQ=w1600",
+      },
+      {
+        label: { en: "photo · agile training 05", th: "ภาพ · อบรม Agile 05" },
+        hue: 300,
+        imageUrl: "https://lh3.googleusercontent.com/d/18EyDRadQP-Z8MVBGiUD-9sDcbBX9-vns=w1600",
+      },
+      {
+        label: { en: "photo · agile training 06", th: "ภาพ · อบรม Agile 06" },
+        hue: 95,
+        imageUrl: "https://lh3.googleusercontent.com/d/1yJrQS1vGGXNUVk3mudjvFEkIs6JHKCi2=w1600",
+      },
+      {
+        label: { en: "photo · agile training 07", th: "ภาพ · อบรม Agile 07" },
+        hue: 110,
+        imageUrl: "https://lh3.googleusercontent.com/d/1tQPPmxaPs8UwfLCVyPx02Alqls3QSOHN=w1600",
+      },
     ],
     description: {
       en: "Sprint planning, review and retrospective practised in real teams before I met them at work. The retrospective was the part that stuck: a fixed time to say what was slow, without it being anyone's fault.",
@@ -290,9 +357,66 @@ export const activities: Activity[] = [
     },
     tags: ["Budget", "Coordination", "Reporting"],
     photos: [
-      { label: { en: "photo · club event day", th: "ภาพ · วันจัดกิจกรรม" }, hue: 65 },
-      { label: { en: "photo · budget paperwork", th: "ภาพ · เอกสารงบประมาณ" }, hue: 150 },
-      { label: { en: "photo · the committee", th: "ภาพ · คณะกรรมการสโมสร" }, hue: 300 },
+      {
+        label: { en: "photo · student club 01", th: "ภาพ · สโมสรนักศึกษา 01" },
+        hue: 35,
+        imageUrl: "https://lh3.googleusercontent.com/d/1NV9v2i5c-q-ad-ksrIjnwL403qRIeG2K=w1600",
+      },
+      {
+        label: { en: "photo · student club 02", th: "ภาพ · สโมสรนักศึกษา 02" },
+        hue: 150,
+        imageUrl: "https://lh3.googleusercontent.com/d/1M3s_My9IkWCLi_LrQ-py5aRfUkjf5Ucm=w1600",
+      },
+      {
+        label: { en: "photo · student club 03", th: "ภาพ · สโมสรนักศึกษา 03" },
+        hue: 65,
+        imageUrl: "https://lh3.googleusercontent.com/d/16lwsGYOJyUdTN79ajOwbSRrbY6CxJWXe=w1600",
+      },
+      {
+        label: { en: "photo · student club 04", th: "ภาพ · สโมสรนักศึกษา 04" },
+        hue: 220,
+        imageUrl: "https://lh3.googleusercontent.com/d/1ONoilYAG5gxkVUpl_McKIzd4gwGLvPtl=w1600",
+      },
+      {
+        label: { en: "photo · student club 05", th: "ภาพ · สโมสรนักศึกษา 05" },
+        hue: 300,
+        imageUrl: "https://lh3.googleusercontent.com/d/1AgEjVAatSzkepTIgb_WRPQXcGQHmAcRW=w1600",
+      },
+      {
+        label: { en: "photo · student club 06", th: "ภาพ · สโมสรนักศึกษา 06" },
+        hue: 95,
+        imageUrl: "https://lh3.googleusercontent.com/d/1kdMsI5DI-uNvI7qKgncuDsj5yDTPBuzq=w1600",
+      },
+      {
+        label: { en: "photo · student club 07", th: "ภาพ · สโมสรนักศึกษา 07" },
+        hue: 110,
+        imageUrl: "https://lh3.googleusercontent.com/d/118BjbSD1kCxg5A4i4s1qQ-XnMsawSWXw=w1600",
+      },
+      {
+        label: { en: "photo · student club 08", th: "ภาพ · สโมสรนักศึกษา 08" },
+        hue: 35,
+        imageUrl: "https://lh3.googleusercontent.com/d/1rHivVIioexzElPCkaZjwOFn15OZ-AZ31=w1600",
+      },
+      {
+        label: { en: "photo · student club 09", th: "ภาพ · สโมสรนักศึกษา 09" },
+        hue: 150,
+        imageUrl: "https://lh3.googleusercontent.com/d/11cBax6O8vuZ2cYHGeIYpWU9mBhwkOwsO=w1600",
+      },
+      {
+        label: { en: "photo · student club 10", th: "ภาพ · สโมสรนักศึกษา 10" },
+        hue: 65,
+        imageUrl: "https://lh3.googleusercontent.com/d/11qzhw02UcfI1hha6abOlv4wUSD89qWJ6=w1600",
+      },
+      {
+        label: { en: "photo · student club 11", th: "ภาพ · สโมสรนักศึกษา 11" },
+        hue: 220,
+        imageUrl: "https://lh3.googleusercontent.com/d/1jZmXpftUyFpogn6Jyew7W9gRYRgJxECo=w1600",
+      },
+      {
+        label: { en: "photo · student club 12", th: "ภาพ · สโมสรนักศึกษา 12" },
+        hue: 300,
+        imageUrl: "https://lh3.googleusercontent.com/d/1XGGjhWNBVhzmB4g16LIWUDPJl8tUb6ye=w1600",
+      },
     ],
     description: {
       en: "Budget Management Officer for the Faculty of Science student club: tracking activity budgets across events and coordinating approvals and reporting with faculty staff. Spreadsheets, receipts and deadlines — a very different kind of debugging.",
@@ -329,8 +453,21 @@ export const activities: Activity[] = [
     },
     tags: ["Flutter", "Dart", "Cross-platform"],
     photos: [
-      { label: { en: "photo · flutter workshop", th: "ภาพ · เวิร์กช็อป Flutter" }, hue: 220 },
-      { label: { en: "photo · first build", th: "ภาพ · บิลด์แรก" }, hue: 150 },
+      {
+        label: { en: "photo · flutter workshop 01", th: "ภาพ · เวิร์กช็อป Flutter 01" },
+        hue: 35,
+        imageUrl: "https://lh3.googleusercontent.com/d/1bVW394bD6JlgTWR0b1cKRrD_6mUtCTiC=w1600",
+      },
+      {
+        label: { en: "photo · flutter workshop 02", th: "ภาพ · เวิร์กช็อป Flutter 02" },
+        hue: 150,
+        imageUrl: "https://lh3.googleusercontent.com/d/1f-AQpDV4bxfThzXoF9a2wu2Slm3l0Q_j=w1600",
+      },
+      {
+        label: { en: "photo · flutter workshop 03", th: "ภาพ · เวิร์กช็อป Flutter 03" },
+        hue: 65,
+        imageUrl: "https://lh3.googleusercontent.com/d/1j6C3NoKldyMgQ-hrxeC9vpA3hMEkIxRU=w1600",
+      },
     ],
     description: {
       en: "Building cross-platform interfaces from a single codebase. Coming from Java and JSP, seeing one widget tree render on two platforms was the moment declarative UI finally made sense to me.",
@@ -347,109 +484,164 @@ export const activities: Activity[] = [
       ],
     },
   },
+
   {
-    id: "ta-web",
+    id: "camp-2567",
     year: "2024",
-    category: { en: "University", th: "มหาวิทยาลัย" },
-    hue: 150,
-    degrees: 120,
-    aspectRatio: "4 / 5",
-    revealFrom: "right",
-    title: {
-      en: "Teaching Assistant — Web Development",
-      th: "ผู้ช่วยสอน — การพัฒนาเว็บ",
-    },
-    tileTitle: { en: "TA — Web Development", th: "ผู้ช่วยสอน — การพัฒนาเว็บ" },
-    caption: "2024 · Maejo University",
-    place: {
-      en: "Maejo University · Faculty of Science",
-      th: "มหาวิทยาลัยแม่โจ้ · คณะวิทยาศาสตร์",
-    },
-    tags: ["HTML", "CSS", "JavaScript"],
-    photos: [
-      { label: { en: "photo · web dev lab", th: "ภาพ · คาบแล็บพัฒนาเว็บ" }, hue: 150 },
-      { label: { en: "photo · student demos", th: "ภาพ · นักศึกษานำเสนองาน" }, hue: 220 },
-    ],
-    description: {
-      en: "Second course as a teaching assistant — web development with HTML, CSS and JavaScript. Most questions were not about syntax but about layout, so I spent a term explaining the box model in as many ways as I could find.",
-      th: "รายวิชาที่สองในบทบาทผู้ช่วยสอน คือการพัฒนาเว็บด้วย HTML, CSS และ JavaScript คำถามส่วนใหญ่ไม่ใช่เรื่องไวยากรณ์แต่เป็นเรื่องการจัดเลย์เอาต์ จึงใช้เวลาหนึ่งเทอมอธิบาย box model ด้วยทุกวิธีที่หาได้",
-    },
-    highlights: {
-      en: [
-        "Mentored students through debugging and clean-code practices",
-        "Prepared lab examples every week",
-      ],
-      th: [
-        "ดูแลนักศึกษาเรื่องการหาบั๊กและการเขียนโค้ดให้สะอาด",
-        "เตรียมตัวอย่างสำหรับคาบแล็บทุกสัปดาห์",
-      ],
-    },
-  },
-  {
-    id: "ta-java",
-    year: "2023",
-    category: { en: "University", th: "มหาวิทยาลัย" },
-    hue: 150,
-    degrees: 118,
+    category: { en: "Volunteer", th: "จิตอาสา" },
+    hue: 95,
+    degrees: 124,
     aspectRatio: "16 / 10",
-    revealFrom: "left",
-    title: { en: "First TA Cohort — Java OOP", th: "ผู้ช่วยสอนรุ่นแรก — Java OOP" },
-    tileTitle: { en: "First TA Cohort — Java OOP", th: "ผู้ช่วยสอนรุ่นแรก — Java OOP" },
-    caption: "2023 · Maejo University",
-    place: {
-      en: "Maejo University · Faculty of Science",
-      th: "มหาวิทยาลัยแม่โจ้ · คณะวิทยาศาสตร์",
+    revealFrom: "up",
+    title: {
+      en: "Volunteer Camp — Ban Pang Fueang School",
+      th: "ค่ายอาสา — โรงเรียนบ้านปางเฟือง",
     },
-    tags: ["Java", "OOP", "Mentoring"],
+    tileTitle: { en: "Volunteer Camp — Ban Pang Fueang School", th: "ค่ายอาสา — โรงเรียนบ้านปางเฟือง" },
+    caption: "2024 · Chiang Mai",
+    place: { en: "Ban Pang Fueang School · Chiang Mai", th: "โรงเรียนบ้านปางเฟือง · จ.เชียงใหม่" },
+    tags: ["Volunteer", "Community", "Teamwork"],
     photos: [
-      { label: { en: "photo · first oop lab", th: "ภาพ · คาบแล็บ OOP แรก" }, hue: 150 },
-      { label: { en: "photo · lab hours", th: "ภาพ · ชั่วโมงให้คำปรึกษา" }, hue: 65 },
+      {
+        label: { en: "photo · volunteer camp 01", th: "ภาพ · ค่ายอาสา 01" },
+        hue: 95,
+        imageUrl: "https://lh3.googleusercontent.com/d/1wvQb3VVLp2xn_CvitbR3UxwG0fY8x51E=w1600",
+      },
+      {
+        label: { en: "photo · volunteer camp 02", th: "ภาพ · ค่ายอาสา 02" },
+        hue: 150,
+        imageUrl: "https://lh3.googleusercontent.com/d/1pj_E5WhnVOMa5oF1lKjzrrJkcaByS_-D=w1600",
+      },
+      {
+        label: { en: "photo · volunteer camp 03", th: "ภาพ · ค่ายอาสา 03" },
+        hue: 65,
+        imageUrl: "https://lh3.googleusercontent.com/d/1UNg_dzSE46xvN0OaeJLCyg-GTlb0GIWh=w1600",
+      },
+      {
+        label: { en: "photo · volunteer camp 04", th: "ภาพ · ค่ายอาสา 04" },
+        hue: 220,
+        imageUrl: "https://lh3.googleusercontent.com/d/1CMAl6cVU5ra7wTJzrOaohRKfjWc-sdvX=w1600",
+      },
     ],
     description: {
-      en: "The first course I assisted: Java and object-oriented programming. Explaining the same concept repeatedly to different people turned out to be the fastest way to find the gaps in my own understanding.",
-      th: "วิชาแรกที่ได้เป็นผู้ช่วยสอน คือ Java และการเขียนโปรแกรมเชิงวัตถุ การอธิบายเรื่องเดิมให้คนหลายคนฟังกลายเป็นวิธีที่เร็วที่สุดในการเจอช่องโหว่ความเข้าใจของตัวเอง",
+      en: "A volunteer camp run with my department at Ban Pang Fueang School in Chiang Mai — a few days of activities put on for pupils at a school far from town.",
+      th: "ค่ายอาสาที่ไปกับสาขา ที่โรงเรียนบ้านปางเฟือง จังหวัดเชียงใหม่ ใช้เวลาไม่กี่วันจัดกิจกรรมให้น้อง ๆ ในโรงเรียนที่อยู่ห่างไกลจากตัวเมือง",
     },
     highlights: {
       en: [
-        "Start of two and a half years as a teaching assistant",
-        "Covered core OOP concepts, debugging and clean code",
+        "Third volunteer camp with the department, in Chiang Mai",
+        "Ran activities with the pupils alongside classmates from the department",
       ],
       th: [
-        "จุดเริ่มต้นของการเป็นผู้ช่วยสอนสองปีครึ่ง",
-        "ครอบคลุมแนวคิด OOP พื้นฐาน การหาบั๊ก และโค้ดที่สะอาด",
+        "ค่ายอาสาครั้งที่สามกับสาขา ที่จังหวัดเชียงใหม่",
+        "จัดกิจกรรมให้น้อง ๆ ร่วมกับเพื่อนในสาขา",
+      ],
+    },
+  },
+
+  {
+    id: "camp-2566",
+    year: "2023",
+    category: { en: "Volunteer", th: "จิตอาสา" },
+    hue: 65,
+    degrees: 118,
+    aspectRatio: "1 / 1",
+    revealFrom: "up",
+    title: {
+      en: "Volunteer Camp — Ban San Pong School",
+      th: "ค่ายอาสา — โรงเรียนบ้านสันปง",
+    },
+    tileTitle: { en: "Volunteer Camp — Ban San Pong School", th: "ค่ายอาสา — โรงเรียนบ้านสันปง" },
+    caption: "2023 · Chiang Mai",
+    place: { en: "Ban San Pong School · Chiang Mai", th: "โรงเรียนบ้านสันปง · จ.เชียงใหม่" },
+    tags: ["Volunteer", "Community", "Teamwork"],
+    photos: [
+      {
+        label: { en: "photo · volunteer camp 01", th: "ภาพ · ค่ายอาสา 01" },
+        hue: 95,
+        imageUrl: "https://lh3.googleusercontent.com/d/1G0KFmIbm4pG1kqrlJ2xIUjnPd62MvYM0=w1600",
+      },
+      {
+        label: { en: "photo · volunteer camp 02", th: "ภาพ · ค่ายอาสา 02" },
+        hue: 150,
+        imageUrl: "https://lh3.googleusercontent.com/d/1Gk3RWOdTKx3RAxEJ2_wrrX3lQgwLISwx=w1600",
+      },
+      {
+        label: { en: "photo · volunteer camp 03", th: "ภาพ · ค่ายอาสา 03" },
+        hue: 65,
+        imageUrl: "https://lh3.googleusercontent.com/d/1XEKqm_CVQOJay91RU5yBM5uwLCBbl4ha=w1600",
+      },
+      {
+        label: { en: "photo · volunteer camp 04", th: "ภาพ · ค่ายอาสา 04" },
+        hue: 220,
+        imageUrl: "https://lh3.googleusercontent.com/d/10GoTzhpRNKxYoLKLoEAz8d_UtDps6Zk4=w1600",
+      },
+    ],
+    description: {
+      en: "The second volunteer camp with my department, at Ban San Pong School in Chiang Mai — the same idea as the year before: go out to a remote school and spend the days doing something useful there.",
+      th: "ค่ายอาสาครั้งที่สองกับสาขา ที่โรงเรียนบ้านสันปง จังหวัดเชียงใหม่ แนวคิดเหมือนปีก่อน คือออกไปโรงเรียนที่อยู่ห่างไกลแล้วใช้เวลาที่นั่นทำสิ่งที่เป็นประโยชน์",
+    },
+    highlights: {
+      en: [
+        "Second volunteer camp with the department, in Chiang Mai",
+        "Ran activities with the pupils alongside classmates from the department",
+      ],
+      th: [
+        "ค่ายอาสาครั้งที่สองกับสาขา ที่จังหวัดเชียงใหม่",
+        "จัดกิจกรรมให้น้อง ๆ ร่วมกับเพื่อนในสาขา",
       ],
     },
   },
   {
-    id: "sideprojects",
-    year: "2023",
-    category: { en: "Personal", th: "ส่วนตัว" },
-    hue: 300,
+    id: "camp-2565",
+    year: "2022",
+    category: { en: "Volunteer", th: "จิตอาสา" },
+    hue: 35,
     degrees: 112,
-    aspectRatio: "4 / 5",
-    revealFrom: "right",
-    title: { en: "Late-Night Side Projects", th: "โปรเจกต์ส่วนตัวยามค่ำคืน" },
-    tileTitle: { en: "Late-Night Side Projects", th: "โปรเจกต์ส่วนตัวยามค่ำคืน" },
-    caption: "2023 · github.com/ammmook",
-    place: { en: "Chiang Mai · my own desk", th: "เชียงใหม่ · โต๊ะทำงานของตัวเอง" },
-    tags: ["Go", "React", "Supabase", "Android"],
+    aspectRatio: "16 / 9",
+    revealFrom: "left",
+    title: {
+      en: "Volunteer Camp — Ban Mae Sate School",
+      th: "ค่ายอาสา — โรงเรียนบ้านแม่สะเต",
+    },
+    tileTitle: { en: "Volunteer Camp — Ban Mae Sate School", th: "ค่ายอาสา — โรงเรียนบ้านแม่สะเต" },
+    caption: "2022 · Omkoi, Chiang Mai",
+    place: { en: "Ban Mae Sate School · Omkoi, Chiang Mai", th: "โรงเรียนบ้านแม่สะเต · อ.อมก๋อย จ.เชียงใหม่" },
+    tags: ["Volunteer", "Community", "Teamwork"],
     photos: [
-      { label: { en: "photo · desk at 2am", th: "ภาพ · โต๊ะทำงานตอนตีสอง" }, hue: 300 },
-      { label: { en: "photo · a working build", th: "ภาพ · บิลด์ที่รันได้" }, hue: 150 },
-      { label: { en: "photo · the notebook", th: "ภาพ · สมุดจดไอเดีย" }, hue: 65 },
+      {
+        label: { en: "photo · volunteer camp 01", th: "ภาพ · ค่ายอาสา 01" },
+        hue: 95,
+        imageUrl: "https://lh3.googleusercontent.com/d/1AnUHXy6GQw78C9ZWyE7CdZjomeC-55qQ=w1600",
+      },
+      {
+        label: { en: "photo · volunteer camp 02", th: "ภาพ · ค่ายอาสา 02" },
+        hue: 150,
+        imageUrl: "https://lh3.googleusercontent.com/d/1UKQh_A7gsHGG-M3pUsFidY5i_0Tz7S5Q=w1600",
+      },
+      {
+        label: { en: "photo · volunteer camp 03", th: "ภาพ · ค่ายอาสา 03" },
+        hue: 65,
+        imageUrl: "https://lh3.googleusercontent.com/d/11L88z37ELVtC18FOYSTTRjZDva0IQGE9=w1600",
+      },
+      {
+        label: { en: "photo · volunteer camp 04", th: "ภาพ · ค่ายอาสา 04" },
+        hue: 220,
+        imageUrl: "https://lh3.googleusercontent.com/d/1fppeGe8ftvLXWV4EOgcAaGRxF8EJZbaI=w1600",
+      },
     ],
     description: {
-      en: "The projects nobody assigned: a pet hotel booking system in plain Go, a sleep tracker for Android, a commission queue in Next.js, a task manager backed by a Google Sheet. Every one of them started from the same question — could this step be done automatically instead?",
-      th: "โปรเจกต์ที่ไม่มีใครสั่งให้ทำ ระบบจองโรงแรมสัตว์เลี้ยงด้วย Go เพียว ๆ แอปบันทึกการนอนบน Android ระบบติดตามคิวงานด้วย Next.js และระบบจัดการงานที่ใช้ Google Sheet เป็นฐานข้อมูล ทุกอันเริ่มจากคำถามเดียวกันว่า ขั้นตอนนี้ทำให้เป็นอัตโนมัติได้ไหม",
+      en: "My first volunteer camp with the department, at Ban Mae Sate School in Omkoi — far enough up the mountain that getting there was most of a day. The first time a university activity meant leaving campus entirely.",
+      th: "ค่ายอาสาครั้งแรกกับสาขา ที่โรงเรียนบ้านแม่สะเต อำเภออมก๋อย อยู่บนดอยไกลจนใช้เวลาเดินทางเกือบทั้งวัน เป็นครั้งแรกที่กิจกรรมของมหาวิทยาลัยหมายถึงการออกไปไกลจากรั้วมหาวิทยาลัยจริง ๆ",
     },
     highlights: {
       en: [
-        "Six public repositories on github.com/ammmook",
-        "Where most of the languages on my CV were actually learned",
+        "First volunteer camp with the department, in Omkoi, Chiang Mai",
+        "Ran activities with the pupils alongside classmates from the department",
       ],
       th: [
-        "หกรีโพซิทอรีสาธารณะบน github.com/ammmook",
-        "เป็นที่ที่ได้เรียนภาษาส่วนใหญ่ในเรซูเม่จริง ๆ",
+        "ค่ายอาสาครั้งแรกกับสาขา ที่อำเภออมก๋อย จังหวัดเชียงใหม่",
+        "จัดกิจกรรมให้น้อง ๆ ร่วมกับเพื่อนในสาขา",
       ],
     },
   },
@@ -467,3 +659,8 @@ export const activitiesByYear: { year: string; items: Activity[] }[] = activitie
 
 /** Inclusive year span of the archive, e.g. "2023 — 2026". */
 export const activityYearRange = `${activitiesByYear.at(-1)?.year} — ${activitiesByYear[0]?.year}`;
+
+/** Every photo that actually has an image, used by the decorative stack. */
+export const activityPhotoPool = activities.flatMap((activity) =>
+  activity.photos.filter((photo) => photo.imageUrl),
+);

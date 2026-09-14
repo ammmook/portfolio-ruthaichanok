@@ -15,11 +15,12 @@ interface ActivityTileProps {
 
 /**
  * One photo tile in the mosaic. The artwork zooms and a gradient caption fades
- * in on hover; clicking opens the activity in the lightbox.
+ * in on hover; clicking opens the activity in the lightbox. Activities with no
+ * photo yet fall back to the generated stripe artwork.
  */
 export function ActivityTile({ activity, delayMs = 0, onOpen }: ActivityTileProps) {
   const { t } = useLanguage();
-  const [cover] = activity.photos;
+  const cover = activity.photos[0];
 
   return (
     <Reveal from={activity.revealFrom} delayMs={delayMs}>
@@ -32,9 +33,9 @@ export function ActivityTile({ activity, delayMs = 0, onOpen }: ActivityTileProp
       >
         <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105">
           <ScreenshotFrame
-            hue={cover.hue}
+            hue={cover?.hue ?? activity.hue}
             degrees={activity.degrees}
-            imageUrl={cover.imageUrl}
+            imageUrl={cover?.imageUrl}
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 240px"
             className="h-full w-full"
           />
@@ -46,9 +47,11 @@ export function ActivityTile({ activity, delayMs = 0, onOpen }: ActivityTileProp
           </span>
         ) : null}
 
-        <span className="absolute bottom-3.5 left-3.5 rounded-full border border-line bg-bg/85 px-3 py-1.5 font-mono text-[11px] text-muted transition-opacity duration-300 group-hover:opacity-0">
-          {t(cover.label)}
-        </span>
+        {cover ? (
+          <span className="absolute bottom-3.5 left-3.5 rounded-full border border-line bg-bg/85 px-3 py-1.5 font-mono text-[11px] text-muted transition-opacity duration-300 group-hover:opacity-0">
+            {t(cover.label)}
+          </span>
+        ) : null}
 
         <span className="absolute inset-0 flex flex-col justify-end gap-1.5 bg-linear-to-t from-surface-deep/95 to-transparent to-68% p-5 opacity-0 transition-opacity duration-400 group-hover:opacity-100">
           <span className="text-[clamp(16px,1.9vw,20px)] leading-[1.25] font-semibold tracking-[-0.015em]">

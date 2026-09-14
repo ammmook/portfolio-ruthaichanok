@@ -102,7 +102,12 @@ export function ActivitiesArchive() {
                 </span>
                 <span className="h-px flex-1 bg-line" />
                 <span className="font-mono text-[11px] tracking-[0.14em] text-muted">
-                  {group.items.length} {t(uiTranslations.activities.moments)}
+                  {group.items.length}{" "}
+                  {t(
+                    group.items.length === 1
+                      ? uiTranslations.activities.moment
+                      : uiTranslations.activities.moments,
+                  )}
                 </span>
               </div>
             </Reveal>

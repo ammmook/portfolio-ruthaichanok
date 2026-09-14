@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 import { useLanguage } from "@/components/providers/LanguageProvider";
@@ -124,10 +125,10 @@ export function ActivityLightbox({
         >
           <ScreenshotFrame
             key={`${activity.id}-${photoIndex}`}
-            hue={photo.hue}
+            hue={photo?.hue ?? activity.hue}
             degrees={activity.degrees}
-            imageUrl={photo.imageUrl}
-            label={t(photo.label)}
+            imageUrl={photo?.imageUrl}
+            label={photo ? t(photo.label) : undefined}
             sizes="(max-width: 1080px) 92vw, 1080px"
             isPriority
             className="aspect-16/9 w-full animate-fade-in"
@@ -148,11 +149,23 @@ export function ActivityLightbox({
                 aria-label={t(thumbnail.label)}
                 aria-current={index === photoIndex}
                 onClick={() => onSelectPhoto(index)}
-                style={stripeBackground(thumbnail.hue, activity.degrees)}
-                className={`h-[52px] w-[74px] cursor-pointer rounded-lg border transition-[border-color,transform] duration-300 ease-out hover:-translate-y-0.5 ${
-                  index === photoIndex ? "border-accent" : "border-line hover:border-accent-soft"
+                style={thumbnail.imageUrl ? undefined : stripeBackground(thumbnail.hue, activity.degrees)}
+                className={`relative h-[52px] w-[74px] cursor-pointer overflow-hidden rounded-lg border transition-[border-color,transform,opacity] duration-300 ease-out hover:-translate-y-0.5 ${
+                  index === photoIndex
+                    ? "border-accent"
+                    : "border-line opacity-70 hover:border-accent-soft hover:opacity-100"
                 }`}
-              />
+              >
+                {thumbnail.imageUrl ? (
+                  <Image
+                    src={thumbnail.imageUrl}
+                    alt=""
+                    fill
+                    sizes="74px"
+                    className="object-cover"
+                  />
+                ) : null}
+              </button>
             ))}
           </div>
         ) : (

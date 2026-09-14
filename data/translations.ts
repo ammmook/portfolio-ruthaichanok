@@ -211,6 +211,7 @@ export const uiTranslations = {
       th: "รวมกิจกรรม ประสบการณ์ และช่วงเวลาที่น่าจดจำระหว่างทาง ทั้งคาบแล็บที่ได้สอน เวิร์กช็อปที่ได้เข้าร่วม และระบบที่ได้ส่งมอบ",
     },
     countUnit: { en: "activities", th: "กิจกรรม" },
+    moment: { en: "MOMENT", th: "ช่วงเวลา" },
     moments: { en: "MOMENTS", th: "ช่วงเวลา" },
     stackHint: { en: "hover — fan out", th: "ชี้เมาส์ — คลี่ออก" },
     photoCount: { en: "PHOTOS", th: "ภาพ" },
@@ -222,8 +223,8 @@ export const uiTranslations = {
     yearLabel: { en: "YEAR", th: "ปี" },
     placeLabel: { en: "PLACE", th: "สถานที่" },
     photoNote: {
-      en: "Photo slots are placeholders for now — the layout is ready for the real images.",
-      th: "ช่องภาพยังเป็นภาพตัวอย่าง เลย์เอาต์พร้อมใส่รูปจริงได้ทันที",
+      en: "",
+      th: "",
     },
   },
 } as const;

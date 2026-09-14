@@ -25,7 +25,7 @@ export function Experience() {
       {/* Entry point to the photo archive at /activities — deliberately not in the nav. */}
       <Reveal>
         <div className="mt-11 flex flex-wrap items-center gap-x-5 gap-y-3">
-          <Button href="/activities" variant="outline">
+          <Button href="/activities">
             <span aria-hidden="true" className="font-mono">
               ▦
             </span>

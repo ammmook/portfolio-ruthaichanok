@@ -24,17 +24,17 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 const siteDescription =
-  "Portfolio of Ruthaichanok Kasun — software developer working with Java, Spring, React and PostgreSQL. Projects, experience, education and contact details.";
+  "Portfolio of Ruthaichanok Kasun — full stack developer working with Java, Spring, React and PostgreSQL. Projects, experience, education and contact details.";
 
 export const metadata: Metadata = {
   title: {
-    default: `${personalInformation.fullName} — Software Developer`,
+    default: `${personalInformation.fullName} — Full Stack Developer`,
     template: `%s · ${personalInformation.fullName}`,
   },
   description: siteDescription,
   keywords: [
     "Ruthaichanok Kasun",
-    "software developer",
+    "full stack developer",
     "full-stack developer",
     "Java",
     "Spring Boot",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   authors: [{ name: personalInformation.fullName, url: personalInformation.githubUrl }],
   openGraph: {
     type: "website",
-    title: `${personalInformation.fullName} — Software Developer`,
+    title: `${personalInformation.fullName} — Full Stack Developer`,
     description: siteDescription,
     siteName: `${personalInformation.fullName} Portfolio`,
     locale: "en_US",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${personalInformation.fullName} — Software Developer`,
+    title: `${personalInformation.fullName} — Full Stack Developer`,
     description: siteDescription,
   },
 };
