@@ -3746,6 +3746,449 @@ export const portfolioProjects: Project[] = [
       },
     ],
   },
+  {
+    slug: "tiktok-tarot-live",
+    name: { en: "Tarot LIVE Queue", th: "Tarot LIVE Queue" },
+    shortName: { en: "Tarot LIVE Queue", th: "Tarot LIVE Queue" },
+    year: "2026",
+    status: { en: "LIVE", th: "ใช้งานจริง" },
+    category: { en: "Real-time Web App", th: "เว็บแอปเรียลไทม์" },
+    filters: ["web"],
+    hue: 276,
+    blurb: {
+      en: "A real-time queue that turns TikTok LIVE comments and qualifying gifts into an orderly tarot-reading workflow.",
+      th: "ระบบจัดคิวเรียลไทม์ที่เปลี่ยนคอมเมนต์และของขวัญที่เข้าเงื่อนไขจาก TikTok LIVE ให้เป็นขั้นตอนการดูดวงที่เป็นระเบียบ",
+    },
+    tagline: {
+      en: "A real-time control room for TikTok LIVE tarot readings: it listens for viewers' questions and gifts, matches them fairly, and keeps the host's queue moving from waiting to answered.",
+      th: "ศูนย์ควบคุมการดูดวงบน TikTok LIVE แบบเรียลไทม์ รับคำถามและของขวัญจากผู้ชม จับคู่ตามกติกาอย่างเป็นธรรม และดูแลคิวตั้งแต่รอจนตอบเสร็จ",
+    },
+    coverLabel: { en: "LIVE QUEUE DASHBOARD", th: "แดชบอร์ดคิวไลฟ์" },
+    coverImageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1790572145/live-1-answering-page.png",
+    cardImageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1790572145/live-1-answering-page.png",
+    technologies: ["Next.js", "Fastify", "Socket.IO", "Drizzle ORM", "Neon PostgreSQL"],
+    liveUrl: "https://tiktok-tarot-live-iota.vercel.app",
+    repositoryUrl: "https://github.com/ammmook/tiktok-tarot-live",
+    meta: [
+      { key: { en: "DATE", th: "ช่วงเวลา" }, value: { en: "Sep 2026", th: "ก.ย. 2569" } },
+      { key: { en: "ROLE", th: "บทบาท" }, value: { en: "Full-stack developer", th: "นักพัฒนา Full-stack" } },
+      { key: { en: "ARCHITECTURE", th: "สถาปัตยกรรม" }, value: { en: "pnpm monorepo · Turborepo", th: "pnpm monorepo · Turborepo" } },
+      { key: { en: "REALTIME", th: "เรียลไทม์" }, value: { en: "TikTok LIVE events · Socket.IO", th: "TikTok LIVE events · Socket.IO" } },
+      { key: { en: "DATABASE", th: "ฐานข้อมูล" }, value: { en: "Neon PostgreSQL · Drizzle", th: "Neon PostgreSQL · Drizzle" } },
+      { key: { en: "STATUS", th: "สถานะ" }, value: { en: "Live deployment", th: "เผยแพร่แล้ว" } },
+    ],
+    stack: [
+      {
+        title: { en: "WEB APP", th: "เว็บแอป" },
+        items: [
+          {
+            name: "Next.js",
+            iconSlug: "nextdotjs",
+            role: { en: "Dashboard", th: "แดชบอร์ด" },
+            usage: {
+              en: "App Router dashboard and settings interface for the host to run the queue.",
+              th: "แดชบอร์ดและหน้าตั้งค่าด้วย App Router ให้ผู้ดำเนินไลฟ์จัดการคิว",
+            },
+          },
+          {
+            name: "TypeScript",
+            iconSlug: "typescript",
+            role: { en: "Language", th: "ภาษา" },
+            usage: {
+              en: "Keeps queue, event and API contracts explicit across the workspace.",
+              th: "กำหนดโครงสร้างคิว อีเวนต์ และ API ให้ชัดเจนตลอดทั้ง workspace",
+            },
+          },
+          {
+            name: "Socket.IO",
+            iconSlug: "socketdotio",
+            role: { en: "Realtime UI", th: "หน้าจอเรียลไทม์" },
+            usage: {
+              en: "Pushes committed queue changes and ordering updates to the dashboard.",
+              th: "ส่งการเปลี่ยนแปลงและลำดับคิวที่บันทึกแล้วมายังแดชบอร์ดทันที",
+            },
+          },
+        ],
+      },
+      {
+        title: { en: "SERVICES", th: "เซอร์วิส" },
+        items: [
+          {
+            name: "Fastify",
+            iconSlug: "fastify",
+            role: { en: "API", th: "API" },
+            usage: {
+              en: "Owns queue transactions, validation, authenticated ingestion and health checks.",
+              th: "ดูแล transaction ของคิว การตรวจสอบข้อมูล การรับอีเวนต์แบบยืนยันตัวตน และ health check",
+            },
+          },
+          {
+            name: "TikTok LIVE",
+            iconSlug: "tiktok",
+            role: { en: "Events", th: "อีเวนต์" },
+            usage: {
+              en: "A dedicated listener normalizes chat and gift events from the active LIVE room.",
+              th: "listener แยกส่วนรับและปรับรูปแบบอีเวนต์แชตกับของขวัญจากห้อง LIVE ที่กำลังเปิดอยู่",
+            },
+          },
+          {
+            name: "Zod",
+            iconSlug: "zod",
+            role: { en: "Validation", th: "ตรวจสอบข้อมูล" },
+            usage: {
+              en: "Validates request and event payloads at the boundary before queue logic runs.",
+              th: "ตรวจสอบ payload ของคำขอและอีเวนต์ที่ขอบระบบก่อนเข้าสู่ตรรกะคิว",
+            },
+          },
+        ],
+      },
+      {
+        title: { en: "DATA & TOOLING", th: "ข้อมูลและเครื่องมือ" },
+        items: [
+          {
+            name: "Neon PostgreSQL",
+            iconSlug: "neondatabase",
+            role: { en: "Database", th: "ฐานข้อมูล" },
+            usage: {
+              en: "Acts as the source of truth for sessions, events, queue state and history.",
+              th: "เป็นแหล่งข้อมูลหลักของ session อีเวนต์ สถานะคิว และประวัติ",
+            },
+          },
+          {
+            name: "Drizzle ORM",
+            iconSlug: "drizzle",
+            role: { en: "Data access", th: "เข้าถึงข้อมูล" },
+            usage: {
+              en: "Provides typed schema definitions, migrations and transactional database access.",
+              th: "ให้ schema, migration และการเข้าถึงฐานข้อมูลแบบมี type รวมถึง transaction",
+            },
+          },
+          {
+            name: "Turborepo",
+            iconSlug: "turborepo",
+            role: { en: "Monorepo", th: "Monorepo" },
+            usage: {
+              en: "Coordinates the web app, API, listener and shared packages in one workspace.",
+              th: "จัดการเว็บ API listener และแพ็กเกจร่วมใน workspace เดียว",
+            },
+          },
+        ],
+      },
+    ],
+    overviewTitle: { en: "Making a fast-moving LIVE queue manageable", th: "ทำให้คิวใน LIVE ที่เคลื่อนไหวรวดเร็วจัดการได้" },
+    overview: {
+      en: [
+        "Tarot LIVE Queue is a full-stack monorepo for running tarot readings during a TikTok LIVE. Instead of scrolling through a stream of comments and manually remembering which gift belongs to which question, the host works from one live queue.",
+        "A listener receives chat and gift events from the selected LIVE room. The API records them, matches a viewer's question with the right gift under the configured rules, and then publishes the committed queue update to the dashboard in real time.",
+      ],
+      th: [
+        "Tarot LIVE Queue คือ monorepo แบบ full-stack สำหรับจัดการการดูดวงระหว่าง TikTok LIVE แทนการเลื่อนหาในคอมเมนต์และจำเองว่าของขวัญใดเป็นของคำถามไหน ผู้ดำเนินไลฟ์ทำงานจากคิวกลางเพียงที่เดียว",
+        "listener รับอีเวนต์แชตและของขวัญจากห้อง LIVE ที่เลือก API บันทึกและจับคู่คำถามของผู้ชมกับของขวัญที่ตรงกติกา จากนั้นส่งการอัปเดตคิวที่บันทึกแล้วไปยังแดชบอร์ดแบบเรียลไทม์",
+      ],
+    },
+    users: {
+      en: "Tarot creators hosting TikTok LIVE sessions who need to process a high volume of viewer questions and gift-based reading rights fairly.",
+      th: "ครีเอเตอร์สายดูดวงที่จัด TikTok LIVE และต้องรับคำถามจำนวนมาก พร้อมจัดสิทธิ์การดูดวงจากของขวัญอย่างเป็นธรรม",
+    },
+    referencesTitle: { en: "TIKTOK LISTENER REFERENCES", th: "แหล่งอ้างอิง TIKTOK LISTENER" },
+    references: [
+      {
+        title: { en: "TikTok Chat Reader", th: "TikTok Chat Reader" },
+        description: {
+          en: "Referenced for username-based connection, Socket.IO and reconnect patterns in the TikTok listener.",
+          th: "ใช้อ้างอิงแนวทางการเชื่อมต่อด้วย username, Socket.IO และ reconnect สำหรับ TikTok listener",
+        },
+        url: "https://github.com/zerodytrash/TikTok-Chat-Reader",
+      },
+      {
+        title: { en: "TikTok Live Gift Tracker", th: "TikTok Live Gift Tracker" },
+        description: {
+          en: "Referenced for sender and gift data handling, including gift-streak counting in the TikTok listener.",
+          th: "ใช้อ้างอิงการจัดการข้อมูลผู้ส่งและของขวัญ รวมถึงการนับ gift streak ใน TikTok listener",
+        },
+        url: "https://github.com/chawilai/tiktok-live-gift-tracker",
+      },
+    ],
+    problemTitle: { en: "What breaks in a manual LIVE queue", th: "ปัญหาของการจัดคิวใน LIVE ด้วยมือ" },
+    problems: {
+      en: [
+        "Questions and gifts arrive independently, so matching them by memory is slow and error-prone.",
+        "One viewer can send a gift before asking a question, while another asks first — both paths need the same fair outcome.",
+        "A fast chat can cause repeat messages, missed requests and uncertainty about who should be read next.",
+        "The host needs instant feedback without treating an uncommitted event as a real queue position.",
+      ],
+      th: [
+        "คำถามและของขวัญเข้ามาแยกกัน การจับคู่จากความจำจึงช้าและผิดพลาดได้ง่าย",
+        "ผู้ชมบางคนส่งของขวัญก่อนถาม ขณะที่บางคนถามก่อนส่งของขวัญ แต่ทั้งสองกรณีควรได้รับผลลัพธ์ที่เป็นธรรมเหมือนกัน",
+        "แชตที่ไหลเร็วทำให้ข้อความซ้ำ คำขอหลุด และไม่ชัดว่าใครควรได้ดูดวงเป็นคนถัดไป",
+        "ผู้ดำเนินไลฟ์ต้องเห็นผลทันที โดยไม่ควรนับอีเวนต์ที่ยังไม่บันทึกเป็นตำแหน่งคิวจริง",
+      ],
+    },
+    goals: [
+      {
+        number: "01",
+        title: { en: "Capture the right events", th: "รับเฉพาะอีเวนต์ที่ต้องใช้" },
+        description: {
+          en: "Listen to chat and gift events from one active TikTok LIVE room without replaying historical messages.",
+          th: "รับอีเวนต์แชตและของขวัญจากห้อง TikTok LIVE ที่กำลังเปิดอยู่เพียงห้องเดียว โดยไม่ประมวลผลข้อความย้อนหลัง",
+        },
+      },
+      {
+        number: "02",
+        title: { en: "Match fairly", th: "จับคู่อย่างเป็นธรรม" },
+        description: {
+          en: "Support question-first and gift-first arrivals while applying the creator's gift rules consistently.",
+          th: "รองรับทั้งกรณีถามก่อนและส่งของขวัญก่อน พร้อมใช้กติกาของขวัญของครีเอเตอร์อย่างสม่ำเสมอ",
+        },
+      },
+      {
+        number: "03",
+        title: { en: "Keep state trustworthy", th: "รักษาความน่าเชื่อถือของสถานะ" },
+        description: {
+          en: "Persist idempotent events and emit live updates only after the database transaction succeeds.",
+          th: "บันทึกอีเวนต์แบบป้องกันข้อมูลซ้ำ และส่งอัปเดตสดหลัง transaction ของฐานข้อมูลสำเร็จเท่านั้น",
+        },
+      },
+      {
+        number: "04",
+        title: { en: "Give the host control", th: "ให้ผู้ดำเนินไลฟ์ควบคุมได้" },
+        description: {
+          en: "Make it clear which requests are waiting, in progress, answered or need review.",
+          th: "ทำให้เห็นชัดว่าคำขอใดกำลังรอ กำลังตอบ ตอบแล้ว หรือต้องตรวจสอบ",
+        },
+      },
+    ],
+    solutionTitle: { en: "An event-driven queue with a human-friendly control room", th: "คิวที่ขับเคลื่อนด้วยอีเวนต์ พร้อมศูนย์ควบคุมที่ใช้งานง่าย" },
+    solution: {
+      en: "The system separates TikTok intake from queue decisions. A dedicated listener normalizes incoming chat and gift events, then submits them to a protected ingest endpoint. Fastify applies queue rules inside PostgreSQL transactions; after a successful commit, Socket.IO broadcasts the new state so the Next.js dashboard always reflects the source of truth.",
+      th: "ระบบแยกการรับข้อมูลจาก TikTok ออกจากการตัดสินใจเรื่องคิว listener เฉพาะทางปรับอีเวนต์แชตและของขวัญให้อยู่ในรูปแบบเดียวกัน แล้วส่งเข้า ingest endpoint ที่มีการป้องกัน Fastify ใช้กติกาคิวภายใน PostgreSQL transaction และหลังบันทึกสำเร็จ Socket.IO จะกระจายสถานะใหม่ ทำให้แดชบอร์ด Next.js แสดงข้อมูลจากแหล่งจริงเสมอ",
+    },
+    flow: [
+      {
+        number: "01",
+        title: { en: "Connect a LIVE room", th: "เชื่อมต่อห้อง LIVE" },
+        description: { en: "The host enters a TikTok username and starts listening to that active room.", th: "ผู้ดำเนินไลฟ์กรอกชื่อผู้ใช้ TikTok แล้วเริ่มรับข้อมูลจากห้องที่กำลังไลฟ์" },
+      },
+      {
+        number: "02",
+        title: { en: "Normalize events", th: "ปรับรูปแบบอีเวนต์" },
+        description: { en: "The listener converts chat and gift payloads into trusted, authenticated API events.", th: "listener แปลง payload แชตและของขวัญเป็น API event ที่เชื่อถือได้และยืนยันตัวตนแล้ว" },
+      },
+      {
+        number: "03",
+        title: { en: "Apply queue rules", th: "ใช้กติกาคิว" },
+        description: { en: "The API pairs questions and eligible gifts in FIFO order and prevents duplicates.", th: "API จับคู่คำถามและของขวัญที่มีสิทธิ์ตามลำดับ FIFO พร้อมป้องกันรายการซ้ำ" },
+      },
+      {
+        number: "04",
+        title: { en: "Broadcast committed state", th: "กระจายสถานะที่บันทึกแล้ว" },
+        description: { en: "Socket.IO updates the dashboard only after the transaction has committed.", th: "Socket.IO อัปเดตแดชบอร์ดหลัง transaction ถูกบันทึกสำเร็จเท่านั้น" },
+      },
+      {
+        number: "05",
+        title: { en: "Read and close", th: "ตอบและปิดคิว" },
+        description: { en: "The host starts a reading, marks it answered and retains the record in history.", th: "ผู้ดำเนินไลฟ์เริ่มตอบ ทำเครื่องหมายว่าตอบแล้ว และเก็บข้อมูลไว้ในประวัติ" },
+      },
+    ],
+    features: [
+      {
+        title: { en: "TikTok LIVE connection", th: "เชื่อมต่อ TikTok LIVE" },
+        description: { en: "Connect the active room from the dashboard using the creator's username.", th: "เชื่อมต่อห้องที่กำลังไลฟ์จากแดชบอร์ดด้วยชื่อผู้ใช้ของครีเอเตอร์" },
+      },
+      {
+        title: { en: "Two-way question and gift matching", th: "จับคู่คำถามและของขวัญได้สองลำดับ" },
+        description: { en: "Handles both question-first and gift-first arrivals for the same viewer and room.", th: "รองรับทั้งคำถามมาก่อนและของขวัญมาก่อนสำหรับผู้ชมและห้องเดียวกัน" },
+      },
+      {
+        title: { en: "Gift-rule settings", th: "ตั้งกติกาของขวัญ" },
+        description: { en: "Creators configure eligible gift IDs, minimum quantities and the question rights they grant.", th: "ครีเอเตอร์กำหนด Gift ID ที่ใช้ได้ จำนวนขั้นต่ำ และสิทธิ์คำถามที่ของขวัญมอบให้" },
+      },
+      {
+        title: { en: "Live queue workflow", th: "เวิร์กโฟลว์คิวแบบเรียลไทม์" },
+        description: { en: "Move a request through waiting, reading and answered states from one focused control surface.", th: "ย้ายคำขอผ่านสถานะรอ กำลังตอบ และตอบแล้วจากหน้าควบคุมเดียว" },
+      },
+      {
+        title: { en: "Safe event processing", th: "ประมวลผลอีเวนต์อย่างปลอดภัย" },
+        description: { en: "Idempotency and streak completion rules prevent duplicated gift credit and queue entries.", th: "กฎ idempotency และการจบ streak ช่วยป้องกันการนับสิทธิ์ของขวัญและสร้างคิวซ้ำ" },
+      },
+      {
+        title: { en: "History and review", th: "ประวัติและการตรวจสอบ" },
+        description: { en: "Keeps completed readings and flags unmatched items for review after the LIVE ends.", th: "เก็บประวัติคำตอบที่เสร็จแล้ว และทำเครื่องหมายรายการที่จับคู่ไม่ได้เพื่อตรวจสอบหลัง LIVE จบ" },
+      },
+    ],
+    screenshots: [
+      {
+        label: { en: "ANSWERING PAGE", th: "หน้ากำลังตอบคำถาม" },
+        imageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1790572145/live-1-answering-page.png",
+      },
+      {
+        label: { en: "LIVE QUEUE", th: "คิว LIVE" },
+        imageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1790572146/live-2-queue.png",
+      },
+      {
+        label: { en: "WAITING QUEUE", th: "คิวที่กำลังรอ" },
+        imageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1790572145/live-3-waitqueue.png",
+      },
+      {
+        label: { en: "ANSWERED HISTORY", th: "ประวัติคำตอบ" },
+        imageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1790572146/live-4-answered.png",
+      },
+      {
+        label: { en: "GIFT RULE SETTINGS", th: "การตั้งค่ากติกาของขวัญ" },
+        imageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1790572145/live_settings_gifts.png",
+      },
+      {
+        label: { en: "GIFT RULE EDITOR", th: "หน้าแก้ไขกติกาของขวัญ" },
+        imageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1790572147/live-2-settings_gifts.png",
+      },
+      {
+        label: { en: "GIFT RULE PREVIEW", th: "ตัวอย่างกติกาของขวัญ" },
+        imageUrl: "https://res.cloudinary.com/c575xluf/image/upload/v1790572145/live-3-settings_gifts.png",
+      },
+    ],
+    architecture: [
+      {
+        number: "01",
+        title: { en: "Next.js dashboard", th: "แดชบอร์ด Next.js" },
+        description: { en: "The host-facing App Router UI loads queue state and receives realtime mutations.", th: "หน้าจอ App Router สำหรับผู้ดำเนินไลฟ์ โหลดสถานะคิวและรับการเปลี่ยนแปลงแบบเรียลไทม์" },
+      },
+      {
+        number: "02",
+        title: { en: "TikTok listener", th: "TikTok listener" },
+        description: { en: "A separate Node service listens to the LIVE room and normalizes chat and gift events.", th: "Node service แยกส่วนรับข้อมูลจากห้อง LIVE และปรับรูปแบบอีเวนต์แชตกับของขวัญ" },
+      },
+      {
+        number: "03",
+        title: { en: "Fastify API", th: "Fastify API" },
+        description: { en: "Authenticated ingestion, validation and the queue service live behind a REST and Socket.IO boundary.", th: "การรับข้อมูลแบบยืนยันตัวตน การตรวจสอบ และ queue service อยู่หลังขอบเขต REST และ Socket.IO" },
+      },
+      {
+        number: "04",
+        title: { en: "Queue transactions", th: "Queue transactions" },
+        description: { en: "Business rules match questions and gifts, protect against duplicate events and control queue lifecycle.", th: "กฎธุรกิจจับคู่คำถามกับของขวัญ ป้องกันอีเวนต์ซ้ำ และควบคุมวงจรชีวิตของคิว" },
+      },
+      {
+        number: "05",
+        title: { en: "Neon PostgreSQL", th: "Neon PostgreSQL" },
+        description: { en: "Drizzle-managed tables persist sessions, events, queue records, gift rules and history.", th: "ตารางที่ Drizzle จัดการเก็บ session อีเวนต์ รายการคิว กติกาของขวัญ และประวัติ" },
+      },
+    ],
+    process: [
+      {
+        number: "01",
+        title: { en: "Modelled the queue", th: "ออกแบบโมเดลคิว" },
+        description: { en: "Defined the queue states, question credits and event history before building the UI.", th: "กำหนดสถานะคิว สิทธิ์คำถาม และประวัติอีเวนต์ก่อนสร้างหน้าจอ" },
+      },
+      {
+        number: "02",
+        title: { en: "Built the database layer", th: "สร้างชั้นฐานข้อมูล" },
+        description: { en: "Created the Drizzle schema and migrations for a durable source of truth.", th: "สร้าง Drizzle schema และ migration เพื่อให้มีแหล่งข้อมูลหลักที่คงทน" },
+      },
+      {
+        number: "03",
+        title: { en: "Implemented queue rules", th: "พัฒนากติกาคิว" },
+        description: { en: "Handled matching, expiry, idempotency and the reading lifecycle in API transactions.", th: "จัดการการจับคู่ การหมดอายุ idempotency และวงจรการตอบภายใน API transaction" },
+      },
+      {
+        number: "04",
+        title: { en: "Connected TikTok events", th: "เชื่อมอีเวนต์ TikTok" },
+        description: { en: "Added a listener that forwards normalized, authenticated LIVE events to the API.", th: "เพิ่ม listener ที่ส่งอีเวนต์ LIVE ซึ่งปรับรูปแบบและยืนยันตัวตนแล้วไปยัง API" },
+      },
+      {
+        number: "05",
+        title: { en: "Added realtime feedback", th: "เพิ่มผลตอบกลับเรียลไทม์" },
+        description: { en: "Broadcast committed queue updates to keep the host dashboard synchronized.", th: "กระจายการอัปเดตคิวที่บันทึกแล้วเพื่อให้แดชบอร์ดของผู้ดำเนินไลฟ์ตรงกันเสมอ" },
+      },
+      {
+        number: "06",
+        title: { en: "Tested queue paths", th: "ทดสอบเส้นทางของคิว" },
+        description: { en: "Tested parsing, matching order, duplicate events, streak gifts, expiry and completed readings.", th: "ทดสอบการแปลงข้อมูล ลำดับการจับคู่ อีเวนต์ซ้ำ ของขวัญแบบ streak การหมดอายุ และการตอบที่เสร็จสิ้น" },
+      },
+    ],
+    challenges: [
+      {
+        challenge: { en: "A question and its gift can arrive in either order.", th: "คำถามและของขวัญของคนเดียวกันเข้ามาได้คนละลำดับ" },
+        investigation: { en: "Treating either event as the queue entry would leave one of the two arrival paths unfair or incomplete.", th: "ถ้านับอีเวนต์ใดอีเวนต์หนึ่งเป็นคิวทันที จะทำให้หนึ่งในสองลำดับไม่สมบูรณ์หรือไม่เป็นธรรม" },
+        solution: { en: "Stored pending questions and gifts separately, then paired eligible records FIFO by TikTok user and LIVE room.", th: "เก็บคำถามและของขวัญที่รอจับคู่แยกกัน แล้วจับคู่รายการที่มีสิทธิ์แบบ FIFO ตามผู้ใช้ TikTok และห้อง LIVE" },
+        result: { en: "The queue reaches the same fair outcome whether a viewer asks or sends a gift first.", th: "คิวได้ผลลัพธ์ที่เป็นธรรมเหมือนกัน ไม่ว่าผู้ชมจะถามหรือส่งของขวัญก่อน" },
+      },
+      {
+        challenge: { en: "Realtime UI cannot get ahead of the database.", th: "หน้าจอเรียลไทม์ต้องไม่แสดงเร็วกว่าฐานข้อมูล" },
+        investigation: { en: "Broadcasting immediately after receiving an event could show a queue position that a failed transaction never saved.", th: "การกระจายข้อมูลทันทีหลังรับอีเวนต์อาจแสดงตำแหน่งคิวที่ transaction ล้มเหลวและไม่เคยบันทึกจริง" },
+        solution: { en: "Made PostgreSQL the source of truth and emitted Socket.IO updates only after transaction commit.", th: "ให้ PostgreSQL เป็นแหล่งข้อมูลหลัก และส่ง Socket.IO update หลัง transaction commit เท่านั้น" },
+        result: { en: "The dashboard remains responsive while displaying only durable queue state.", th: "แดชบอร์ดตอบสนองรวดเร็วโดยแสดงเฉพาะสถานะคิวที่บันทึกแล้ว" },
+      },
+      {
+        challenge: { en: "Gift streaks and reconnects can create duplicate credit.", th: "ของขวัญแบบ streak และการเชื่อมต่อใหม่อาจทำให้เกิดสิทธิ์ซ้ำ" },
+        investigation: { en: "A repeated or partial gift event should not become multiple reading rights for one action.", th: "อีเวนต์ของขวัญที่ซ้ำหรือยังไม่ครบไม่ควรกลายเป็นสิทธิ์ดูดวงหลายครั้งจากการกระทำเดียว" },
+        solution: { en: "Waited for streak completion and persisted idempotency identifiers before creating a queue record.", th: "รอให้ streak จบและบันทึกตัวระบุ idempotency ก่อนสร้างรายการคิว" },
+        result: { en: "One eligible gift is credited once, even when event delivery is noisy.", th: "ของขวัญที่มีสิทธิ์หนึ่งรายการถูกนับหนึ่งครั้ง แม้การส่งอีเวนต์จะมีความไม่แน่นอน" },
+      },
+      {
+        challenge: { en: "TikTok credentials must not leak across services.", th: "ข้อมูลรับรอง TikTok ต้องไม่รั่วข้าม service" },
+        investigation: { en: "The listener needs to connect to LIVE, but the web client must never receive signing or session credentials.", th: "listener ต้องเชื่อมต่อ LIVE ได้ แต่เว็บฝั่งผู้ใช้ต้องไม่เคยได้รับข้อมูล signing หรือ session" },
+        solution: { en: "Kept secrets in server-side environment files and used an authenticated ingest API between the listener and backend.", th: "เก็บ secret ใน environment ฝั่งเซิร์ฟเวอร์ และใช้ ingest API ที่ยืนยันตัวตนระหว่าง listener กับ backend" },
+        result: { en: "The browser controls the session without holding sensitive TikTok credentials.", th: "เบราว์เซอร์ควบคุม session ได้โดยไม่ถือข้อมูลรับรอง TikTok ที่สำคัญ" },
+      },
+    ],
+    results: {
+      en: [
+        "Shipped a deployed dashboard and a repository-ready monorepo for operating TikTok LIVE tarot sessions.",
+        "Supports question-first and gift-first matching by viewer and LIVE room.",
+        "Uses PostgreSQL transactions and post-commit Socket.IO broadcasts to keep the live queue consistent.",
+        "Handles duplicate event protection, gift streak completion and unmatched-item expiry.",
+        "Covers parser, controller, API and queue-matching paths with automated tests using PGlite.",
+      ],
+      th: [
+        "เผยแพร่แดชบอร์ดและ monorepo ที่พร้อมใช้งานสำหรับดำเนิน TikTok LIVE ดูดวง",
+        "รองรับการจับคู่ทั้งถามก่อนและส่งของขวัญก่อน โดยอ้างอิงผู้ชมและห้อง LIVE",
+        "ใช้ PostgreSQL transaction และ Socket.IO หลัง commit เพื่อรักษาความสอดคล้องของคิวสด",
+        "จัดการการป้องกันอีเวนต์ซ้ำ การจบของขวัญแบบ streak และการหมดอายุของรายการที่จับคู่ไม่ได้",
+        "ทดสอบ parser, controller, API และเส้นทางจับคู่คิวอัตโนมัติด้วย PGlite",
+      ],
+    },
+    learned: [
+      {
+        key: { en: "EVENT ORDER", th: "ลำดับอีเวนต์" },
+        description: { en: "When two events express one intent, model their intermediate states instead of relying on arrival order.", th: "เมื่อสองอีเวนต์สื่อถึงเจตนาเดียวกัน ควรจำลองสถานะระหว่างทางแทนการพึ่งลำดับที่เข้ามา" },
+      },
+      {
+        key: { en: "COMMIT FIRST", th: "บันทึกก่อน" },
+        description: { en: "Realtime delivery is most reliable when the database commit happens before the broadcast.", th: "การส่งข้อมูลเรียลไทม์น่าเชื่อถือที่สุดเมื่อบันทึกฐานข้อมูลสำเร็จก่อนกระจายข้อมูล" },
+      },
+      {
+        key: { en: "SERVICE BOUNDARIES", th: "ขอบเขตของบริการ" },
+        description: { en: "Separating the listener, API and dashboard keeps external events from leaking into the interface unchecked.", th: "การแยก listener, API และแดชบอร์ดช่วยไม่ให้อีเวนต์ภายนอกเข้าถึงหน้าจอโดยไม่ผ่านการตรวจสอบ" },
+      },
+      {
+        key: { en: "TESTING THE EDGES", th: "ทดสอบกรณีขอบ" },
+        description: { en: "The difficult cases are repeated, partial and delayed events — so they deserve first-class tests.", th: "กรณีที่ยากคืออีเวนต์ซ้ำ ไม่ครบ และมาช้า จึงควรได้รับการทดสอบอย่างจริงจัง" },
+      },
+    ],
+    future: [
+      {
+        phase: { en: "CURRENT", th: "ปัจจุบัน" },
+        items: {
+          en: ["TikTok LIVE chat and gift intake", "Configurable gift rules", "Realtime queue and reading history", "Transactional event matching"],
+          th: ["รับแชตและของขวัญจาก TikTok LIVE", "ตั้งกติกาของขวัญได้", "คิวเรียลไทม์และประวัติการตอบ", "จับคู่อีเวนต์ด้วย transaction"],
+        },
+      },
+      {
+        phase: { en: "NEXT", th: "ถัดไป" },
+        items: {
+          en: ["Creator-friendly queue filters", "More visibility into unmatched requests", "Operational views for longer LIVE sessions"],
+          th: ["ตัวกรองคิวที่เหมาะกับครีเอเตอร์", "มองเห็นรายการที่จับคู่ไม่ได้ชัดเจนขึ้น", "หน้าดูภาพรวมสำหรับ LIVE ที่ยาวขึ้น"],
+        },
+      },
+      {
+        phase: { en: "FUTURE", th: "อนาคต" },
+        items: {
+          en: ["Session summaries and analytics", "Multiple creator profiles", "Creator-defined automations around queue state"],
+          th: ["สรุปผลและสถิติของแต่ละ session", "โปรไฟล์ครีเอเตอร์หลายราย", "ระบบอัตโนมัติตามสถานะคิวที่ครีเอเตอร์กำหนด"],
+        },
+      },
+    ],
+  },
 ];
 
 /** Look up a project by its URL slug. */

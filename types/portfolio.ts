@@ -108,6 +108,13 @@ export interface ProjectScreenshot {
   imageUrl?: string;
 }
 
+/** An external project or resource that informed a specific implementation choice. */
+export interface ProjectReference {
+  title: LocalizedText;
+  description: LocalizedText;
+  url: string;
+}
+
 export interface KeyValueEntry {
   key: LocalizedText;
   value: LocalizedText;
@@ -168,6 +175,9 @@ export interface Project {
   overviewTitle: LocalizedText;
   overview: LocalizedList;
   users: LocalizedText;
+  /** Optional source material cited in the project case study. */
+  referencesTitle?: LocalizedText;
+  references?: ProjectReference[];
   problemTitle: LocalizedText;
   problems: LocalizedList;
   goals: NumberedEntry[];

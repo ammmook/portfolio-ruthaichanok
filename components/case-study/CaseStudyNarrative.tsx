@@ -27,6 +27,31 @@ export function CaseStudyNarrative({ project }: { project: Project }) {
           </p>
           <p className="max-w-[38em] text-base text-text">{t(project.users)}</p>
         </div>
+        {project.references?.length && project.referencesTitle ? (
+          <div className="mt-6 max-w-[40em] rounded-xl border border-line bg-surface p-4.5">
+            <p className="mb-3 font-mono text-[11px] tracking-[0.12em] text-muted">
+              {t(project.referencesTitle)}
+            </p>
+            <ul className="grid gap-3">
+              {project.references.map((reference) => (
+                <li key={reference.url}>
+                  <a
+                    href={reference.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-1.5 text-[14.5px] font-medium text-text transition-colors hover:text-accent"
+                  >
+                    {t(reference.title)}
+                    <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
+                      ↗
+                    </span>
+                  </a>
+                  <p className="mt-1 text-[13.5px] text-muted">{t(reference.description)}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
       </CaseStudySection>
 
       <Reveal className="mb-[clamp(48px,7vw,84px)]">
